@@ -9,4 +9,20 @@ public class Aluno extends Usuario {
 	  this.curso = curso;
 	  this.limiteLivro = limiteLivro;
    }
+
+   public String getCurso() {
+	  return curso;
+   }
+
+   public int getLimiteLivro() {
+	  return limiteLivro;
+   }
+
+   public void setCurso(String curso) {
+	  this.curso = curso;
+   }
+
+   public void setLimiteLivro(int limiteLivro) {
+	  this.limiteLivro = limiteLivro;
+   }
 }

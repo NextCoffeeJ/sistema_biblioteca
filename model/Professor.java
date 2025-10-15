@@ -9,4 +9,20 @@ public class Professor extends Usuario {
 	  this.departamento = departamento;
 	  this.limiteLivros = limiteLivros;
    }
+
+   public String getDepartamento() {
+	  return departamento;
+   }
+
+   public int getLimiteLivros() {
+	  return limiteLivros;
+   }
+
+   public void setDepartamento(String departamento) {
+	  this.departamento = departamento;
+   }
+
+   public void setLimiteLivros(int limiteLivros) {
+	  this.limiteLivros = limiteLivros;
+   }
 }

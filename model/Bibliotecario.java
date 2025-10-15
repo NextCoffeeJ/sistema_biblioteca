@@ -7,4 +7,12 @@ public class Bibliotecario extends Usuario {
 	  super(nome, cpf, email, telefone, matricula, senha);
 	  this.limiteLivros = limiteLivros;
    }
+
+   public int getLimiteLivros() {
+	  return limiteLivros;
+   }
+
+   public void setLimiteLivros(int limiteLivros) {
+	  this.limiteLivros = limiteLivros;
+   }
 }

@@ -20,4 +20,36 @@ public class Livro {
 	  this.categoria = categoria;
 	  this.localizacao = localizacao;
    }
+
+   public String getTitulo() {
+	  return titulo;
+   }
+
+   public String getAutor() {
+	  return autor;
+   }
+
+   public String getEditora() {
+	  return editora;
+   }
+
+   public String getIsbn() {
+	  return isbn;
+   }
+
+   public int getAnoPublicacao() {
+	  return anoPublicacao;
+   }
+
+   public int getQtdDisponivel() {
+	  return qtdDisponivel;
+   }
+
+   public String categoria() {
+	  return categoria;
+   }
+
+   public String localizacao() {
+	  return localizacao;
+   }
 }
