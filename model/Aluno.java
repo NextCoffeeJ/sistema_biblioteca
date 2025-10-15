@@ -1,3 +1,5 @@
+package model;
+
 public class Aluno extends Usuario {
    private String curso;
    private int limiteLivro = 3;

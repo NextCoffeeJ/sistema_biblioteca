@@ -1,4 +1,6 @@
-public class Bibliotecario extends Usuario{
+package model;
+
+public class Bibliotecario extends Usuario {
    private int limiteLivros = 15;
 
    public Bibliotecario(String nome, String cpf, String email, String telefone, String matricula, String senha, int limiteLivros) {

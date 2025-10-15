@@ -1,4 +1,6 @@
-public class Professor extends Usuario{
+package model;
+
+public class Professor extends Usuario {
    private String departamento;
    private int limiteLivros = 10;
 
