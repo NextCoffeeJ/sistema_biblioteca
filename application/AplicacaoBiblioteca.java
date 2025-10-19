@@ -1,5 +1,7 @@
 package application;
 import java.util.Scanner;
+import service.Cadastro;
+import service.Login;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args){
@@ -17,10 +19,12 @@ public class AplicacaoBiblioteca {
          switch(escolha){
          case 1:
             System.out.println("Cadastrando.\n");
+            Cadastro cadastro=new Cadastro();
             break;
 
          case 2:
             System.out.println("Faxendo Login.\n");
+            Login login = new Login();
             break;
 
          case 0:
