@@ -43,14 +43,12 @@ public class Emprestimo {
 	  return multa;
    }
 
-   public Emprestimo setUsuario(Usuario usuario) {
+   public void setUsuario(Usuario usuario) {
 	  this.usuario = usuario;
-	  return this;
    }
 
-   public Emprestimo setLivro(Livro livro) {
+   public void setLivro(Livro livro) {
 	  this.livro = livro;
-	  return this;
    }
 
    public void setDataEmprestimo(LocalDate dataEmprestimo) {

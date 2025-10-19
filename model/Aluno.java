@@ -14,7 +14,7 @@ public class Aluno extends Usuario {
 	  return curso;
    }
 
-   public int getLimiteLivro() {
+   public int  getLimiteLivro() {
 	  return limiteLivro;
    }
 
