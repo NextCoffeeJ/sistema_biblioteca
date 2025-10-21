@@ -2,27 +2,26 @@ package model;
 
 public class Professor extends Usuario {
    private String departamento;
-   private int limiteLivros = 10;
+   private int limiteLivro = 10;
 
-   public Professor(String nome, String cpf, String email, String telefone, String matricula, String senha, String departamento, int limiteLivros) {
-	  super(nome, cpf, email, telefone, matricula, senha);
-	  this.departamento = departamento;
-	  this.limiteLivros = limiteLivros;
+   public Professor(String nome, String cpf, String email, String telefone, String matricula, String senha, String departamento) {
+      super(nome, cpf, email, telefone, matricula, senha);
+      this.departamento = departamento;
    }
 
    public String getDepartamento() {
-	  return departamento;
+   return departamento;
    }
 
-   public int getLimiteLivros() {
-	  return limiteLivros;
+   public int getLimiteLivro() {
+   return limiteLivro;
    }
 
    public void setDepartamento(String departamento) {
-	  this.departamento = departamento;
+   this.departamento = departamento;
    }
 
-   public void setLimiteLivros(int limiteLivros) {
-	  this.limiteLivros = limiteLivros;
+   public void setLimiteLivros(int limiteLivro) {
+   this.limiteLivro = limiteLivro;
    }
 }
