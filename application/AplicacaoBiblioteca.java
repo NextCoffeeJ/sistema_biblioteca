@@ -1,43 +1,83 @@
 package application;
+import java.util.ArrayList;
 import java.util.Scanner;
+import model.Usuario;
 import service.Cadastro;
-import service.Login;
+import model.Aluno;
+import model.Professor;
+import model.Bibliotecario;
 
 public class AplicacaoBiblioteca {
-   public static void main(String[] args){
-      int escolha;
-      Scanner entrada= new Scanner(System.in);
-      
-      do{
-         System.out.println("---OPCOES---\n");
-         System.out.println("1- Cadastrar.");
-         System.out.println("2- Login");
-         System.out.println("0- Encerrar");
-         System.out.printf("Qual opcao deseja: ");
-         escolha=entrada.nextInt();
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		Cadastro cadastro = new Cadastro();
+		ArrayList<Aluno> alunos = new ArrayList<>();
+		ArrayList<Professor> professores = new ArrayList<>();
+		ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
+		
 
-         switch(escolha){
-         case 1:
-            System.out.println("Cadastrando.\n");
-            Cadastro cadastro=new Cadastro();
-            break;
+		int escolha;
 
-         case 2:
-            System.out.println("Faxendo Login.\n");
-            Login login = new Login();
-            break;
+	do {
+			System.out.println("\n--- MENU ---");
+			System.out.println("1 - Cadastrar usuário");
+			System.out.println("2 - Ver todos os usuários");
+			System.out.println("0 - Encerrar");
+			System.out.print("Escolha uma opção: ");
+			escolha = scanner.nextInt();
+			scanner.nextLine();
 
-         case 0:
-            System.out.println("Encerrando programa.\n");
-            entrada.close();
-            break;
+		
+		switch (escolha) {
+			case 1: System.out.print("Nome: ");
+					String nome = scanner.nextLine();
+					System.out.print("CPF: ");
+					String cpf = scanner.nextLine();
+					System.out.print("Email: ");
+					String email = scanner.nextLine();
+					System.out.print("Telefone: ");
+					String telefone = scanner.nextLine();
+					System.out.print("Matrícula: ");
+					String matricula = scanner.nextLine();
+					System.out.print("Senha: ");
+					String senha = scanner.nextLine();
+					System.out.println("Tipo de usuário: ");
+					System.out.println("1 - Aluno");
+					System.out.println("2 - Professor");
+					System.out.println("3 - Bibliotecário");
+					System.out.print("Escolha uma opção: ");
+					int tipoUsuario = scanner.nextInt();
+					if(tipoUsuario == 1){
+						System.out.println("Curso: ");
+						String curso = scanner.nextLine();
+						Usuario aluno = new Aluno(nome, cpf, email, telefone, matricula, senha, curso);
+						cadastro.adicionarUsuario(aluno);
+					} 
+					else if(tipoUsuario == 2){
+						System.out.println("Departamento: ");
+						String departamento = scanner.nextLine();
+						Usuario professor = new Professor(nome, cpf, email, telefone, matricula, senha, departamento);
+						cadastro.adicionarUsuario(professor);
+					}
+					else if (tipoUsuario == 3){
+						Usuario bibliotecario = new Bibliotecario(nome, cpf, email, telefone, matricula, senha);
+						cadastro.adicionarUsuario(bibliotecario);
 
-         default:
-            System.out.println("Opção invalida.\n");
-            break;
-         }
-      }while(escolha!=0);
-
-   }
-   
+					}
+					else{
+						System.out.println("Tipo de usuário inválido!");
+					}
+				break;
+			case 2: System.out.println("\n--- Usuários Cadastrados ---");
+				for (Usuario u : cadastro.getUsuarios()) {
+					u.exibirDados();
+				}
+				break;
+			case 0: System.out.println("Encerrando programa...");
+					break;
+			default: System.out.println("Opção inválida!");
+		}
+	} while (escolha != 0);
+		scanner.close();
+	}
 }

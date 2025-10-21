@@ -11,59 +11,59 @@ public class Emprestimo {
    private double multa;
 
    public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo, LocalDate dataLimiteDevolucao, LocalDate dataDevolucao, double multa) {
-	  this.usuario = usuario;
-	  this.livro = livro;
-	  this.dataEmprestimo = dataEmprestimo;
-	  this.dataLimiteDevolucao = dataLimiteDevolucao;
-	  this.dataDevolucao = dataDevolucao;
-	  this.multa = multa;
+   this.usuario = usuario;
+   this.livro = livro;
+   this.dataEmprestimo = dataEmprestimo;
+   this.dataLimiteDevolucao = dataLimiteDevolucao;
+   this.dataDevolucao = dataDevolucao;
+   this.multa = multa;
    }
 
    public Usuario getUsuario() {
-	  return usuario;
+   return usuario;
    }
 
    public Livro getLivro() {
-	  return livro;
+   return livro;
    }
 
    public LocalDate getDataEmprestimo() {
-	  return dataEmprestimo;
+   return dataEmprestimo;
    }
 
    public LocalDate getDataLimiteDevolucao() {
-	  return dataLimiteDevolucao;
+   return dataLimiteDevolucao;
    }
 
    public LocalDate getDataDevolucao() {
-	  return dataDevolucao;
+   return dataDevolucao;
    }
 
    public double getMulta() {
-	  return multa;
+   return multa;
    }
 
    public void setUsuario(Usuario usuario) {
-	  this.usuario = usuario;
+   this.usuario = usuario;
    }
 
    public void setLivro(Livro livro) {
-	  this.livro = livro;
+   this.livro = livro;
    }
 
    public void setDataEmprestimo(LocalDate dataEmprestimo) {
-	  this.dataEmprestimo = dataEmprestimo;
+   this.dataEmprestimo = dataEmprestimo;
    }
 
    public void setDataLimiteDevolucao(LocalDate dataLimiteDevolucao) {
-	  this.dataLimiteDevolucao = dataLimiteDevolucao;
+   this.dataLimiteDevolucao = dataLimiteDevolucao;
    }
 
    public void setDataDevolucao(LocalDate dataDevolucao) {
-	  this.dataDevolucao = dataDevolucao;
+   this.dataDevolucao = dataDevolucao;
    }
 
    public void setMulta(double multa) {
-	  this.multa = multa;
+   this.multa = multa;
    }
 }
