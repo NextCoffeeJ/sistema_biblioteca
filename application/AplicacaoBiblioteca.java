@@ -129,7 +129,7 @@ public class AplicacaoBiblioteca {
 					 System.out.println("Número de tentativas excedida.");
 					 break;
 				  } else {
-					 	System.out.println("Login realizado com sucesso.\n");
+					 System.out.println("Login realizado com sucesso.\n");
 					 do{
 						System.out.println("Operacoes:");
 						System.out.println("1 - Pedir livro emprestado.");
@@ -204,7 +204,7 @@ public class AplicacaoBiblioteca {
 					 System.out.println("Número de tentativas excedida.");
 					 break;
 				  } else {
-					 	System.out.println("Login realizado com sucesso.\n");
+					 System.out.println("Login realizado com sucesso.\n");
 					 do {
 						System.out.println("Operacoes:");
 						System.out.println("1 - Pedir livro emprestado.");
@@ -278,7 +278,7 @@ public class AplicacaoBiblioteca {
 					 System.out.println("Número de tentativas excedida.");
 					 break;
 				  } else {
-					 	System.out.println("Login realizado com sucesso.\n");
+					 System.out.println("Login realizado com sucesso.\n");
 					 do {
 						System.out.println("Operacoes:");
 						System.out.println("1 - Pedir livro emprestado.");
@@ -336,10 +336,10 @@ public class AplicacaoBiblioteca {
 							  Login.cancelarCadastro(usuarios, matricula);
 							  break;
 						   case 9:
-							 Livro mostrarColecao = Login.mostrarLivros(livros);
-							 if (mostrarColecao == null) {
-								System.out.println("Lista vazia");
-							 }
+							  Livro mostrarColecao = Login.mostrarLivros(livros);
+							  if (mostrarColecao == null) {
+								 System.out.println("Lista vazia");
+							  }
 							  System.out.println("---------");
 							  break;
 						   case 10:
