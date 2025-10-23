@@ -42,6 +42,10 @@ public class Usuario {
 	  return senha;
    }
 
+   public double getMulta() {
+	  return multa;
+   }
+
    public void setNome(String nome) {
 	  this.nome = nome;
    }
@@ -64,5 +68,9 @@ public class Usuario {
 
    public void setSenha(String senha) {
 	  this.senha = senha;
+   }
+
+   public void setMulta(double multa) {
+	  this.multa = multa;
    }
 }
