@@ -5,9 +5,9 @@ import model.Professor;
 import model.Bibliotecario;
 import java.util.ArrayList;
 
-public final class Cadastro {
+public final class CadastroUsuario {
 
-    private Cadastro() {
+    private CadastroUsuario() {
         // Impede instanciamento
     }
 

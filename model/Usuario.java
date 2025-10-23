@@ -1,5 +1,5 @@
 package model;
-//Penso que essa clase poderia quem saber ser abstrata ja que ta servindo só para outras classes herdarem dela, mas seila não exatamente como funciona isso.
+
 public class Usuario {
    protected String nome;
    protected String cpf;
@@ -7,8 +7,8 @@ public class Usuario {
    protected String telefone;
    protected String matricula;
    protected String senha;
-   //protected double multa; Quem sabe adicionar isso aqui. Explicação no main.
-   
+   protected double multa;
+
    public Usuario(String nome, String cpf, String email, String telefone, String matricula, String senha) {
 	  this.nome = nome;
 	  this.cpf = cpf;

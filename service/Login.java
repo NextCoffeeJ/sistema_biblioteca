@@ -8,35 +8,33 @@ import model.Professor;
 
 public final class Login {
 
-    private Login(){
-        //impedir que crie um objeto da classe login.
-    }
-    public static Aluno buscarAlunoPorEmail(ArrayList<Aluno> listaAlunos, String email) {
-        for (Aluno aluno : listaAlunos) {
-            if (aluno.getEmail().equalsIgnoreCase(email)) {
-                return aluno;
-            }
-        }
-        return null;
-    }
+   private Login(){
 
-    public static Professor buscarProfessorPorEmail(ArrayList<Professor> listaProfessores, String email){
-        for(Professor professor : listaProfessores){
-             if(professor.getEmail().equalsIgnoreCase(email)){
-                return professor;
-            }
-        }
-       
+   }
+   public static Aluno buscarAlunoPorEmail(ArrayList<Aluno> listaAlunos, String email) {
+	  for (Aluno aluno : listaAlunos) {
+		 if (aluno.getEmail().equalsIgnoreCase(email)) {
+			return aluno;
+		 }
+	  }
+	  return null;
+   }
 
-        return null;
-    }
+   public static Professor buscarProfessorPorEmail(ArrayList<Professor> listaProfessores, String email){
+	  for(Professor professor : listaProfessores){
+		 if(professor.getEmail().equalsIgnoreCase(email)){
+			return professor;
+		 }
+	  }
+	  return null;
+   }
 
-    public static Bibliotecario buscarBibliotecarioPorEmail(ArrayList<Bibliotecario> listaBibliotecarios, String email) {
-        for (Bibliotecario bibliotecario : listaBibliotecarios) {
-            if (bibliotecario.getEmail().equalsIgnoreCase(email)) {
-                return bibliotecario;
-            }
-        }
-        return null;
-    }
+   public static Bibliotecario buscarBibliotecarioPorEmail(ArrayList<Bibliotecario> listaBibliotecarios, String email) {
+	  for (Bibliotecario bibliotecario : listaBibliotecarios) {
+		 if (bibliotecario.getEmail().equalsIgnoreCase(email)) {
+			return bibliotecario;
+		 }
+	  }
+	  return null;
+   }
 }

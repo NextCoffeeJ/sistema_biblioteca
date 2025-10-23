@@ -8,15 +8,13 @@ public class Emprestimo {
    private LocalDate dataEmprestimo;
    private LocalDate dataLimiteDevolucao;
    private LocalDate dataDevolucao;
-   private double multa; //talvez remover isso daqui e colocar em Usuario. Explicação no main.
 
-   public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo, LocalDate dataLimiteDevolucao, LocalDate dataDevolucao, double multa) {
+   public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo, LocalDate dataLimiteDevolucao, LocalDate dataDevolucao) {
 	  this.usuario = usuario;
 	  this.livro = livro;
 	  this.dataEmprestimo = dataEmprestimo;
 	  this.dataLimiteDevolucao = dataLimiteDevolucao;
 	  this.dataDevolucao = dataDevolucao;
-	  this.multa = multa;
    }
 
    public Usuario getUsuario() {
@@ -37,10 +35,6 @@ public class Emprestimo {
 
    public LocalDate getDataDevolucao() {
 	  return dataDevolucao;
-   }
-
-   public double getMulta() {
-	  return multa;
    }
 
    public Emprestimo setUsuario(Usuario usuario) {
@@ -65,7 +59,4 @@ public class Emprestimo {
 	  this.dataDevolucao = dataDevolucao;
    }
 
-   public void setMulta(double multa) {
-	  this.multa = multa;
-   }
 }

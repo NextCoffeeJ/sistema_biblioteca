@@ -8,7 +8,7 @@ public class Aluno extends Usuario {
 	  super(nome, cpf, email, telefone, matricula, senha);
 	  this.curso = curso;
    }
-   
+
    public String getCurso() {
 	  return curso;
    }
@@ -26,6 +26,6 @@ public class Aluno extends Usuario {
    }
 
    public String getEmail(){
-      return email;
+	  return email;
    }
 }

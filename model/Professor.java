@@ -1,6 +1,6 @@
 package model;
 
-public class Professor extends Usuario {
+public class Professor extends model.Usuario {
    private String departamento;
    private int limiteLivros = 10;
 
@@ -9,7 +9,7 @@ public class Professor extends Usuario {
 	  this.departamento = departamento;
 
    }
-   
+
    public String getDepartamento() {
 	  return departamento;
    }
@@ -27,6 +27,6 @@ public class Professor extends Usuario {
    }
 
    public String getEmail(){
-      return email;
+	  return email;
    }
 }
