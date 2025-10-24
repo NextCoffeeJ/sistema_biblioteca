@@ -89,7 +89,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 
 ---
 
-## 🖼️ 5. **Imagens da Aplicação em Execução (Protótipo)**  
+## 🖼️ **Imagens da Aplicação em Execução (Protótipo)**  
 Você pode visualizar as imagens do protótipo da aplicação no link abaixo:  
 🔗 [Acessar imagens no OneDrive](https://1drv.ms/w/c/7de57f549d7c362f/EQq1nEbhvGBJtejuyqnYTN0Bml2g1x_0hY3DWYzQ3xvzlQ?e=rl5Nme)
 
@@ -116,4 +116,5 @@ A primeira versão será funcional via terminal. Futuramente, pretende-se inclui
 
 ## 📄 Licença
 Este projeto é de uso **educacional** e **não possui fins comerciais**.
+
 
