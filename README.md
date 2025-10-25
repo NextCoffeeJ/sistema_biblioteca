@@ -58,6 +58,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 **Pacotes previstos:**
 - `model` — Contém as classes que representam as entidades do sistema.
 - `service` — Gerencia as regras de negócio e interações entre camadas.
+- `controller` — Contém a classe que gerencia a lógica da aplicação.
 - `application` — Contém a classe principal que inicializa o sistema.
 
 **Principais classes:**
