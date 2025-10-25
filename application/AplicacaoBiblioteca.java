@@ -159,6 +159,7 @@ public class AplicacaoBiblioteca {
 							  break;
 						   case 2:
 							  System.out.println("Vendo livros disponiveis.");
+                              CadastroLivro.mostrarLivrosDisponiveis(livros);
 							  break;
 						   case 3:
 							  System.out.println("Devolvendo Livro.");
@@ -234,6 +235,7 @@ public class AplicacaoBiblioteca {
 							  break;
 						   case 2:
 							  System.out.println("Vendo livros disponiveis.");
+                              CadastroLivro.mostrarLivrosDisponiveis(livros);
 							  break;
 						   case 3:
 							  System.out.println("Devolvendo Livro.");
@@ -314,6 +316,7 @@ public class AplicacaoBiblioteca {
 							  break;
 						   case 2:
 							  System.out.println("Vendo livros disponiveis.");
+                              CadastroLivro.mostrarLivrosDisponiveis(livros);
 							  break;
 						   case 3:
 							  System.out.println("Devolvendo Livro.");
