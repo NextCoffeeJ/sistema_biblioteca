@@ -106,6 +106,7 @@ public final class Login {
 			   if (aluno.getLimiteLivros() < 0) {
 				  System.out.println("Você atingiu a quantidade limite de livros, que você pode pegar!");
 			   } else {
+				  livro.setQtdDisponivel(livro.getQtdDisponivel()-1);
 				  LocalDate hoje = LocalDate.now();
 				  LocalDate dataLimite = hoje.plusDays(10);
 
@@ -185,6 +186,7 @@ public final class Login {
 			   if (professor.getLimiteLivros() < 0) {
 				  System.out.println("Você atingiu a quantidade limite de livros, que você pode pegar!");
 			   } else {
+				  livro.setQtdDisponivel(livro.getQtdDisponivel()-1);
 				  LocalDate hoje = LocalDate.now();
 				  LocalDate dataLimite = hoje.plusDays(10);
 
@@ -264,6 +266,7 @@ public final class Login {
 			   if (bibliotecario.getLimiteLivros() < 0) {
 				  System.out.println("Você atingiu a quantidade limite de livros, que você pode pegar!");
 			   } else {
+				  livro.setQtdDisponivel(livro.getQtdDisponivel()-1);
 				  LocalDate hoje = LocalDate.now();
 				  LocalDate dataLimite = hoje.plusDays(10);
 
