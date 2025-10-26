@@ -556,26 +556,17 @@ public final class Login {
     }
 
     public static void mostrarLivrosDisponiveis(ArrayList<Livro> listaLivros) {
-        if (listaLivros.isEmpty()) {
-            System.out.println("Nenhum livro cadastrado.");
-            return;
-        }
+	  if (listaLivros.isEmpty()) {
+		 System.out.println("Nenhum livro cadastrado.");
+		 return;
+	  }
 
-        for (Livro livro : listaLivros) {
-            if (livro.getQtdDisponivel() > 0) {
-                System.out.println("- " + livro.getTitulo());
-            }
-        }
-
-        for (Livro livro : listaLivros) {
-            if (livro.getQtdDisponivel() > 0) {
-                return; // já imprimiu algum livro, não precisa da mensagem de "não encontrado"
-            }
-        }
-
-        System.out.println("Não encontramos este livro disponível!");
-    }
-
+	  for (Livro livro : listaLivros) {
+		 if (livro.getQtdDisponivel() > 0) {
+			System.out.println("TITULO: " + livro.getTitulo());
+		 }
+	  }
+   }
 
     public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno) {
         Scanner scanner = new Scanner(System.in);
