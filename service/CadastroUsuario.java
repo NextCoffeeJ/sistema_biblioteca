@@ -12,10 +12,6 @@ public final class CadastroUsuario {
    private CadastroUsuario() {
    }
 
-   public static void adicionarUsuario (ArrayList<Usuario> listaUsuarios, Usuario usuario) {
-	  listaUsuarios.add(usuario);
-   }
-
    public static void adicionarAluno (ArrayList<Aluno> listaAlunos, Aluno aluno) {
 	  listaAlunos.add(aluno);
    }
