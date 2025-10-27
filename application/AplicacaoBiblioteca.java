@@ -1,4 +1,4 @@
-package application;
+package application;// clase alterada
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import controller.Login;
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
 	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, verificacaoEmail;
-	  String nome , cpf, email, telefone, matricula, senha;
+	  String nome="desconehecido" , cpf="desconehecido", email, telefone="desconehecido", matricula="desconehecido", senha;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 
 	  ArrayList<Aluno> alunos = new ArrayList<>();
@@ -42,53 +42,55 @@ public class AplicacaoBiblioteca {
 				  escolhaCadastro = scanner.nextInt();
 				  scanner.nextLine();
 
-				  System.out.println("\nInsira suas informações:\n");
+				  	if(escolhaCadastro==1|| escolhaCadastro==2 || escolhaCadastro==3){
 
-				  System.out.print("NOME: ");
-				  nome = scanner.nextLine();
+                     System.out.println("\nInsira suas informações:\n");
+                     System.out.print("NOME: ");
+                     nome = scanner.nextLine();
 
-				  do {
-					 if (nome.isEmpty()) {
-						System.out.println("\nVocê precisa inserir um nome válido!\n");
-						System.out.print("NOME: ");
-						nome = scanner.nextLine();
-					 }
-				  } while (nome.isEmpty());
+                     do {
+                        if (nome.isEmpty()) {
+                           System.out.println("\nVocê precisa inserir um nome válido!\n");
+                           System.out.print("NOME: ");
+                           nome = scanner.nextLine();
+                        }
+                     } while (nome.isEmpty());
 
-				  System.out.print("CPF: ");
-				  cpf = scanner.nextLine();
+                     System.out.print("CPF: ");
+                     cpf = scanner.nextLine();
 
-				  do {
-					 if (cpf.isEmpty()) {
-						System.out.println("Você precisa inserir um cpf válido!\n");
-						System.out.print("CPF: ");
-						cpf = scanner.nextLine();
-					 }
-				  } while (cpf.isEmpty());
+                     do {
+                        if (cpf.isEmpty()) {
+                           System.out.println("Você precisa inserir um cpf válido!\n");
+                           System.out.print("CPF: ");
+                           cpf = scanner.nextLine();
+                        }
+                     } while (cpf.isEmpty());
 
-				  System.out.print("TELEFONE: ");
-				  telefone = scanner.nextLine();
+                     System.out.print("TELEFONE: ");
+                     telefone = scanner.nextLine();
 
-				  do {
-					 if (telefone.isEmpty()) {
-						System.out.println("Você precisa inserir um telefone válido!\n");
-						System.out.print("TELEFONE: ");
-						telefone = scanner.nextLine();
-					 }
-				  } while (telefone.isEmpty());
+                     do {
+                        if (telefone.isEmpty()) {
+                           System.out.println("Você precisa inserir um telefone válido!\n");
+                           System.out.print("TELEFONE: ");
+                           telefone = scanner.nextLine();
+                        }
+                     } while (telefone.isEmpty());
 
 
 
-				  System.out.print("MATRICULA: ");
-				  matricula = scanner.nextLine();
+                     System.out.print("MATRICULA: ");
+                     matricula = scanner.nextLine();
 
-				  do {
-					 if (matricula.isEmpty()) {
-						System.out.println("Você precisa inserir uma matricula válido!\n");
-						System.out.print("MATRICULA: ");
-						matricula = scanner.nextLine();
-					 }
-				  } while (matricula.isEmpty());
+                     do {
+                        if (matricula.isEmpty()) {
+                           System.out.println("Você precisa inserir uma matricula válido!\n");
+                           System.out.print("MATRICULA: ");
+                           matricula = scanner.nextLine();
+                        }
+                     } while (matricula.isEmpty());
+                  	}
 
 				  switch (escolhaCadastro) {
 					 case 1:
