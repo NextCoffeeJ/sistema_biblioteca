@@ -71,6 +71,14 @@ public final class Login {
 	  email = scanner.nextLine();
 	  Aluno aluno = Login.buscarAlunoPorEmail(listaAluno, email);
 
+	  do {
+		 if (email.isEmpty()) {
+			System.out.println("Você precisa inserir um email válido!\n");
+			System.out.print("EMAIL: ");
+			email = scanner.nextLine();
+		 }
+	  } while (email.isEmpty());
+
 	  while (aluno == null) {
 		 System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
 		 System.out.println("1 - Inserir novamente.");
@@ -147,6 +155,14 @@ public final class Login {
 	  email = scanner.nextLine();
 	  Professor professor = Login.buscarProfessorPorEmail(listaProfessor, email);
 
+	  do {
+		 if (email.isEmpty()) {
+			System.out.println("Você precisa inserir um email válido!\n");
+			System.out.print("EMAIL: ");
+			email = scanner.nextLine();
+		 }
+	  } while (email.isEmpty());
+
 	  while (professor == null) {
 		 System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
 		 System.out.println("1 - Inserir novamente.");
@@ -221,6 +237,14 @@ public final class Login {
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
 	  Bibliotecario bibliotecario = Login.buscarBibliotecarioPorEmail(listaBibliotecario, email);
+
+	  do {
+		 if (email.isEmpty()) {
+			System.out.println("Você precisa inserir um email válido!\n");
+			System.out.print("EMAIL: ");
+			email = scanner.nextLine();
+		 }
+	  } while (email.isEmpty());
 
 	  while (bibliotecario == null) {
 		 System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
@@ -297,6 +321,14 @@ public final class Login {
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
 
+	  do {
+		 if (email.isEmpty()) {
+			System.out.println("Você precisa inserir um email válido!\n");
+			System.out.print("EMAIL: ");
+			email = scanner.nextLine();
+		 }
+	  } while (email.isEmpty());
+
 	  Aluno aluno = Login.buscarAlunoPorEmail(listaAluno, email);
 
 	  if (aluno == null) {
@@ -346,6 +378,14 @@ public final class Login {
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
+
+	  do {
+		 if (email.isEmpty()) {
+			System.out.println("Você precisa inserir um email válido!\n");
+			System.out.print("EMAIL: ");
+			email = scanner.nextLine();
+		 }
+	  } while (email.isEmpty());
 
 	  Professor professor = Login.buscarProfessorPorEmail(listaProfessor, email);
 
@@ -397,6 +437,14 @@ public final class Login {
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
 
+	  do {
+		 if (email.isEmpty()) {
+			System.out.println("Você precisa inserir um email válido!\n");
+			System.out.print("EMAIL: ");
+			email = scanner.nextLine();
+		 }
+	  } while (email.isEmpty());
+
 	  Bibliotecario bibliotecario = Login.buscarBibliotecarioPorEmail(listaBibliotecario, email);
 
 	  if (bibliotecario == null) {
@@ -447,6 +495,15 @@ public final class Login {
 	  while (aluno == null) {
 		 System.out.print("Confirme seu EMAIL: ");
 		 String email = scanner.nextLine();
+
+		 do {
+			if (email.isEmpty()) {
+			   System.out.println("Você precisa inserir um email válido!\n");
+			   System.out.print("EMAIL: ");
+			   email = scanner.nextLine();
+			}
+		 } while (email.isEmpty());
+
 		 aluno = Login.buscarAlunoPorEmail(listaAluno, email);
 
 		 if (aluno == null) {
@@ -498,6 +555,15 @@ public final class Login {
 	  while (professor == null) {
 		 System.out.print("Confirme seu EMAIL: ");
 		 String email = scanner.nextLine();
+
+		 do {
+			if (email.isEmpty()) {
+			   System.out.println("Você precisa inserir um email válido!\n");
+			   System.out.print("EMAIL: ");
+			   email = scanner.nextLine();
+			}
+		 } while (email.isEmpty());
+
 		 professor = Login.buscarProfessorPorEmail(listaProfessor, email);
 
 		 if (professor == null) {
@@ -549,6 +615,15 @@ public final class Login {
 	  while (bibliotecario == null) {
 		 System.out.print("Confirme seu EMAIL: ");
 		 String email = scanner.nextLine();
+
+		 do {
+			if (email.isEmpty()) {
+			   System.out.println("Você precisa inserir um email válido!\n");
+			   System.out.print("EMAIL: ");
+			   email = scanner.nextLine();
+			}
+		 } while (email.isEmpty());
+
 		 bibliotecario = Login.buscarBibliotecarioPorEmail(listaBibliotecario, email);
 
 		 if (bibliotecario == null) {
@@ -749,6 +824,15 @@ public final class Login {
 	  if (novaSenha != null) {
 		 System.out.print("Digite uma nova nova: ");
 		 String senha = scanner.nextLine();
+
+		 do {
+			if (senha.isEmpty()) {
+			   System.out.println("Informe uma senha válida!");
+			   System.out.print("SENHA: ");
+			   senha = scanner.nextLine();
+			}
+		 } while (senha.isEmpty());
+
 		 novaSenha.setSenha(senha);
 		 System.out.println("Senha redefinida com sucesso!");
 	  } else {
@@ -765,6 +849,15 @@ public final class Login {
 			if (op == 1) {
 			   System.out.print("MATRICULA: ");
 			   matricula = scanner.nextLine();
+
+			   do {
+				  if (matricula.isEmpty()) {
+					 System.out.println("Informe uma matricula válida!");
+					 System.out.print("MATRICULA: ");
+					 matricula = scanner.nextLine();
+				  }
+			   } while (matricula.isEmpty());
+
 			   redefinirSenhaAluno(listaAlunos, matricula);
 			   break;
 			} else if (op == 2) {
@@ -790,6 +883,15 @@ public final class Login {
 	  if (novaSenha != null) {
 		 System.out.print("Digite uma nova nova: ");
 		 String senha = scanner.nextLine();
+
+		 do {
+			if (matricula.isEmpty()) {
+			   System.out.println("Informe uma senha válida!");
+			   System.out.print("SENHA: ");
+			   senha = scanner.nextLine();
+			}
+		 } while (senha.isEmpty());
+
 		 novaSenha.setSenha(senha);
 		 System.out.println("Senha redefinida com sucesso!");
 	  } else {
@@ -806,6 +908,15 @@ public final class Login {
 			if (op == 1) {
 			   System.out.print("MATRICULA: ");
 			   matricula = scanner.nextLine();
+
+			   do {
+				  if (matricula.isEmpty()) {
+					 System.out.println("Informe uma matricula válida!");
+					 System.out.print("MATRICULA: ");
+					 matricula = scanner.nextLine();
+				  }
+			   } while (matricula.isEmpty());
+
 			   redefinirSenhaProfessor(listaProfessores, matricula);
 			   break;
 			} else if (op == 2) {
@@ -830,6 +941,15 @@ public final class Login {
 	  if (novaSenha != null) {
 		 System.out.print("Digite uma nova nova: ");
 		 String senha = scanner.nextLine();
+
+		 do {
+			if (senha.isEmpty()) {
+			   System.out.println("Informe uma senha válida!");
+			   System.out.print("SENHA: ");
+			   senha = scanner.nextLine();
+			}
+		 } while (senha.isEmpty());
+
 		 novaSenha.setSenha(senha);
 		 System.out.println("Senha redefinida com sucesso!");
 	  } else {
@@ -846,6 +966,15 @@ public final class Login {
 			if (op == 1) {
 			   System.out.print("MATRICULA: ");
 			   matricula = scanner.nextLine();
+
+			   do {
+				  if (matricula.isEmpty()) {
+					 System.out.println("Informe uma matricula válida!");
+					 System.out.print("MATRICULA: ");
+					 matricula = scanner.nextLine();
+				  }
+			   } while (matricula.isEmpty());
+
 			   redefinirSenhaBibliotecario(listaBibliotecarios, matricula);
 			   break;
 			} else if (op == 2) {

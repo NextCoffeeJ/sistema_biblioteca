@@ -11,7 +11,7 @@ import controller.Login;
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
 	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, verificacaoEmail;
-	  String nome, cpf, email, telefone, matricula, senha;
+	  String nome , cpf, email, telefone, matricula, senha;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 
 	  ArrayList<Aluno> alunos = new ArrayList<>();
@@ -42,19 +42,53 @@ public class AplicacaoBiblioteca {
 				  escolhaCadastro = scanner.nextInt();
 				  scanner.nextLine();
 
-				  System.out.println("\nInsira suas informações:");
+				  System.out.println("\nInsira suas informações:\n");
 
 				  System.out.print("NOME: ");
 				  nome = scanner.nextLine();
 
-				  System.out.print("TELEFONE: ");
-				  telefone = scanner.nextLine();
+				  do {
+					 if (nome.isEmpty()) {
+						System.out.println("\nVocê precisa inserir um nome válido!\n");
+						System.out.print("NOME: ");
+						nome = scanner.nextLine();
+					 }
+				  } while (nome.isEmpty());
 
 				  System.out.print("CPF: ");
 				  cpf = scanner.nextLine();
 
+				  do {
+					 if (cpf.isEmpty()) {
+						System.out.println("Você precisa inserir um cpf válido!\n");
+						System.out.print("CPF: ");
+						cpf = scanner.nextLine();
+					 }
+				  } while (cpf.isEmpty());
+
+				  System.out.print("TELEFONE: ");
+				  telefone = scanner.nextLine();
+
+				  do {
+					 if (telefone.isEmpty()) {
+						System.out.println("Você precisa inserir um telefone válido!\n");
+						System.out.print("TELEFONE: ");
+						telefone = scanner.nextLine();
+					 }
+				  } while (telefone.isEmpty());
+
+
+
 				  System.out.print("MATRICULA: ");
 				  matricula = scanner.nextLine();
+
+				  do {
+					 if (matricula.isEmpty()) {
+						System.out.println("Você precisa inserir uma matricula válido!\n");
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
+					 }
+				  } while (matricula.isEmpty());
 
 				  switch (escolhaCadastro) {
 					 case 1:
@@ -62,14 +96,39 @@ public class AplicacaoBiblioteca {
 						   System.out.print("EMAIL: ");
 						   email = scanner.nextLine();
 
+						   do {
+							  if (email.isEmpty()) {
+								 System.out.println("Você precisa inserir um email válido!\n");
+								 System.out.print("EMAIL: ");
+								 email = scanner.nextLine();
+							  }
+						   } while (email.isEmpty());
+
 						   verificacaoEmail = Login.emailDuplicadoAluno(alunos, email);
 
 						   if (verificacaoEmail == 0) {
 							  System.out.print("SENHA: ");
 							  senha = scanner.nextLine();
 
+							  do {
+								 if (senha.isEmpty()) {
+									System.out.println("Você precisa inserir uma senha válido!\n");
+									System.out.print("SENHA: ");
+									senha = scanner.nextLine();
+								 }
+							  } while (senha.isEmpty());
+
 							  System.out.print("CURSO: ");
 							  String curso = scanner.nextLine();
+
+							  do {
+								 if (curso.isEmpty()) {
+									System.out.println("Você precisa inserir um curso válido!\n");
+									System.out.print("CURSO: ");
+									curso = scanner.nextLine();
+								 }
+							  } while (curso.isEmpty());
+
 							  Aluno aluno = new Aluno(nome, cpf, email, telefone, matricula, senha, curso);
 							  CadastroUsuario.adicionarAluno(alunos, aluno);
 							  System.out.println("\nAluno cadastrado com sucesso!");
@@ -87,14 +146,39 @@ public class AplicacaoBiblioteca {
 						   System.out.print("EMAIL: ");
 						   email = scanner.nextLine();
 
+						   do {
+							  if (email.isEmpty()) {
+								 System.out.println("Você precisa inserir um email válido!\n");
+								 System.out.print("EMAIL: ");
+								 email = scanner.nextLine();
+							  }
+						   } while (email.isEmpty());
+
 						   verificacaoEmail = Login.emailDuplicadoProfessor(professores, email);
 
 						   if (verificacaoEmail == 0) {
 							  System.out.print("SENHA: ");
 							  senha = scanner.nextLine();
 
+							  do {
+								 if (senha.isEmpty()) {
+									System.out.println("Você precisa inserir uma senha válido!\n");
+									System.out.print("SENHA: ");
+									senha = scanner.nextLine();
+								 }
+							  } while (senha.isEmpty());
+
 							  System.out.print("DEPARTAMENTO: ");
 							  String departamento = scanner.nextLine();
+
+							  do {
+								 if (departamento.isEmpty()) {
+									System.out.println("Você precisa inserir um departamento válido!\n");
+									System.out.print("DEPARTAMENTO: ");
+									departamento = scanner.nextLine();
+								 }
+							  } while (departamento.isEmpty());
+
 							  Professor professor = new Professor(nome, cpf, email, telefone, matricula, senha, departamento);
 							  CadastroUsuario.adicionarProfessor(professores, professor);
 							  System.out.println("\nProfessor cadastrado com sucesso!");
@@ -112,11 +196,27 @@ public class AplicacaoBiblioteca {
 						   System.out.print("EMAIL: ");
 						   email = scanner.nextLine();
 
+						   do {
+							  if (email.isEmpty()) {
+								 System.out.println("Você precisa inserir um email válido!\n");
+								 System.out.print("EMAIL: ");
+								 email = scanner.nextLine();
+							  }
+						   } while (email.isEmpty());
+
 						   verificacaoEmail = Login.emailDuplicadoBibliotecario(bibliotecarios, email);
 
 						   if (verificacaoEmail == 0) {
 							  System.out.print("SENHA: ");
 							  senha = scanner.nextLine();
+
+							  do {
+								 if (senha.isEmpty()) {
+									System.out.println("Você precisa inserir uma senha válido!\n");
+									System.out.print("SENHA: ");
+									senha = scanner.nextLine();
+								 }
+							  } while (senha.isEmpty());
 
 							  Bibliotecario bibliotecario = new Bibliotecario(nome, cpf, email, telefone, matricula, senha);
 							  CadastroUsuario.adicionarBibliotecario(bibliotecarios, bibliotecario);
@@ -141,6 +241,14 @@ public class AplicacaoBiblioteca {
 			   System.out.println("\n--- LOGIN ---");
 			   System.out.print("EMAIL: ");
 			   email = scanner.nextLine();
+
+			   do {
+				  if (email.isEmpty()) {
+					 System.out.println("Você precisa inserir um email válido!\n");
+					 System.out.print("EMAIL: ");
+					 email = scanner.nextLine();
+				  }
+			   } while (email.isEmpty());
 
 			   Aluno aluno = Login.buscarAlunoPorEmail(alunos, email);
 			   Professor professor = Login.buscarProfessorPorEmail(professores, email);
@@ -185,6 +293,14 @@ public class AplicacaoBiblioteca {
 					 System.out.print("SENHA: ");
 					 senha = scanner.nextLine();
 
+					 do {
+						if (senha.isEmpty()) {
+						   System.out.println("Informe uma senha válida!");
+						   System.out.print("SENHA: ");
+						   senha = scanner.nextLine();
+						}
+					 } while (senha.isEmpty());
+
 					 if (aluno.getSenha().equals(senha)) {
 						break;
 					 } else {
@@ -205,6 +321,15 @@ public class AplicacaoBiblioteca {
 					   	if (resposta == 1) {
 						   System.out.print("MATRICULA: ");
 						   matricula = scanner.nextLine();
+
+						   do {
+							  if (matricula.isEmpty()) {
+								 System.out.println("Informe uma matricula válida!");
+								 System.out.print("MATRICULA: ");
+								 matricula = scanner.nextLine();
+							  }
+						   } while (matricula.isEmpty());
+
 						   Login.redefinirSenhaAluno(alunos, matricula);
 						   break;
 						} else if (resposta == 2) {
@@ -235,6 +360,15 @@ public class AplicacaoBiblioteca {
 						   case 1:
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
+
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
 							  Login.emprestimoLivroAluno(livros, titulo, alunos, email);
 							  break;
 						   case 2:
@@ -254,6 +388,15 @@ public class AplicacaoBiblioteca {
 						   case 6:
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
+
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
 							  Login.dadosLivrosAluno(livros, alunos, titulo);
 							  break;
 						   case 7:
@@ -276,6 +419,15 @@ public class AplicacaoBiblioteca {
 					 System.out.print("SENHA: ");
 					 senha = scanner.nextLine();
 
+					 do {
+						if (senha.isEmpty()) {
+						   System.out.println("Informe uma senha válida!");
+						   System.out.print("SENHA: ");
+						   senha = scanner.nextLine();
+						}
+					 } while (senha.isEmpty());
+
+
 					 if (professor.getSenha().equals(senha)) {
 						break;
 					 } else {
@@ -296,6 +448,15 @@ public class AplicacaoBiblioteca {
 						if (resposta == 1) {
 						   System.out.print("MATRICULA: ");
 						   matricula = scanner.nextLine();
+
+						   do {
+							  if (matricula.isEmpty()) {
+								 System.out.println("Informe uma matricula válida!");
+								 System.out.print("MATRICULA: ");
+								 matricula = scanner.nextLine();
+							  }
+						   } while (matricula.isEmpty());
+
 						   Login.redefinirSenhaProfessor(professores, matricula);
 						   break;
 						} else if (resposta == 2) {
@@ -326,6 +487,16 @@ public class AplicacaoBiblioteca {
 						   case 1:
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
+
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
+
 							  Login.emprestimoLivroProfessor(livros, titulo, professores, email);
 							  break;
 						   case 2:
@@ -345,6 +516,16 @@ public class AplicacaoBiblioteca {
 						   case 6:
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
+
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
+
 							  Login.dadosLivrosProfessor(livros, professores, titulo);
 							  break;
 						   case 7:
@@ -366,6 +547,14 @@ public class AplicacaoBiblioteca {
 					 System.out.print("SENHA: ");
 					 senha = scanner.nextLine();
 
+					 do {
+						if (senha.isEmpty()) {
+						   System.out.println("Informe uma senha válida!");
+						   System.out.print("SENHA: ");
+						   senha = scanner.nextLine();
+						}
+					 } while (senha.isEmpty());
+
 					 if (bibliotecario.getSenha().equals(senha)) {
 						break;
 					 } else {
@@ -386,6 +575,15 @@ public class AplicacaoBiblioteca {
 						if (resposta == 1) {
 						   System.out.print("MATRICULA: ");
 						   matricula = scanner.nextLine();
+
+						   do {
+							  if (matricula.isEmpty()) {
+								 System.out.println("Informe uma matricula válida!");
+								 System.out.print("MATRICULA: ");
+								 matricula = scanner.nextLine();
+							  }
+						   } while (matricula.isEmpty());
+
 						   Login.redefinirSenhaBibliotecario(bibliotecarios, matricula);
 						   break;
 						} else if (resposta == 2) {
@@ -422,6 +620,17 @@ public class AplicacaoBiblioteca {
 						   case 1:
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
+
+
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
+
 							  Login.emprestimoLivroBibliotecario(livros, titulo, bibliotecarios, email);
 							  break;
 						   case 2:
@@ -441,6 +650,17 @@ public class AplicacaoBiblioteca {
 						   case 6:
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
+
+
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
+
 							  Login.dadosLivrosBibliotecario(livros, bibliotecarios, titulo);
 							  break;
 						   case 7:
@@ -456,14 +676,41 @@ public class AplicacaoBiblioteca {
 							  if (opcao == 1) {
 								 System.out.print("MATRICULA: ");
 								 matricula = scanner.nextLine();
+
+								 do {
+									if (matricula.isEmpty()) {
+									   System.out.println("Informe uma matricula válida!");
+									   System.out.print("MATRICULA: ");
+									   matricula = scanner.nextLine();
+									}
+								 } while (matricula.isEmpty());
+
 								 Login.cancelarCadastroAluno(alunos, matricula);
 							  } else if (opcao == 2) {
 								 System.out.print("MATRICULA: ");
 								 matricula = scanner.nextLine();
+
+								 do {
+									if (matricula.isEmpty()) {
+									   System.out.println("Informe uma matricula válida!");
+									   System.out.print("MATRICULA: ");
+									   matricula = scanner.nextLine();
+									}
+								 } while (matricula.isEmpty());
+
 								 Login.cancelarCadastroProfessor(professores, matricula);
 							  } else if (opcao == 3) {
 								 System.out.print("MATRICULA: ");
 								 matricula = scanner.nextLine();
+
+								 do {
+									if (matricula.isEmpty()) {
+									   System.out.println("Informe uma matricula válida!");
+									   System.out.print("MATRICULA: ");
+									   matricula = scanner.nextLine();
+									}
+								 } while (matricula.isEmpty());
+
 								 Login.cancelarCadastroBibliotecario(bibliotecarios, matricula);
 							  } else {
 								 System.out.println("Desculpa, não entendi, digite uma das opções\n");
@@ -478,27 +725,91 @@ public class AplicacaoBiblioteca {
 							  System.out.print("TITULO: ");
 							  titulo = scanner.nextLine();
 
+							  do {
+								 if (titulo.isEmpty()) {
+									System.out.println("Informe um titulo válido!");
+									System.out.print("TITULO: ");
+									titulo = scanner.nextLine();
+								 }
+							  } while (titulo.isEmpty());
+
 							  System.out.print("AUTOR: ");
 							  autor = scanner.nextLine();
+
+							  do {
+								 if (autor.isEmpty()) {
+									System.out.println("Informe um autor válido!");
+									System.out.print("AUTOR: ");
+									autor = scanner.nextLine();
+								 }
+							  } while (autor.isEmpty());
 
 							  System.out.print("EDITORA: ");
 							  editora = scanner.nextLine();
 
+							  do {
+								 if (editora.isEmpty()) {
+									System.out.println("Informe uma editora válido!");
+									System.out.print("EDITORA: ");
+									editora = scanner.nextLine();
+								 }
+							  } while (editora.isEmpty());
+
 							  System.out.print("ISBN: ");
 							  isbn = scanner.nextLine();
+
+							  do {
+								 if (isbn.isEmpty()) {
+									System.out.println("Informe um isbn válido!");
+									System.out.print("ISBN: ");
+									isbn = scanner.nextLine();
+								 }
+							  } while (isbn.isEmpty());
 
 							  System.out.print("ANO PUBLICAÇÃO: ");
 							  anoPublicacao = scanner.nextLine();
 
+							  do {
+								 if (anoPublicacao.isEmpty()) {
+									System.out.println("Informe um ano de publicação válido!");
+									System.out.print("ANO PUBLICAÇÃO: ");
+									anoPublicacao = scanner.nextLine();
+								 }
+							  } while (anoPublicacao.isEmpty());
+
 							  System.out.print("QUANTIDADE DISPONIVEL: ");
 							  qtdDisponivel = scanner.nextInt();
+
+							  do {
+								 if (qtdDisponivel < 1) {
+									System.out.println("Informe uma quantidade válida válido!");
+									System.out.print("QUANTIDADE DISPONIVEL: ");
+									qtdDisponivel = scanner.nextInt();
+								 }
+							  } while (qtdDisponivel < 1);
 
 							  scanner.nextLine();
 							  System.out.print("CATEGORIA: ");
 							  categoria = scanner.nextLine();
 
+							  do {
+								 if (categoria.isEmpty()) {
+									System.out.println("Informe uma categoria válido!");
+									System.out.print("CATEGORIA: ");
+									categoria = scanner.nextLine();
+								 }
+							  } while (categoria.isEmpty());
+
 							  System.out.print("LOCALIZACAO: ");
 							  localizacao = scanner.nextLine();
+
+							  do {
+								 if (localizacao.isEmpty()) {
+									System.out.println("Informe uma localização válido!");
+									System.out.print("LOCALIZAÇÃO: ");
+									localizacao = scanner.nextLine();
+								 }
+							  } while (localizacao.isEmpty());
 
 							  Livro livro = new Livro(titulo, autor, editora, isbn, anoPublicacao, qtdDisponivel, categoria, localizacao);
 							  CadastroLivro.adicionarLivro(livros, livro);
@@ -507,6 +818,15 @@ public class AplicacaoBiblioteca {
 						   case 11:
 							  System.out.print("ISBN: ");
 							  isbn = scanner.nextLine();
+
+							  do {
+								 if (isbn.isEmpty()) {
+									System.out.println("Informe um isbn válido!");
+									System.out.print("ISBN: ");
+									isbn = scanner.nextLine();
+								 }
+							  } while (isbn.isEmpty());
+
 							  Login.removerLivro(livros, isbn);
 							  break;
 						   case 12:
