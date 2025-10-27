@@ -238,10 +238,12 @@ public class AplicacaoBiblioteca {
 							  Login.emprestimoLivroAluno(livros, titulo, alunos, email);
 							  break;
 						   case 2:
-							  System.out.println("Vendo livros disponiveis.");
+							  System.out.println("Vendo livros disponiveis: ");
+							  Login.mostrarLivrosDisponiveis(livros);
 							  break;
 						   case 3:
 							  System.out.println("Devolvendo Livro.");
+							  Login.devolverLivroAluno(livros, alunos);
 							  break;
 						   case 4:
 							  System.out.println("Renovando Livro.");
@@ -250,7 +252,9 @@ public class AplicacaoBiblioteca {
 							  System.out.println("Vendo multas");
 							  break;
 						   case 6:
-							  System.out.println("Vendo dados dos livros pegos.");
+							  System.out.print("TITULO: ");
+							  titulo = scanner.nextLine();
+							  Login.dadosLivrosAluno(livros, alunos, titulo);
 							  break;
 						   case 7:
 							  System.out.println("Logout realizado com sucesso.");
@@ -325,10 +329,12 @@ public class AplicacaoBiblioteca {
 							  Login.emprestimoLivroProfessor(livros, titulo, professores, email);
 							  break;
 						   case 2:
-							  System.out.println("Vendo livros disponiveis.");
+							  System.out.println("Vendo livros disponiveis: ");
+							  Login.mostrarLivrosDisponiveis(livros);
 							  break;
 						   case 3:
 							  System.out.println("Devolvendo Livro.");
+							  Login.devolverLivroProfessor(livros, professores);
 							  break;
 						   case 4:
 							  System.out.println("Renovando Livro.");
@@ -337,7 +343,9 @@ public class AplicacaoBiblioteca {
 							  System.out.println("Vendo multas");
 							  break;
 						   case 6:
-							  System.out.println("Vendo dados dos livros pegos.");
+							  System.out.print("TITULO: ");
+							  titulo = scanner.nextLine();
+							  Login.dadosLivrosProfessor(livros, professores, titulo);
 							  break;
 						   case 7:
 							  System.out.println("Logout realizado com sucesso.");
@@ -417,10 +425,12 @@ public class AplicacaoBiblioteca {
 							  Login.emprestimoLivroBibliotecario(livros, titulo, bibliotecarios, email);
 							  break;
 						   case 2:
-							  System.out.println("Vendo livros disponiveis.");
+							  System.out.println("Vendo livros disponiveis: ");
+							  Login.mostrarLivrosDisponiveis(livros);
 							  break;
 						   case 3:
 							  System.out.println("Devolvendo Livro.");
+							  Login.devolverLivroBibliotecario(livros, bibliotecarios);
 							  break;
 						   case 4:
 							  System.out.println("Renovando Livro.");
@@ -429,7 +439,9 @@ public class AplicacaoBiblioteca {
 							  System.out.println("Vendo multas");
 							  break;
 						   case 6:
-							  System.out.println("Vendo dados dos livros pegos.");
+							  System.out.print("TITULO: ");
+							  titulo = scanner.nextLine();
+							  Login.dadosLivrosBibliotecario(livros, bibliotecarios, titulo);
 							  break;
 						   case 7:
 							  System.out.println("Logout realizado com sucesso.");
