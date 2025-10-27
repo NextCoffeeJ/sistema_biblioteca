@@ -1,11 +1,11 @@
-package controller;
+package controller;// clase alterada
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
 
 public final class Login {
-
+	private static final Scanner scanner = new Scanner(System.in);
    private Login(){
 
    }
@@ -65,7 +65,7 @@ public final class Login {
    }
 
    public static void emprestimoLivroAluno(ArrayList<Livro> listaLivros, String titulo, ArrayList<Aluno> listaAluno, String email) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
@@ -149,7 +149,7 @@ public final class Login {
 
 
    public static void emprestimoLivroProfessor(ArrayList<Livro> listaLivros, String titulo, ArrayList<Professor> listaProfessor, String email) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
@@ -232,7 +232,7 @@ public final class Login {
    }
 
    public static void emprestimoLivroBibliotecario(ArrayList<Livro> listaLivros, String titulo, ArrayList<Bibliotecario> listaBibliotecario, String email) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
@@ -315,7 +315,7 @@ public final class Login {
    }
 
    public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 	  String email, titulo;
 
 	  System.out.print("Confirme seu EMAIL: ");
@@ -373,7 +373,7 @@ public final class Login {
    }
 
    public static void devolverLivroProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 	  String email, titulo;
 
 	  System.out.print("Confirme seu EMAIL: ");
@@ -431,7 +431,7 @@ public final class Login {
    }
 
    public static void devolverLivroBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 	  String email, titulo;
 
 	  System.out.print("Confirme seu EMAIL: ");
@@ -489,7 +489,7 @@ public final class Login {
    }
 
    public static void dadosLivrosAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, String titulo) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  Aluno aluno = null;
 	  while (aluno == null) {
@@ -549,7 +549,7 @@ public final class Login {
    }
 
    public static void dadosLivrosProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor, String titulo) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  Professor professor = null;
 	  while (professor == null) {
@@ -609,7 +609,7 @@ public final class Login {
    }
 
    public static void dadosLivrosBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario, String titulo) {
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  Bibliotecario bibliotecario = null;
 	  while (bibliotecario == null) {
@@ -812,7 +812,7 @@ public final class Login {
 
    public static void redefinirSenhaAluno (ArrayList<Aluno> listaAlunos, String matricula) {
 	  Aluno novaSenha = null;
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  for (Aluno aluno : listaAlunos) {
 		 if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
@@ -872,7 +872,7 @@ public final class Login {
 
    public static void redefinirSenhaProfessor (ArrayList<Professor> listaProfessores, String matricula) {
 	  Professor novaSenha = null;
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  for (Professor professor : listaProfessores) {
 		 if (professor.getMatricula().equalsIgnoreCase(matricula)) {
@@ -930,7 +930,7 @@ public final class Login {
 
    public static void redefinirSenhaBibliotecario (ArrayList<Bibliotecario> listaBibliotecarios, String matricula) {
 	  Bibliotecario novaSenha = null;
-	  Scanner scanner = new Scanner(System.in);
+	  
 
 	  for (Bibliotecario bibliotecario : listaBibliotecarios) {
 		 if (bibliotecario.getMatricula().equalsIgnoreCase(matricula)) {
