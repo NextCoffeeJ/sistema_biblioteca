@@ -2,7 +2,7 @@ package model;
 
 public class Aluno extends Usuario {
    private String curso;
-   private int limiteLivro = 3;
+   private int limiteLivros = 3;
 
    public Aluno(String nome, String cpf, String email, String telefone, String matricula, String senha, String curso) {
 	  super(nome, cpf, email, telefone, matricula, senha);
@@ -13,16 +13,16 @@ public class Aluno extends Usuario {
 	  return curso;
    }
 
-   public int getLimiteLivro() {
-	  return limiteLivro;
+   public int getLimiteLivros() {
+	  return limiteLivros;
    }
 
    public void setCurso(String curso) {
 	  this.curso = curso;
    }
 
-   public void setLimiteLivro(int limiteLivro) {
-	  this.limiteLivro = limiteLivro;
+   public void setLimiteLivros(int limiteLivro) {
+	  this.limiteLivros = limiteLivro;
    }
 
    public String getEmail(){

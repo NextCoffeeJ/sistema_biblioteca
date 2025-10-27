@@ -9,54 +9,33 @@ public class Emprestimo {
    private LocalDate dataLimiteDevolucao;
    private LocalDate dataDevolucao;
 
-   public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo, LocalDate dataLimiteDevolucao, LocalDate dataDevolucao) {
+   public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo, LocalDate dataLimiteDevolucao) {
 	  this.usuario = usuario;
 	  this.livro = livro;
 	  this.dataEmprestimo = dataEmprestimo;
 	  this.dataLimiteDevolucao = dataLimiteDevolucao;
-	  this.dataDevolucao = dataDevolucao;
+	  this.dataDevolucao = null;
    }
 
-   public Usuario getUsuario() {
-	  return usuario;
-   }
 
-   public Livro getLivro() {
-	  return livro;
-   }
+   public Usuario getUsuario() { return usuario; }
+   public Livro getLivro() { return livro; }
+   public LocalDate getDataEmprestimo() { return dataEmprestimo; }
+   public LocalDate getDataLimiteDevolucao() { return dataLimiteDevolucao; }
+   public LocalDate getDataDevolucao() { return dataDevolucao; }
 
-   public LocalDate getDataEmprestimo() {
-	  return dataEmprestimo;
-   }
+   public void setUsuario(Usuario usuario) { this.usuario = usuario; }
+   public void setLivro(Livro livro) { this.livro = livro; }
+   public void setDataEmprestimo(LocalDate dataEmprestimo) { this.dataEmprestimo = dataEmprestimo; }
+   public void setDataLimiteDevolucao(LocalDate dataLimiteDevolucao) { this.dataLimiteDevolucao = dataLimiteDevolucao; }
+   public void setDataDevolucao(LocalDate dataDevolucao) { this.dataDevolucao = dataDevolucao; }
 
-   public LocalDate getDataLimiteDevolucao() {
-	  return dataLimiteDevolucao;
-   }
 
-   public LocalDate getDataDevolucao() {
-	  return dataDevolucao;
-   }
-
-   public Emprestimo setUsuario(Usuario usuario) {
-	  this.usuario = usuario;
-	  return this;
-   }
-
-   public Emprestimo setLivro(Livro livro) {
-	  this.livro = livro;
-	  return this;
-   }
-
-   public void setDataEmprestimo(LocalDate dataEmprestimo) {
-	  this.dataEmprestimo = dataEmprestimo;
-   }
-
-   public void setDataLimiteDevolucao(LocalDate dataLimiteDevolucao) {
-	  this.dataLimiteDevolucao = dataLimiteDevolucao;
-   }
-
-   public void setDataDevolucao(LocalDate dataDevolucao) {
-	  this.dataDevolucao = dataDevolucao;
+   public boolean isAtrasado() {
+	  if (dataDevolucao == null) {
+		 return LocalDate.now().isAfter(dataLimiteDevolucao);
+	  }
+	  return dataDevolucao.isAfter(dataLimiteDevolucao);
    }
 
 }
