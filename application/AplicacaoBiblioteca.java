@@ -1,4 +1,4 @@
-package application;// clase alterada
+package application;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,6 +6,7 @@ import model.*;
 import service.CadastroLivro;
 import service.CadastroUsuario;
 import controller.Login;
+import java.time.LocalDate;
 
 
 public class AplicacaoBiblioteca {
@@ -13,11 +14,14 @@ public class AplicacaoBiblioteca {
 	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, verificacaoEmail;
 	  String nome="desconehecido" , cpf="desconehecido", email, telefone="desconehecido", matricula="desconehecido", senha;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
+	  LocalDate dataEmprestimo,dataLimiteDevolucao;
+	//   LocalDate dataDevolucao;
 
 	  ArrayList<Aluno> alunos = new ArrayList<>();
 	  ArrayList<Professor> professores = new ArrayList<>();
 	  ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
 	  ArrayList<Livro> livros = new ArrayList<>();
+	  ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
 	  Scanner scanner = new Scanner(System.in);
 
@@ -360,19 +364,84 @@ public class AplicacaoBiblioteca {
 						scanner.nextLine();
 						switch(escolhaLogin){
 						   case 1:
-							  System.out.print("TITULO: ");
-							  titulo = scanner.nextLine();
-
 							  do {
-								 if (titulo.isEmpty()) {
-									System.out.println("Informe um titulo válido!");
+									int escolhaLivro;
 									System.out.print("TITULO: ");
 									titulo = scanner.nextLine();
-								 }
-							  } while (titulo.isEmpty());
+									Livro livro= Login.buscarLivroPorNome(livros, titulo);
+									if (titulo.isEmpty()) {
+										System.out.println("Titulo inválido!");
+										System.out.println("Deseja continuar? ");
+										System.out.println("1- sim");
+										System.out.println("2- nao");
+										escolhaLivro= scanner.nextInt();
+										scanner.nextLine();
 
-							  Login.emprestimoLivroAluno(livros, titulo, alunos, email);
-							  break;
+										if(escolhaLivro==2){
+											break;
+										}
+
+									}
+									
+									else if(livro==null){
+
+										System.out.println("O Livro nao presente no acervo.");
+										System.out.println("Deseja continuar? ");
+										System.out.println("1- sim");
+										System.out.println("2- nao");
+										escolhaLivro= scanner.nextInt();
+										scanner.nextLine();
+
+										if(escolhaLivro==2){
+											break;
+										}
+									}
+									else{
+
+										if(livro.getQtdDisponivel()==0){
+											System.out.println("Nao foi possivel fazer o emprestimo desse livro.");
+											System.out.println("Nao ha nenhum livro disponivel.");
+
+											System.out.println("Deseja continuar? ");
+											System.out.println("1- sim");
+											System.out.println("2- nao");
+											escolhaLivro= scanner.nextInt();
+											scanner.nextLine();
+										
+											if(escolhaLivro==2){
+												break;
+											}
+										}
+										else if(Login.buscarEmprestimoPorAlunoETitulo(aluno,livro,emprestimos)!=null){
+											System.out.println("Voce ja fez  o emprestimo desse livro.");
+											System.out.println("Deseja continuar? ");
+											System.out.println("1- sim");
+											System.out.println("2- nao");
+											escolhaLivro= scanner.nextInt();
+											scanner.nextLine();
+
+											if(escolhaLivro==2){
+												break;
+											}
+
+										}
+										else{
+											dataEmprestimo=LocalDate.now();
+											dataLimiteDevolucao=LocalDate.now().plusDays(7);
+											Emprestimo emprestimo = new Emprestimo(aluno,livro,dataEmprestimo,dataLimiteDevolucao);
+											emprestimos.add(emprestimo);
+											livro.setQtdDisponivel(livro.getQtdDisponivel()-1);
+											System.out.println("Emprestimo realizado com sucesso.\n");
+											break;
+										}
+									}
+									
+									
+									
+							  	}while (true);
+
+								break;
+							
 						   case 2:
 							  System.out.println("Vendo livros disponiveis: ");
 							  Login.mostrarLivrosDisponiveis(livros);
@@ -487,19 +556,82 @@ public class AplicacaoBiblioteca {
 						scanner.nextLine();
 						switch (escolhaLogin){
 						   case 1:
-							  System.out.print("TITULO: ");
-							  titulo = scanner.nextLine();
-
-							  do {
-								 if (titulo.isEmpty()) {
-									System.out.println("Informe um titulo válido!");
+							    do {
+									int escolhaLivro;
 									System.out.print("TITULO: ");
 									titulo = scanner.nextLine();
-								 }
-							  } while (titulo.isEmpty());
+									Livro livro= Login.buscarLivroPorNome(livros, titulo);
+									if (titulo.isEmpty()) {
+										System.out.println("Titulo inválido!");
+										System.out.println("Deseja continuar? ");
+										System.out.println("1- sim");
+										System.out.println("2- nao");
+										escolhaLivro= scanner.nextInt();
+										scanner.nextLine();
 
+										if(escolhaLivro==2){
+											break;
+										}
 
-							  Login.emprestimoLivroProfessor(livros, titulo, professores, email);
+									}
+									
+									else if(livro==null){
+
+										System.out.println("O Livro nao presente no acervo.");
+										System.out.println("Deseja continuar? ");
+										System.out.println("1- sim");
+										System.out.println("2- nao");
+										escolhaLivro= scanner.nextInt();
+										scanner.nextLine();
+
+										if(escolhaLivro==2){
+											break;
+										}
+									
+									}
+									else{
+
+										if(livro.getQtdDisponivel()==0){
+											System.out.println("Nao foi possivel fazer o emprestimo desse livro.");
+											System.out.println("Nao ha nenhum livro disponivel.");
+
+											System.out.println("Deseja continuar? ");
+											System.out.println("1- sim");
+											System.out.println("2- nao");
+											escolhaLivro= scanner.nextInt();
+											scanner.nextLine();
+										
+											if(escolhaLivro==2){
+												break;
+											}
+										}
+										else if(Login.buscarEmprestimoPorProfessorETitulo(professor,livro,emprestimos)!=null){
+											System.out.println("Voce ja fez o emprestimo desse livro.");
+											System.out.println("Deseja continuar? ");
+											System.out.println("1- sim");
+											System.out.println("2- nao");
+											escolhaLivro= scanner.nextInt();
+											scanner.nextLine();
+
+											if(escolhaLivro==2){
+												break;
+											}
+
+										}
+										else{
+											dataEmprestimo=LocalDate.now();
+											dataLimiteDevolucao=LocalDate.now().plusDays(7);
+											Emprestimo emprestimo = new Emprestimo(professor,livro,dataEmprestimo,dataLimiteDevolucao);
+											emprestimos.add(emprestimo);
+											livro.setQtdDisponivel(livro.getQtdDisponivel()-1);
+											System.out.println("Emprestimo realizado com sucesso.\n");
+											break;
+										}
+									}
+									
+							  	} while (true);
+
+							  
 							  break;
 						   case 2:
 							  System.out.println("Vendo livros disponiveis: ");
@@ -620,20 +752,82 @@ public class AplicacaoBiblioteca {
 						scanner.nextLine();
 						switch(escolhaLogin){
 						   case 1:
-							  System.out.print("TITULO: ");
-							  titulo = scanner.nextLine();
+								do {
+								int escolhaLivro;
+								System.out.print("TITULO: ");
+							  	titulo = scanner.nextLine();
+								Livro livro= Login.buscarLivroPorNome(livros, titulo);
+								if (titulo.isEmpty()) {
+									System.out.println("Titulo inválido!");
+									System.out.println("Deseja continuar? ");
+									System.out.println("1- sim");
+									System.out.println("2- nao");
+									escolhaLivro= scanner.nextInt();
+									scanner.nextLine();
 
+									if(escolhaLivro==2){
+										break;
+									}
 
-							  do {
-								 if (titulo.isEmpty()) {
-									System.out.println("Informe um titulo válido!");
-									System.out.print("TITULO: ");
-									titulo = scanner.nextLine();
-								 }
-							  } while (titulo.isEmpty());
+								}
+								
+								else if(livro==null){
 
+									System.out.println("O Livro nao presente no acervo.");
+									System.out.println("Deseja continuar? ");
+									System.out.println("1- sim");
+									System.out.println("2- nao");
+									escolhaLivro= scanner.nextInt();
+									scanner.nextLine();
 
-							  Login.emprestimoLivroBibliotecario(livros, titulo, bibliotecarios, email);
+									if(escolhaLivro==2){
+										break;
+									}
+								}
+								else{
+
+									if(livro.getQtdDisponivel()==0){
+										System.out.println("Nao foi possivel fazer o emprestimo desse livro.");
+										System.out.println("Nao ha nenhum livro disponivel.");
+
+										System.out.println("Deseja continuar? ");
+										System.out.println("1- sim");
+										System.out.println("2- nao");
+										escolhaLivro= scanner.nextInt();
+										scanner.nextLine();
+									
+										if(escolhaLivro==2){
+											break;
+										}
+									}
+									else if(Login.buscarEmprestimoPorBibliotecarioETitulo(bibliotecario,livro,emprestimos)!=null){
+										System.out.println("Voce ja o fez o emprestimo desse livro.");
+										System.out.println("Deseja continuar? ");
+										System.out.println("1- sim");
+										System.out.println("2- nao");
+										escolhaLivro= scanner.nextInt();
+										scanner.nextLine();
+
+										if(escolhaLivro==2){
+											break;
+										}
+
+									}
+									else{
+										dataEmprestimo=LocalDate.now();
+										dataLimiteDevolucao=LocalDate.now().plusDays(7);
+										Emprestimo emprestimo = new Emprestimo(bibliotecario,livro,dataEmprestimo,dataLimiteDevolucao);
+										emprestimos.add(emprestimo);
+										livro.setQtdDisponivel(livro.getQtdDisponivel()-1);
+										System.out.println("Emprestimo realizado com sucesso.\n");
+										break;
+									}
+								}
+								
+							  } while (true);
+
+							  
+							  
 							  break;
 						   case 2:
 							  System.out.println("Vendo livros disponiveis: ");
