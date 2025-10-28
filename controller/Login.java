@@ -36,34 +36,6 @@ public final class Login {
 	  return null;
    }
 
-   public static int emailDuplicadoAluno (ArrayList<Aluno> listaAlunos, String email){
-	  for (Aluno aluno : listaAlunos) {
-		 if (aluno.getEmail().equalsIgnoreCase(email)) {
-			return 1;
-		 }
-	  }
-	  return 0;
-   }
-
-   public static int emailDuplicadoProfessor (ArrayList<Professor> listaProfessor, String email){
-	  for (Professor professor : listaProfessor) {
-		 if (professor.getEmail().equalsIgnoreCase(email)) {
-			return 1;
-		 }
-	  }
-	  return 0;
-   }
-
-
-   public static int emailDuplicadoBibliotecario (ArrayList<Bibliotecario> listaBibliotecario, String email){
-	  for (Bibliotecario bibliotecario : listaBibliotecario) {
-		 if (bibliotecario.getEmail().equalsIgnoreCase(email)) {
-			return 1;
-		 }
-	  }
-	  return 0;
-   }
-
    public static void emprestimoLivroAluno(ArrayList<Livro> listaLivros, String titulo, ArrayList<Aluno> listaAluno, String email) {
 
 
