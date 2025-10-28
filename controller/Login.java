@@ -6,9 +6,11 @@ import model.*;
 
 public final class Login {
    private static final Scanner scanner = new Scanner(System.in);
+
    private Login(){
 
    }
+
    public static Aluno buscarAlunoPorEmail (ArrayList<Aluno> listaAlunos, String email) {
 	  for (Aluno aluno : listaAlunos) {
 		 if (aluno.getEmail().equalsIgnoreCase(email)) {
@@ -34,6 +36,31 @@ public final class Login {
 		 }
 	  }
 	  return null;
+   }
+
+   public static int matriculaDuplicada (ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String matricula, int tipo) {
+	  if (tipo == 1) {
+		 for (Aluno aluno : listaAlunos) {
+			if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else if (tipo == 2) {
+		 for(Professor professor : listaProfessores){
+			if(professor.getMatricula().equalsIgnoreCase(matricula)){
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else {
+		 for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			if (bibliotecario.getMatricula().equalsIgnoreCase(matricula)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  }
    }
 
    public static void emprestimoLivroAluno(ArrayList<Livro> listaLivros, String titulo, ArrayList<Aluno> listaAluno, String email) {
@@ -853,7 +880,6 @@ public final class Login {
 				  }
 			   }
 
-
 			   if (novaSenhaProfessor != null) {
 				  System.out.print("Digite uma nova nova: ");
 				  String senha = scanner.nextLine();
@@ -903,7 +929,6 @@ public final class Login {
 			   return;
 			case 3:
 			   Bibliotecario novaSenhaBibliotecario = null;
-
 
 			   for (Bibliotecario bibliotecario : listaBibliotecarios) {
 				  if (bibliotecario.getMatricula().equalsIgnoreCase(matricula)) {
