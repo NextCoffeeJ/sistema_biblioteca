@@ -5,7 +5,7 @@ import java.util.Scanner;
 import model.*;
 
 public final class Login {
-
+   private static final Scanner scanner = new Scanner(System.in);
    private Login(){
 
    }
@@ -65,7 +65,7 @@ public final class Login {
    }
 
    public static void emprestimoLivroAluno(ArrayList<Livro> listaLivros, String titulo, ArrayList<Aluno> listaAluno, String email) {
-	  Scanner scanner = new Scanner(System.in);
+
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
@@ -149,7 +149,7 @@ public final class Login {
 
 
    public static void emprestimoLivroProfessor(ArrayList<Livro> listaLivros, String titulo, ArrayList<Professor> listaProfessor, String email) {
-	  Scanner scanner = new Scanner(System.in);
+
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
@@ -232,7 +232,7 @@ public final class Login {
    }
 
    public static void emprestimoLivroBibliotecario(ArrayList<Livro> listaLivros, String titulo, ArrayList<Bibliotecario> listaBibliotecario, String email) {
-	  Scanner scanner = new Scanner(System.in);
+
 
 	  System.out.print("Confirme seu EMAIL: ");
 	  email = scanner.nextLine();
@@ -315,7 +315,7 @@ public final class Login {
    }
 
    public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno) {
-	  Scanner scanner = new Scanner(System.in);
+
 	  String email, titulo;
 
 	  System.out.print("Confirme seu EMAIL: ");
@@ -373,7 +373,7 @@ public final class Login {
    }
 
    public static void devolverLivroProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor) {
-	  Scanner scanner = new Scanner(System.in);
+
 	  String email, titulo;
 
 	  System.out.print("Confirme seu EMAIL: ");
@@ -431,7 +431,7 @@ public final class Login {
    }
 
    public static void devolverLivroBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario) {
-	  Scanner scanner = new Scanner(System.in);
+
 	  String email, titulo;
 
 	  System.out.print("Confirme seu EMAIL: ");
@@ -489,7 +489,7 @@ public final class Login {
    }
 
    public static void dadosLivrosAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, String titulo) {
-	  Scanner scanner = new Scanner(System.in);
+
 
 	  Aluno aluno = null;
 	  while (aluno == null) {
@@ -549,7 +549,7 @@ public final class Login {
    }
 
    public static void dadosLivrosProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor, String titulo) {
-	  Scanner scanner = new Scanner(System.in);
+
 
 	  Professor professor = null;
 	  while (professor == null) {
@@ -609,7 +609,7 @@ public final class Login {
    }
 
    public static void dadosLivrosBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario, String titulo) {
-	  Scanner scanner = new Scanner(System.in);
+
 
 	  Bibliotecario bibliotecario = null;
 	  while (bibliotecario == null) {
@@ -810,179 +810,185 @@ public final class Login {
    }
 
 
-   public static void redefinirSenhaAluno (ArrayList<Aluno> listaAlunos, String matricula) {
-	  Aluno novaSenha = null;
-	  Scanner scanner = new Scanner(System.in);
+   public static void redefinirSenha (ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String matricula, int tipo) {
 
-	  for (Aluno aluno : listaAlunos) {
-		 if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
-			novaSenha = aluno;
-			break;
-		 }
-	  }
+	  do {
+		 switch (tipo) {
+			case 1:
+			   Aluno novaSenhaAluno = null;
 
-	  if (novaSenha != null) {
-		 System.out.print("Digite uma nova nova: ");
-		 String senha = scanner.nextLine();
-
-		 do {
-			if (senha.isEmpty()) {
-			   System.out.println("Informe uma senha válida!");
-			   System.out.print("SENHA: ");
-			   senha = scanner.nextLine();
-			}
-		 } while (senha.isEmpty());
-
-		 novaSenha.setSenha(senha);
-		 System.out.println("Senha redefinida com sucesso!");
-	  } else {
-		 int op;
-		 System.out.println("Usuario não encontrado");
-		 do {
-			System.out.println("Deseja tentar novamente?");
-			System.out.println("1 - Sim");
-			System.out.println("2 - Não");
-			System.out.print("Digite aqui: ");
-			op = scanner.nextInt();
-
-			scanner.nextLine();
-			if (op == 1) {
-			   System.out.print("MATRICULA: ");
-			   matricula = scanner.nextLine();
-
-			   do {
-				  if (matricula.isEmpty()) {
-					 System.out.println("Informe uma matricula válida!");
-					 System.out.print("MATRICULA: ");
-					 matricula = scanner.nextLine();
+			   for (Aluno aluno : listaAlunos) {
+				  if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
+					 novaSenhaAluno = aluno;
+					 break;
 				  }
-			   } while (matricula.isEmpty());
+			   }
 
-			   redefinirSenhaAluno(listaAlunos, matricula);
-			   break;
-			} else if (op == 2) {
-			   System.out.println("Até mais");
-			} else {
-			   System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-			}
+			   if (novaSenhaAluno != null) {
+				  System.out.print("Digite uma nova nova: ");
+				  String senha = scanner.nextLine();
 
-		 } while (op != 2);
-	  }
-   }
+				  do {
+					 if (senha.isEmpty()) {
+						System.out.println("Informe uma senha válida!");
+						System.out.print("SENHA: ");
+						senha = scanner.nextLine();
+					 }
+				  } while (senha.isEmpty());
 
-   public static void redefinirSenhaProfessor (ArrayList<Professor> listaProfessores, String matricula) {
-	  Professor novaSenha = null;
-	  Scanner scanner = new Scanner(System.in);
+				  novaSenhaAluno.setSenha(senha);
+				  System.out.println("Senha redefinida com sucesso!");
+			   } else {
+				  int op;
+				  System.out.println("Usuario não encontrado!");
+				  do {
+					 System.out.println("Deseja tentar novamente?");
+					 System.out.println("1 - Sim");
+					 System.out.println("2 - Não");
+					 System.out.print("Digite aqui: ");
+					 op = scanner.nextInt();
 
-	  for (Professor professor : listaProfessores) {
-		 if (professor.getMatricula().equalsIgnoreCase(matricula)) {
-			novaSenha = professor;
-		 }
-	  }
+					 scanner.nextLine();
+					 if (op == 1) {
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
 
-	  if (novaSenha != null) {
-		 System.out.print("Digite uma nova nova: ");
-		 String senha = scanner.nextLine();
+						do {
+						   if (matricula.isEmpty()) {
+							  System.out.println("Informe uma matricula válida!");
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine();
+						   }
+						} while (matricula.isEmpty());
 
-		 do {
-			if (matricula.isEmpty()) {
-			   System.out.println("Informe uma senha válida!");
-			   System.out.print("SENHA: ");
-			   senha = scanner.nextLine();
-			}
-		 } while (senha.isEmpty());
+						redefinirSenha(listaAlunos, listaProfessores, listaBibliotecarios, matricula, tipo);
+						break;
+					 } else if (op == 2) {
+						System.out.println("Até mais...");
+					 } else {
+						System.out.println("Desculpa, não entendi, digite uma das opções:\n");
+					 }
 
-		 novaSenha.setSenha(senha);
-		 System.out.println("Senha redefinida com sucesso!");
-	  } else {
-		 int op;
-		 System.out.println("Usuario não encontrado");
-		 do {
-			System.out.println("Deseja tentar novamente?");
-			System.out.println("1 - Sim");
-			System.out.println("2 - Não");
-			System.out.print("Digite aqui: ");
-			op = scanner.nextInt();
+				  } while (op != 2);
+			   }
+			   return;
+			case 2:
+			   Professor novaSenhaProfessor = null;
 
-			scanner.nextLine();
-			if (op == 1) {
-			   System.out.print("MATRICULA: ");
-			   matricula = scanner.nextLine();
-
-			   do {
-				  if (matricula.isEmpty()) {
-					 System.out.println("Informe uma matricula válida!");
-					 System.out.print("MATRICULA: ");
-					 matricula = scanner.nextLine();
+			   for (Professor professor : listaProfessores) {
+				  if (professor.getMatricula().equalsIgnoreCase(matricula)) {
+					 novaSenhaProfessor = professor;
 				  }
-			   } while (matricula.isEmpty());
+			   }
 
-			   redefinirSenhaProfessor(listaProfessores, matricula);
-			   break;
-			} else if (op == 2) {
-			   System.out.println("Até mais");
-			} else {
-			   System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-			}
-		 } while (op != 2);
-	  }
-   }
 
-   public static void redefinirSenhaBibliotecario (ArrayList<Bibliotecario> listaBibliotecarios, String matricula) {
-	  Bibliotecario novaSenha = null;
-	  Scanner scanner = new Scanner(System.in);
+			   if (novaSenhaProfessor != null) {
+				  System.out.print("Digite uma nova nova: ");
+				  String senha = scanner.nextLine();
 
-	  for (Bibliotecario bibliotecario : listaBibliotecarios) {
-		 if (bibliotecario.getMatricula().equalsIgnoreCase(matricula)) {
-			novaSenha = bibliotecario;
-		 }
-	  }
+				  do {
+					 if (matricula.isEmpty()) {
+						System.out.println("Informe uma senha válida!");
+						System.out.print("SENHA: ");
+						senha = scanner.nextLine();
+					 }
+				  } while (senha.isEmpty());
 
-	  if (novaSenha != null) {
-		 System.out.print("Digite uma nova nova: ");
-		 String senha = scanner.nextLine();
+				  novaSenhaProfessor.setSenha(senha);
+				  System.out.println("Senha redefinida com sucesso!");
+			   } else {
+				  int op;
+				  System.out.println("Usuario não encontrado!");
+				  do {
+					 System.out.println("Deseja tentar novamente?");
+					 System.out.println("1 - Sim");
+					 System.out.println("2 - Não");
+					 System.out.print("Digite aqui: ");
+					 op = scanner.nextInt();
 
-		 do {
-			if (senha.isEmpty()) {
-			   System.out.println("Informe uma senha válida!");
-			   System.out.print("SENHA: ");
-			   senha = scanner.nextLine();
-			}
-		 } while (senha.isEmpty());
+					 scanner.nextLine();
+					 if (op == 1) {
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
 
-		 novaSenha.setSenha(senha);
-		 System.out.println("Senha redefinida com sucesso!");
-	  } else {
-		 int op;
-		 System.out.println("Usuario não encontrado");
-		 do {
-			System.out.println("Deseja tentar novamente?");
-			System.out.println("1 - Sim");
-			System.out.println("2 - Não");
-			System.out.print("Digite aqui: ");
-			op = scanner.nextInt();
+						do {
+						   if (matricula.isEmpty()) {
+							  System.out.println("Informe uma matricula válida!");
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine();
+						   }
+						} while (matricula.isEmpty());
 
-			scanner.nextLine();
-			if (op == 1) {
-			   System.out.print("MATRICULA: ");
-			   matricula = scanner.nextLine();
+						redefinirSenha(listaAlunos, listaProfessores, listaBibliotecarios, matricula, tipo);
+						break;
+					 } else if (op == 2) {
+						System.out.println("Até mais...");
+					 } else {
+						System.out.println("Desculpa, não entendi, digite uma das opções:\n");
+					 }
+				  } while (op != 2);
+			   }
+			   return;
+			case 3:
+			   Bibliotecario novaSenhaBibliotecario = null;
 
-			   do {
-				  if (matricula.isEmpty()) {
-					 System.out.println("Informe uma matricula válida!");
-					 System.out.print("MATRICULA: ");
-					 matricula = scanner.nextLine();
+
+			   for (Bibliotecario bibliotecario : listaBibliotecarios) {
+				  if (bibliotecario.getMatricula().equalsIgnoreCase(matricula)) {
+					 novaSenhaBibliotecario = bibliotecario;
 				  }
-			   } while (matricula.isEmpty());
+			   }
 
-			   redefinirSenhaBibliotecario(listaBibliotecarios, matricula);
+			   if (novaSenhaBibliotecario != null) {
+				  System.out.print("Digite uma nova nova: ");
+				  String senha = scanner.nextLine();
+
+				  do {
+					 if (senha.isEmpty()) {
+						System.out.println("Informe uma senha válida!");
+						System.out.print("SENHA: ");
+						senha = scanner.nextLine();
+					 }
+				  } while (senha.isEmpty());
+
+				  novaSenhaBibliotecario.setSenha(senha);
+				  System.out.println("Senha redefinida com sucesso!");
+			   } else {
+				  int op;
+				  System.out.println("Usuario não encontrado!");
+				  do {
+					 System.out.println("Deseja tentar novamente?");
+					 System.out.println("1 - Sim");
+					 System.out.println("2 - Não");
+					 System.out.print("Digite aqui: ");
+					 op = scanner.nextInt();
+
+					 scanner.nextLine();
+					 if (op == 1) {
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
+
+						do {
+						   if (matricula.isEmpty()) {
+							  System.out.println("Informe uma matricula válida!");
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine();
+						   }
+						} while (matricula.isEmpty());
+
+						redefinirSenha(listaAlunos, listaProfessores, listaBibliotecarios, matricula, tipo);
+						break;
+					 } else if (op == 2) {
+						System.out.println("Até mais...");
+					 } else {
+						System.out.println("Desculpa, não entendi, digite uma das opções:\n");
+					 }
+				  } while (op != 2);
+			   }
+			   return;
+			default:
 			   break;
-			} else if (op == 2) {
-			   System.out.println("Até mais");
-			} else {
-			   System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-			}
-		 } while (op != 2);
-	  }
+		 }
+	  } while (true);
    }
 }
