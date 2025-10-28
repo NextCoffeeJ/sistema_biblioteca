@@ -10,7 +10,7 @@ import controller.Login;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
-	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, verificacaoEmail, tipo;
+	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo;
 	  String nome="desconehecido" , cpf="desconehecido", email, telefone="desconehecido", matricula="desconehecido", senha;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 
@@ -42,7 +42,7 @@ public class AplicacaoBiblioteca {
 				  escolhaCadastro = scanner.nextInt();
 				  scanner.nextLine();
 
-				  if(escolhaCadastro==1|| escolhaCadastro==2 || escolhaCadastro==3){
+				  if(escolhaCadastro == 1 || escolhaCadastro == 2 || escolhaCadastro == 3){
 
 					 System.out.println("\nInsira suas informações:\n");
 					 System.out.print("NOME: ");
@@ -78,8 +78,6 @@ public class AplicacaoBiblioteca {
 						}
 					 } while (telefone.isEmpty());
 
-
-
 					 System.out.print("MATRICULA: ");
 					 matricula = scanner.nextLine();
 
@@ -106,9 +104,9 @@ public class AplicacaoBiblioteca {
 							  }
 						   } while (email.isEmpty());
 
-						   verificacaoEmail = Login.emailDuplicadoAluno(alunos, email);
+						   Aluno verificacaoEmail = Login.buscarAlunoPorEmail(alunos, email);
 
-						   if (verificacaoEmail == 0) {
+						   if (verificacaoEmail == null) {
 							  System.out.print("SENHA: ");
 							  senha = scanner.nextLine();
 
@@ -156,9 +154,9 @@ public class AplicacaoBiblioteca {
 							  }
 						   } while (email.isEmpty());
 
-						   verificacaoEmail = Login.emailDuplicadoProfessor(professores, email);
+						   Professor verificacaoEmail = Login.buscarProfessorPorEmail(professores, email);
 
-						   if (verificacaoEmail == 0) {
+						   if (verificacaoEmail == null) {
 							  System.out.print("SENHA: ");
 							  senha = scanner.nextLine();
 
@@ -206,9 +204,9 @@ public class AplicacaoBiblioteca {
 							  }
 						   } while (email.isEmpty());
 
-						   verificacaoEmail = Login.emailDuplicadoBibliotecario(bibliotecarios, email);
+						   Bibliotecario verificacaoEmail = Login.buscarBibliotecarioPorEmail(bibliotecarios, email);
 
-						   if (verificacaoEmail == 0) {
+						   if (verificacaoEmail == null) {
 							  System.out.print("SENHA: ");
 							  senha = scanner.nextLine();
 
