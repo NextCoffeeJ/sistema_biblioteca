@@ -10,7 +10,7 @@ import controller.Login;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
-	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaDupla;
+	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual;
 	  String nome="desconehecido" , cpf="desconehecido", email, telefone="desconehecido", matricula="desconehecido", senha;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 
@@ -66,36 +66,58 @@ public class AplicacaoBiblioteca {
 						   cpf = scanner.nextLine();
 						}
 					 } while (cpf.isEmpty());
-
-					 System.out.print("TELEFONE: ");
-					 telefone = scanner.nextLine();
-
-					 do {
-						if (telefone.isEmpty()) {
-						   System.out.println("Você precisa inserir um telefone válido!\n");
-						   System.out.print("TELEFONE: ");
-						   telefone = scanner.nextLine();
-						}
-					 } while (telefone.isEmpty());
-
-					 System.out.print("MATRICULA: ");
-					 matricula = scanner.nextLine();
-
-					 do {
-						if (matricula.isEmpty()) {
-						   System.out.println("Você precisa inserir uma matricula válido!\n");
-						   System.out.print("MATRICULA: ");
-						   matricula = scanner.nextLine();
-						}
-					 } while (matricula.isEmpty());
 				  }
 
 				  switch (escolhaCadastro) {
 					 case 1:
-						tipo = 1;
-						matriculaDupla = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+						System.out.print("TELEFONE: ");
+						telefone = scanner.nextLine();
 
-						if (matriculaDupla == 1) {
+						do {
+						   if (telefone.isEmpty()) {
+							  System.out.println("Você precisa inserir um telefone válido!\n");
+							  System.out.print("TELEFONE: ");
+							  telefone = scanner.nextLine();
+						   }
+						} while (telefone.isEmpty());
+
+						tipo = 1;
+						telefoneIgual = Login.telefoneDuplicado(alunos, professores, bibliotecarios, telefone, tipo);
+
+						if (telefoneIgual == 1) {
+						   do {
+							  System.out.println("\nEsse telefone já foi cadastrado!");
+							  System.out.println("Insira um telefone válida!\n");
+							  System.out.print("TELEFONE: ");
+							  telefone = scanner.nextLine();
+
+							  do {
+								 if (telefone.isEmpty()) {
+									System.out.println("Você precisa inserir um telefone válido!\n");
+									System.out.print("TELEFONE: ");
+									telefone = scanner.nextLine();
+								 }
+							  } while (telefone.isEmpty());
+
+							  telefoneIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, telefone, tipo);
+						   } while (telefoneIgual == 1);
+						}
+
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
+
+						do {
+						   if (matricula.isEmpty()) {
+							  System.out.println("Você precisa inserir uma matricula válido!\n");
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine();
+						   }
+						} while (matricula.isEmpty());
+
+						tipo = 1;
+						matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+
+						if (matriculaIgual == 1) {
 						   do {
 							  System.out.println("\nEssa matricula já pertence a um aluno!");
 							  System.out.println("Insira uma matricula válida!\n");
@@ -110,8 +132,8 @@ public class AplicacaoBiblioteca {
 								 }
 							  } while (matricula.isEmpty());
 
-							  matriculaDupla = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
-						   } while (matriculaDupla == 1);
+							  matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+						   } while (matriculaIgual == 1);
 						}
 
 						do {
@@ -164,10 +186,54 @@ public class AplicacaoBiblioteca {
 						break;
 
 					 case 2:
-						tipo = 2;
-						matriculaDupla = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+						System.out.print("TELEFONE: ");
+						telefone = scanner.nextLine();
 
-						if (matriculaDupla == 1) {
+						do {
+						   if (telefone.isEmpty()) {
+							  System.out.println("Você precisa inserir um telefone válido!\n");
+							  System.out.print("TELEFONE: ");
+							  telefone = scanner.nextLine();
+						   }
+						} while (telefone.isEmpty());
+
+						tipo = 2;
+						telefoneIgual = Login.telefoneDuplicado(alunos, professores, bibliotecarios, telefone, tipo);
+
+						if (telefoneIgual == 1) {
+						   do {
+							  System.out.println("\nEsse telefone já foi cadastrado!");
+							  System.out.println("Insira um telefone válida!\n");
+							  System.out.print("TELEFONE: ");
+							  telefone = scanner.nextLine();
+
+							  do {
+								 if (telefone.isEmpty()) {
+									System.out.println("Você precisa inserir um telefone válido!\n");
+									System.out.print("TELEFONE: ");
+									telefone = scanner.nextLine();
+								 }
+							  } while (telefone.isEmpty());
+
+							  telefoneIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, telefone, tipo);
+						   } while (telefoneIgual == 1);
+						}
+
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
+
+						do {
+						   if (matricula.isEmpty()) {
+							  System.out.println("Você precisa inserir uma matricula válido!\n");
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine();
+						   }
+						} while (matricula.isEmpty());
+
+						tipo = 2;
+						matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+
+						if (matriculaIgual == 1) {
 						   do {
 							  System.out.println("\nEssa matricula já pertence a um professor!");
 							  System.out.println("Insira uma matricula válida!\n");
@@ -182,8 +248,8 @@ public class AplicacaoBiblioteca {
 								 }
 							  } while (matricula.isEmpty());
 
-							  matriculaDupla = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
-						   } while (matriculaDupla == 1);
+							  matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+						   } while (matriculaIgual == 1);
 						}
 
 						do {
@@ -236,10 +302,54 @@ public class AplicacaoBiblioteca {
 						break;
 
 					 case 3:
-						tipo = 3;
-						matriculaDupla = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+						System.out.print("TELEFONE: ");
+						telefone = scanner.nextLine();
 
-						if (matriculaDupla == 1) {
+						do {
+						   if (telefone.isEmpty()) {
+							  System.out.println("Você precisa inserir um telefone válido!\n");
+							  System.out.print("TELEFONE: ");
+							  telefone = scanner.nextLine();
+						   }
+						} while (telefone.isEmpty());
+
+						tipo = 3;
+						telefoneIgual = Login.telefoneDuplicado(alunos, professores, bibliotecarios, telefone, tipo);
+
+						if (telefoneIgual == 1) {
+						   do {
+							  System.out.println("\nEsse telefone já foi cadastrado!");
+							  System.out.println("Insira um telefone válida!\n");
+							  System.out.print("TELEFONE: ");
+							  telefone = scanner.nextLine();
+
+							  do {
+								 if (telefone.isEmpty()) {
+									System.out.println("Você precisa inserir um telefone válido!\n");
+									System.out.print("TELEFONE: ");
+									telefone = scanner.nextLine();
+								 }
+							  } while (telefone.isEmpty());
+
+							  telefoneIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, telefone, tipo);
+						   } while (telefoneIgual == 1);
+						}
+
+						System.out.print("MATRICULA: ");
+						matricula = scanner.nextLine();
+
+						do {
+						   if (matricula.isEmpty()) {
+							  System.out.println("Você precisa inserir uma matricula válido!\n");
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine();
+						   }
+						} while (matricula.isEmpty());
+
+						tipo = 3;
+						matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+
+						if (matriculaIgual == 1) {
 						   do {
 							  System.out.println("\nEssa matricula já pertence a um bibliotecario!");
 							  System.out.println("Insira uma matricula válida!\n");
@@ -254,8 +364,8 @@ public class AplicacaoBiblioteca {
 								 }
 							  } while (matricula.isEmpty());
 
-							  matriculaDupla = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
-						   } while (matriculaDupla == 1);
+							  matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+						   } while (matriculaIgual == 1);
 						}
 
 						do {

@@ -63,6 +63,31 @@ public final class Login {
 	  }
    }
 
+   public static int telefoneDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String telefone, int tipo) {
+	  if (tipo == 1) {
+		 for (Aluno aluno : listaAlunos) {
+			if (aluno.getTelefone().equalsIgnoreCase(telefone)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else if (tipo == 2) {
+		 for(Professor professor : listaProfessores){
+			if(professor.getTelefone().equalsIgnoreCase(telefone)){
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else {
+		 for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			if (bibliotecario.getTelefone().equalsIgnoreCase(telefone)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  }
+   }
+
    public static void emprestimoLivroAluno(ArrayList<Livro> listaLivros, String titulo, ArrayList<Aluno> listaAluno, String email) {
 
 
