@@ -3,7 +3,6 @@ package service;
 import model.Aluno;
 import model.Professor;
 import model.Bibliotecario;
-import model.Usuario;
 
 import java.util.ArrayList;
 
