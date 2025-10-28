@@ -275,6 +275,195 @@ public final class Login {
 	  System.out.println("Não encontramos este livro disponível!");
    }
 
+   public static void renovarLivroAluno (ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
+
+       String email, titulo;
+
+       System.out.print("Confirme seu EMAIL: ");
+       email = scanner.nextLine();
+
+       do {
+           if (email.isEmpty()) {
+               System.out.println("Você precisa inserir um email válido!\n");
+               System.out.print("EMAIL: ");
+               email = scanner.nextLine();
+           }
+       } while (email.isEmpty());
+
+       Aluno aluno = Login.buscarAlunoPorEmail(listaAlunos, email);
+
+       if (aluno == null) {
+           System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
+       }
+       do {
+           int op;
+           System.out.println("1 - Inserir novamente.");
+           System.out.println("2 - Retornar ao menu anterior.");
+           System.out.print("Digite aqui: ");
+           op = scanner.nextInt();
+           scanner.nextLine();
+
+           if (op == 1) {
+               System.out.print("\nConfirme seu EMAIL: ");
+               email = scanner.nextLine();
+               aluno = Login.buscarAlunoPorEmail(listaAlunos, email);
+               if (aluno == null) {
+                   System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
+               } else {
+                   break;
+               }
+           } else if (op == 2) {
+               return;
+           } else {
+               System.out.println("\nDesculpa, não entendi, digite uma das opções:\n");
+           }
+       } while (true);
+
+       System.out.print("\nDigite o título do livro que deseja renovar");
+       titulo = scanner.nextLine();
+
+       Livro livro = Login.buscarLivroPorNome(listaLivros, titulo);
+       if (livro == null) {
+           System.out.println("Livro não disponível no acervo!");
+           return;
+       }
+
+       Emprestimo emprestimo = Login.buscarEmprestimoPorAlunoETitulo(aluno, livro, listaEmprestimos);
+       if (emprestimo == null) {
+           System.out.println("Você não possui este livro emprestado!");
+           return;
+       }
+
+       emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+       System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
+   }
+
+   public static void renovarLivroProfessor (ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessores, ArrayList<Emprestimo> listaEmprestimos) {
+
+       String email, titulo;
+
+       System.out.print("Confirme seu EMAIL: ");
+       email = scanner.nextLine();
+
+       do {
+           if (email.isEmpty()) {
+               System.out.println("Você precisa inserir um email válido!\n");
+               System.out.print("EMAIL: ");
+               email = scanner.nextLine();
+           }
+       } while (email.isEmpty());
+
+       Professor professor = Login.buscarProfessorPorEmail(listaProfessores, email);
+
+       if (professor == null) {
+           System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
+       }
+       do {
+           int op;
+           System.out.println("1 - Inserir novamente.");
+           System.out.println("2 - Retornar ao menu anterior.");
+           System.out.print("Digite aqui: ");
+           op = scanner.nextInt();
+           scanner.nextLine();
+
+           if (op == 1) {
+               System.out.print("\nConfirme seu EMAIL: ");
+               email = scanner.nextLine();
+               professor = Login.buscarProfessorPorEmail(listaProfessores, email);
+               if (professor == null) {
+                   System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
+               } else {
+                   break;
+               }
+           } else if (op == 2) {
+               return;
+           } else {
+               System.out.println("\nDesculpa, não entendi, digite uma das opções:\n");
+           }
+       } while (true);
+
+       System.out.print("\nDigite o título do livro que deseja renovar");
+       titulo = scanner.nextLine();
+
+       Livro livro = Login.buscarLivroPorNome(listaLivros, titulo);
+       if (livro == null) {
+           System.out.println("Livro não disponível no acervo!");
+           return;
+       }
+
+       Emprestimo emprestimo = Login.buscarEmprestimoPorProfessorETitulo(professor, livro, listaEmprestimos);
+       if (emprestimo == null) {
+           System.out.println("Você não possui este livro emprestado!");
+           return;
+       }
+
+       emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+       System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
+   }
+
+   public static void renovarLivroBibliotecario (ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecarios, ArrayList<Emprestimo> listaEmprestimos) {
+
+       String email, titulo;
+
+       System.out.print("Confirme seu EMAIL: ");
+       email = scanner.nextLine();
+
+       do {
+           if (email.isEmpty()) {
+               System.out.println("Você precisa inserir um email válido!\n");
+               System.out.print("EMAIL: ");
+               email = scanner.nextLine();
+           }
+       } while (email.isEmpty());
+
+       Bibliotecario bibliotecario = Login.buscarBibliotecarioPorEmail(listaBibliotecarios, email);
+
+       if (bibliotecario == null) {
+           System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
+       }
+       do {
+           int op;
+           System.out.println("1 - Inserir novamente.");
+           System.out.println("2 - Retornar ao menu anterior.");
+           System.out.print("Digite aqui: ");
+           op = scanner.nextInt();
+           scanner.nextLine();
+
+           if (op == 1) {
+               System.out.print("\nConfirme seu EMAIL: ");
+               email = scanner.nextLine();
+               bibliotecario = Login.buscarBibliotecarioPorEmail(listaBibliotecarios, email);
+               if (bibliotecario == null) {
+                   System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
+               } else {
+                   break;
+               }
+           } else if (op == 2) {
+               return;
+           } else {
+               System.out.println("\nDesculpa, não entendi, digite uma das opções:\n");
+           }
+       } while (true);
+
+       System.out.print("\nDigite o título do livro que deseja renovar");
+       titulo = scanner.nextLine();
+
+       Livro livro = Login.buscarLivroPorNome(listaLivros, titulo);
+       if (livro == null) {
+           System.out.println("Livro não disponível no acervo!");
+           return;
+       }
+
+       Emprestimo emprestimo = Login.buscarEmprestimoPorBibliotecarioETitulo(bibliotecario, livro, listaEmprestimos);
+       if (emprestimo == null) {
+           System.out.println("Você não possui este livro emprestado!");
+           return;
+       }
+
+       emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+       System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
+   }
+
    public static void dadosLivrosAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, String titulo) {
 	  
 
