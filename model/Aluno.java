@@ -25,9 +25,4 @@ public class Aluno extends Usuario {
     public void setLimiteLivro(int limiteLivro) {
         this.limiteLivro = limiteLivro;
     }
-
-    @Override
-    public String toString() {
-        return "Aluno: " + getNome() + " | Curso: " + curso + " | Limite de livros: " + limiteLivro;
-    }
 }
