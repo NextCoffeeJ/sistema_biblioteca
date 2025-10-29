@@ -10,7 +10,7 @@ import controller.Login;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
-	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual;
+	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual;
 	  String nome="desconehecido" , cpf="desconehecido", email, telefone="desconehecido", matricula="desconehecido", senha;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 
@@ -18,6 +18,7 @@ public class AplicacaoBiblioteca {
 	  ArrayList<Professor> professores = new ArrayList<>();
 	  ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
 	  ArrayList<Livro> livros = new ArrayList<>();
+	  ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
 	  Scanner scanner = new Scanner(System.in);
 
@@ -55,21 +56,42 @@ public class AplicacaoBiblioteca {
 						   nome = scanner.nextLine();
 						}
 					 } while (nome.isEmpty());
-
-					 System.out.print("CPF: ");
-					 cpf = scanner.nextLine();
-
-					 do {
-						if (cpf.isEmpty()) {
-						   System.out.println("Você precisa inserir um cpf válido!\n");
-						   System.out.print("CPF: ");
-						   cpf = scanner.nextLine();
-						}
-					 } while (cpf.isEmpty());
 				  }
-
 				  switch (escolhaCadastro) {
 					 case 1:
+						System.out.print("CPF: ");
+						cpf = scanner.nextLine();
+
+						do {
+						   if (cpf.isEmpty()) {
+							  System.out.println("Você precisa inserir um cpf válido!\n");
+							  System.out.print("CPF: ");
+							  cpf = scanner.nextLine();
+						   }
+						} while (cpf.isEmpty());
+
+						tipo = 1;
+						cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+
+						if (cpfIgual == 1) {
+						   do {
+							  System.out.println("\nEsse cpf já foi cadastrado!");
+							  System.out.println("Insira um cpf válida!\n");
+							  System.out.print("CPF: ");
+							  cpf = scanner.nextLine();
+
+							  do {
+								 if (cpf.isEmpty()) {
+									System.out.println("Você precisa inserir um cpf válido!\n");
+									System.out.print("CPF: ");
+									cpf = scanner.nextLine();
+								 }
+							  } while (cpf.isEmpty());
+
+							  cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+						   } while (cpfIgual == 1);
+						}
+
 						System.out.print("TELEFONE: ");
 						telefone = scanner.nextLine();
 
@@ -186,6 +208,39 @@ public class AplicacaoBiblioteca {
 						break;
 
 					 case 2:
+						System.out.print("CPF: ");
+						cpf = scanner.nextLine();
+
+						do {
+						   if (cpf.isEmpty()) {
+							  System.out.println("Você precisa inserir um cpf válido!\n");
+							  System.out.print("CPF: ");
+							  cpf = scanner.nextLine();
+						   }
+						} while (cpf.isEmpty());
+
+						tipo = 2;
+						cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+
+						if (cpfIgual == 1) {
+						   do {
+							  System.out.println("\nEsse cpf já foi cadastrado!");
+							  System.out.println("Insira um cpf válida!\n");
+							  System.out.print("CPF: ");
+							  cpf = scanner.nextLine();
+
+							  do {
+								 if (cpf.isEmpty()) {
+									System.out.println("Você precisa inserir um cpf válido!\n");
+									System.out.print("CPF: ");
+									cpf = scanner.nextLine();
+								 }
+							  } while (cpf.isEmpty());
+
+							  cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+						   } while (cpfIgual == 1);
+						}
+
 						System.out.print("TELEFONE: ");
 						telefone = scanner.nextLine();
 
@@ -302,6 +357,39 @@ public class AplicacaoBiblioteca {
 						break;
 
 					 case 3:
+						System.out.print("CPF: ");
+						cpf = scanner.nextLine();
+
+						do {
+						   if (cpf.isEmpty()) {
+							  System.out.println("Você precisa inserir um cpf válido!\n");
+							  System.out.print("CPF: ");
+							  cpf = scanner.nextLine();
+						   }
+						} while (cpf.isEmpty());
+
+						tipo = 3;
+						cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+
+						if (cpfIgual == 1) {
+						   do {
+							  System.out.println("\nEsse cpf já foi cadastrado!");
+							  System.out.println("Insira um cpf válida!\n");
+							  System.out.print("CPF: ");
+							  cpf = scanner.nextLine();
+
+							  do {
+								 if (cpf.isEmpty()) {
+									System.out.println("Você precisa inserir um cpf válido!\n");
+									System.out.print("CPF: ");
+									cpf = scanner.nextLine();
+								 }
+							  } while (cpf.isEmpty());
+
+							  cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+						   } while (cpfIgual == 1);
+						}
+
 						System.out.print("TELEFONE: ");
 						telefone = scanner.nextLine();
 
@@ -564,18 +652,7 @@ public class AplicacaoBiblioteca {
 							  System.out.println("Vendo multas");
 							  break;
 						   case 6:
-							  System.out.print("TITULO: ");
-							  titulo = scanner.nextLine();
-
-							  do {
-								 if (titulo.isEmpty()) {
-									System.out.println("Informe um titulo válido!");
-									System.out.print("TITULO: ");
-									titulo = scanner.nextLine();
-								 }
-							  } while (titulo.isEmpty());
-
-							  Login.dadosLivrosAluno(livros, alunos, titulo);
+							  Login.dadosLivrosAluno(livros);
 							  break;
 						   case 7:
 							  System.out.print("MATRICULA: ");

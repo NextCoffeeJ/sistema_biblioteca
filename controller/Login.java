@@ -88,6 +88,31 @@ public final class Login {
 	  }
    }
 
+   public static int cpfDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String cpf, int tipo) {
+	  if (tipo == 1) {
+		 for (Aluno aluno : listaAlunos) {
+			if (aluno.getCpf().equalsIgnoreCase(cpf)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else if (tipo == 2) {
+		 for(Professor professor : listaProfessores){
+			if(professor.getCpf().equalsIgnoreCase(cpf)){
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else {
+		 for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			if (bibliotecario.getCpf().equalsIgnoreCase(cpf)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  }
+   }
+
    public static void emprestimoLivroAluno(ArrayList<Livro> listaLivros, String titulo, ArrayList<Aluno> listaAluno, String email) {
 
 
@@ -512,64 +537,8 @@ public final class Login {
 	  System.out.println("Não encontramos este livro disponível!");
    }
 
-   public static void dadosLivrosAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, String titulo) {
+   public static void dadosLivrosAluno(ArrayList<Livro> listaLivros) {
 
-
-	  Aluno aluno = null;
-	  while (aluno == null) {
-		 System.out.print("Confirme seu EMAIL: ");
-		 String email = scanner.nextLine();
-
-		 do {
-			if (email.isEmpty()) {
-			   System.out.println("Você precisa inserir um email válido!\n");
-			   System.out.print("EMAIL: ");
-			   email = scanner.nextLine();
-			}
-		 } while (email.isEmpty());
-
-		 aluno = Login.buscarAlunoPorEmail(listaAluno, email);
-
-		 if (aluno == null) {
-			System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
-			System.out.println("1 - Inserir novamente.");
-			System.out.println("2 - Retornar ao menu anterior.");
-			System.out.print("Digite aqui: ");
-			int op = scanner.nextInt();
-			scanner.nextLine();
-
-			if (op == 2) {
-			   return;
-			} else {
-			   System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-			}
-		 }
-	  }
-
-	  Livro livroEncontrado = null;
-	  for (Livro livro : listaLivros) {
-		 if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-			livroEncontrado = livro;
-			break;
-		 }
-	  }
-
-	  if (livroEncontrado == null) {
-		 System.out.println("Livro não encontrado!");
-		 return;
-	  }
-
-	  if (aluno.getLimiteLivros() == 3) {
-		 System.out.println("Você ainda não pegou nenhum livro!");
-	  } else {
-		 System.out.println("\nTÍTULO: " + livroEncontrado.getTitulo());
-		 System.out.println("AUTOR: " + livroEncontrado.getAutor());
-		 System.out.println("EDITORA: " + livroEncontrado.getEditora());
-		 System.out.println("ISBN: " + livroEncontrado.getIsbn());
-		 System.out.println("ANO PUBLICAÇÃO: " + livroEncontrado.getAnoPublicacao());
-		 System.out.println("CATEGORIA: " + livroEncontrado.getCategoria());
-		 System.out.println("LOCALIZAÇÃO: " + livroEncontrado.getLocalizacao());
-	  }
    }
 
    public static void dadosLivrosProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor, String titulo) {
@@ -633,8 +602,6 @@ public final class Login {
    }
 
    public static void dadosLivrosBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario, String titulo) {
-
-
 	  Bibliotecario bibliotecario = null;
 	  while (bibliotecario == null) {
 		 System.out.print("Confirme seu EMAIL: ");
