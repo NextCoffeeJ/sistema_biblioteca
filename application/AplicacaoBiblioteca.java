@@ -628,7 +628,7 @@ public class AplicacaoBiblioteca {
                                         do {
                                             int escolhaLivro;
 
-                                            if(aluno.getLimiteLivros()==0){
+                                            if(aluno.getLimiteLivros() == 0){
                                                 System.out.println("Voce não pode fazer mais emprestimos.");
                                                 System.out.println("Voce so pode pegar 2 livros emprestados ao mesmo tempo.");
                                                 System.out.println("Voce atingiu o limite de livros maximo.");
@@ -646,23 +646,24 @@ public class AplicacaoBiblioteca {
                                             if (titulo.isEmpty()) {
                                                 System.out.println("Titulo inválido!");
                                                 System.out.println("Deseja continuar? ");
-                                                System.out.println("1- sim");
-                                                System.out.println("2- nao");
+                                                System.out.println("1 - sim");
+                                                System.out.println("2 - nao");
                                                 escolhaLivro= scanner.nextInt();
                                                 scanner.nextLine();
 
-                                                if(escolhaLivro==2){
+                                                if (escolhaLivro == 2){
                                                     break;
                                                 }
 
                                             }
 
-                                            else if(livro==null){
+                                            else if (livro == null){
 
                                                 System.out.println("O Livro nao presente no acervo.");
                                                 System.out.println("Deseja continuar? ");
-                                                System.out.println("1- sim");
-                                                System.out.println("2- nao");
+                                                System.out.println("1 - Sim.");
+                                                System.out.println("2 - Não.");
+											   	System.out.print("Digite aqui: ");
                                                 escolhaLivro= scanner.nextInt();
                                                 scanner.nextLine();
 
@@ -677,24 +678,26 @@ public class AplicacaoBiblioteca {
                                                     System.out.println("Nao ha nenhum livro disponivel.");
 
                                                     System.out.println("Deseja continuar? ");
-                                                    System.out.println("1- sim");
-                                                    System.out.println("2- nao");
-                                                    escolhaLivro= scanner.nextInt();
+												    System.out.println("1 - Sim.");
+												    System.out.println("2 - Não.");
+												    System.out.print("Digite aqui: ");
+                                                    escolhaLivro = scanner.nextInt();
                                                     scanner.nextLine();
 
-                                                    if(escolhaLivro==2){
+                                                    if(escolhaLivro == 2){
                                                         break;
                                                     }
                                                 }
                                                 else if(Login.buscarEmprestimoPorAlunoETitulo(aluno,livro,emprestimos)!=null){
                                                     System.out.println("Voce ja fez  o emprestimo desse livro.");
                                                     System.out.println("Deseja continuar? ");
-                                                    System.out.println("1- sim");
-                                                    System.out.println("2- nao");
-                                                    escolhaLivro= scanner.nextInt();
+												    System.out.println("1 - Sim.");
+												    System.out.println("2 - Não.");
+												    System.out.print("Digite aqui: ");
+                                                    escolhaLivro = scanner.nextInt();
                                                     scanner.nextLine();
 
-                                                    if(escolhaLivro==2){
+                                                    if(escolhaLivro == 2){
                                                         break;
                                                     }
 
@@ -711,12 +714,8 @@ public class AplicacaoBiblioteca {
                                                 }
                                             }
 
-
-
                                         }while (true);
-
                                         break;
-
                                     case 2:
                                         System.out.println("Vendo livros disponiveis: ");
                                         Login.mostrarLivrosDisponiveis(livros);
@@ -733,19 +732,8 @@ public class AplicacaoBiblioteca {
                                         System.out.println("Vendo multas (Aluno): ");
                                         Login.verMultasAluno(livros, alunos, emprestimos);
                                         break;
-                                    case 6:
-                                        System.out.print("TITULO: ");
-                                        titulo = scanner.nextLine();
-
-                                        do {
-                                            if (titulo.isEmpty()) {
-                                                System.out.println("Informe um titulo válido!");
-                                                System.out.print("TITULO: ");
-                                                titulo = scanner.nextLine();
-                                            }
-                                        } while (titulo.isEmpty());
-
-                                        Login.dadosLivrosAluno(livros, alunos, titulo);
+								   case 6:
+									  Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
                                         System.out.println("Logout realizado com sucesso.");
@@ -940,19 +928,7 @@ public class AplicacaoBiblioteca {
                                         Login.verMultasProfessor(livros, professores, emprestimos);
                                         break;
                                     case 6:
-                                        System.out.print("TITULO: ");
-                                        titulo = scanner.nextLine();
-
-                                        do {
-                                            if (titulo.isEmpty()) {
-                                                System.out.println("Informe um titulo válido!");
-                                                System.out.print("TITULO: ");
-                                                titulo = scanner.nextLine();
-                                            }
-                                        } while (titulo.isEmpty());
-
-
-                                        Login.dadosLivrosProfessor(livros, professores, titulo);
+									   Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
                                         System.out.println("Logout realizado com sucesso.");
@@ -1149,20 +1125,7 @@ public class AplicacaoBiblioteca {
                                         Login.verMultasBibliotecario(livros, bibliotecarios, emprestimos);
                                         break;
                                     case 6:
-                                        System.out.print("TITULO: ");
-                                        titulo = scanner.nextLine();
-
-
-                                        do {
-                                            if (titulo.isEmpty()) {
-                                                System.out.println("Informe um titulo válido!");
-                                                System.out.print("TITULO: ");
-                                                titulo = scanner.nextLine();
-                                            }
-                                        } while (titulo.isEmpty());
-
-
-                                        Login.dadosLivrosBibliotecario(livros, bibliotecarios, titulo);
+									   Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
                                         System.out.println("Logout realizado com sucesso.");
