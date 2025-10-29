@@ -444,7 +444,7 @@ public final class Login {
             return;
         }
 
-        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+//        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
     }
 
@@ -507,7 +507,7 @@ public final class Login {
             return;
         }
 
-        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+//        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
     }
 
@@ -570,7 +570,7 @@ public final class Login {
             return;
         }
 
-        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+//        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
     }
 
@@ -628,184 +628,21 @@ public final class Login {
         }
     }
 
-    public static void dadosLivrosAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, String titulo) {
-
-
-        Aluno aluno = null;
-        while (aluno == null) {
-            System.out.print("Confirme seu EMAIL: ");
-            String email = scanner.nextLine();
-
-            do {
-                if (email.isEmpty()) {
-                    System.out.println("Você precisa inserir um email válido!\n");
-                    System.out.print("EMAIL: ");
-                    email = scanner.nextLine();
-                }
-            } while (email.isEmpty());
-
-            aluno = Login.buscarAlunoPorEmail(listaAluno, email);
-
-            if (aluno == null) {
-                System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
-                System.out.println("1 - Inserir novamente.");
-                System.out.println("2 - Retornar ao menu anterior.");
-                System.out.print("Digite aqui: ");
-                int op = scanner.nextInt();
-                scanner.nextLine();
-
-                if (op == 2) {
-                    return;
-                } else {
-                    System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-                }
-            }
-        }
-
-        Livro livroEncontrado = null;
-        for (Livro livro : listaLivros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livroEncontrado = livro;
-                break;
-            }
-        }
-
-        if (livroEncontrado == null) {
-            System.out.println("Livro não encontrado!");
-            return;
-        }
-
-        if (aluno.getLimiteLivros() == 3) {
-            System.out.println("Você ainda não pegou nenhum livro!");
-        } else {
-            System.out.println("\nTÍTULO: " + livroEncontrado.getTitulo());
-            System.out.println("AUTOR: " + livroEncontrado.getAutor());
-            System.out.println("EDITORA: " + livroEncontrado.getEditora());
-            System.out.println("ISBN: " + livroEncontrado.getIsbn());
-            System.out.println("ANO PUBLICAÇÃO: " + livroEncontrado.getAnoPublicacao());
-            System.out.println("CATEGORIA: " + livroEncontrado.getCategoria());
-            System.out.println("LOCALIZAÇÃO: " + livroEncontrado.getLocalizacao());
-        }
-    }
-
-    public static void dadosLivrosProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor, String titulo) {
-
-
-        Professor professor = null;
-        while (professor == null) {
-            System.out.print("Confirme seu EMAIL: ");
-            String email = scanner.nextLine();
-
-            do {
-                if (email.isEmpty()) {
-                    System.out.println("Você precisa inserir um email válido!\n");
-                    System.out.print("EMAIL: ");
-                    email = scanner.nextLine();
-                }
-            } while (email.isEmpty());
-
-            professor = Login.buscarProfessorPorEmail(listaProfessor, email);
-
-            if (professor == null) {
-                System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
-                System.out.println("1 - Inserir novamente.");
-                System.out.println("2 - Retornar ao menu anterior.");
-                System.out.print("Digite aqui: ");
-                int op = scanner.nextInt();
-                scanner.nextLine();
-
-                if (op == 2) {
-                    return;
-                } else {
-                    System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-                }
-            }
-        }
-
-        Livro livroEncontrado = null;
-        for (Livro livro : listaLivros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livroEncontrado = livro;
-                break;
-            }
-        }
-
-        if (livroEncontrado == null) {
-            System.out.println("Livro não encontrado!");
-            return;
-        }
-
-        if (professor.getLimiteLivros() == 10) {
-            System.out.println("Você ainda não pegou nenhum livro!");
-        } else {
-            System.out.println("\nTÍTULO: " + livroEncontrado.getTitulo());
-            System.out.println("AUTOR: " + livroEncontrado.getAutor());
-            System.out.println("EDITORA: " + livroEncontrado.getEditora());
-            System.out.println("ISBN: " + livroEncontrado.getIsbn());
-            System.out.println("ANO PUBLICAÇÃO: " + livroEncontrado.getAnoPublicacao());
-            System.out.println("CATEGORIA: " + livroEncontrado.getCategoria());
-            System.out.println("LOCALIZAÇÃO: " + livroEncontrado.getLocalizacao());
-        }
-    }
-
-    public static void dadosLivrosBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario, String titulo) {
-
-
-        Bibliotecario bibliotecario = null;
-        while (bibliotecario == null) {
-            System.out.print("Confirme seu EMAIL: ");
-            String email = scanner.nextLine();
-
-            do {
-                if (email.isEmpty()) {
-                    System.out.println("Você precisa inserir um email válido!\n");
-                    System.out.print("EMAIL: ");
-                    email = scanner.nextLine();
-                }
-            } while (email.isEmpty());
-
-            bibliotecario = Login.buscarBibliotecarioPorEmail(listaBibliotecario, email);
-
-            if (bibliotecario == null) {
-                System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
-                System.out.println("1 - Inserir novamente.");
-                System.out.println("2 - Retornar ao menu anterior.");
-                System.out.print("Digite aqui: ");
-                int op = scanner.nextInt();
-                scanner.nextLine();
-
-                if (op == 2) {
-                    return;
-                } else {
-                    System.out.println("Desculpa, não entendi, digite uma das opções:\n");
-                }
-            }
-        }
-
-        Livro livroEncontrado = null;
-        for (Livro livro : listaLivros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livroEncontrado = livro;
-                break;
-            }
-        }
-
-        if (livroEncontrado == null) {
-            System.out.println("Livro não encontrado!");
-            return;
-        }
-
-        if (bibliotecario.getLimiteLivros() == 10) {
-            System.out.println("Você ainda não pegou nenhum livro!");
-        } else {
-            System.out.println("\nTÍTULO: " + livroEncontrado.getTitulo());
-            System.out.println("AUTOR: " + livroEncontrado.getAutor());
-            System.out.println("EDITORA: " + livroEncontrado.getEditora());
-            System.out.println("ISBN: " + livroEncontrado.getIsbn());
-            System.out.println("ANO PUBLICAÇÃO: " + livroEncontrado.getAnoPublicacao());
-            System.out.println("CATEGORIA: " + livroEncontrado.getCategoria());
-            System.out.println("LOCALIZAÇÃO: " + livroEncontrado.getLocalizacao());
-        }
+    public static void dadosLivrosUsuario(ArrayList<Emprestimo> listaEmprestimos, String email) {
+	   for (Emprestimo emprestimo : listaEmprestimos) {
+		  if (emprestimo.getUsuario().getEmail().equalsIgnoreCase(email)) {
+			 Livro livro = emprestimo.getLivro();
+			 System.out.println("Dados do Livro Emprestado:");
+			 System.out.println("Título: " + livro.getTitulo());
+			 System.out.println("Autor: " + livro.getAutor());
+			 System.out.println("Editora: " + livro.getEditora());
+			 System.out.println("ISBN: " + livro.getIsbn());
+			 System.out.println("Data de Empréstimo: " + emprestimo.getDataEmprestimo());
+			 System.out.println("Data Limite de Devolução: " + emprestimo.getDataLimiteDevolucao());
+			 return;
+		  }
+	   }
+	   System.out.println("Nenhum livro encontrado para o email informado.");
     }
 
     public static void mostrarLivros (ArrayList<Livro> listaLivros) {
