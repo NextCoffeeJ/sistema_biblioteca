@@ -295,7 +295,7 @@ public final class Login {
        if (aluno == null) {
            System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
        }
-       do {
+       while (aluno == null) {
            int op;
            System.out.println("1 - Inserir novamente.");
            System.out.println("2 - Retornar ao menu anterior.");
@@ -317,9 +317,9 @@ public final class Login {
            } else {
                System.out.println("\nDesculpa, não entendi, digite uma das opções:\n");
            }
-       } while (true);
+       }
 
-       System.out.print("\nDigite o título do livro que deseja renovar");
+       System.out.print("\nDigite o título do livro que deseja renovar: ");
        titulo = scanner.nextLine();
 
        Livro livro = Login.buscarLivroPorNome(listaLivros, titulo);
@@ -358,7 +358,7 @@ public final class Login {
        if (professor == null) {
            System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
        }
-       do {
+       while (professor == null) {
            int op;
            System.out.println("1 - Inserir novamente.");
            System.out.println("2 - Retornar ao menu anterior.");
@@ -380,7 +380,7 @@ public final class Login {
            } else {
                System.out.println("\nDesculpa, não entendi, digite uma das opções:\n");
            }
-       } while (true);
+       }
 
        System.out.print("\nDigite o título do livro que deseja renovar");
        titulo = scanner.nextLine();
@@ -421,7 +421,7 @@ public final class Login {
        if (bibliotecario == null) {
            System.out.println("\nEmail incorreto! Ou não cadastrado!\n");
        }
-       do {
+       while (bibliotecario == null) {
            int op;
            System.out.println("1 - Inserir novamente.");
            System.out.println("2 - Retornar ao menu anterior.");
@@ -443,7 +443,7 @@ public final class Login {
            } else {
                System.out.println("\nDesculpa, não entendi, digite uma das opções:\n");
            }
-       } while (true);
+       }
 
        System.out.print("\nDigite o título do livro que deseja renovar");
        titulo = scanner.nextLine();
