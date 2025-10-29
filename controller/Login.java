@@ -121,7 +121,7 @@ public final class Login {
 
     public static Emprestimo buscarEmprestimoPorAlunoETitulo(Aluno aluno, Livro livro, ArrayList<Emprestimo> listaEmprestimos){
         for(Emprestimo emprestimo:listaEmprestimos){
-            if(emprestimo.getLivro().getTitulo().equalsIgnoreCase(livro.getTitulo()) && aluno.getNome().equalsIgnoreCase(emprestimo.getAluno().getNome())){
+            if(emprestimo.getLivro().getTitulo().equalsIgnoreCase(livro.getTitulo()) && aluno.getNome().equalsIgnoreCase(emprestimo.getUsuario().getNome())){
                 return emprestimo;
             }
         }
@@ -130,7 +130,7 @@ public final class Login {
 
     public static Emprestimo buscarEmprestimoPorProfessorETitulo(Professor professor, Livro livro, ArrayList<Emprestimo> listaEmprestimos){
         for(Emprestimo emprestimo:listaEmprestimos){
-            if(emprestimo.getLivro().getTitulo().equalsIgnoreCase(livro.getTitulo()) && professor.getNome().equalsIgnoreCase(emprestimo.getProfessor().getNome())){
+            if(emprestimo.getLivro().getTitulo().equalsIgnoreCase(livro.getTitulo()) && professor.getNome().equalsIgnoreCase(emprestimo.getUsuario().getNome())){
                 return emprestimo;
             }
         }
@@ -139,7 +139,7 @@ public final class Login {
 
     public static Emprestimo buscarEmprestimoPorBibliotecarioETitulo(Bibliotecario bibliotecario, Livro livro, ArrayList<Emprestimo> listaEmprestimos){
         for(Emprestimo emprestimo:listaEmprestimos){
-            if(emprestimo.getLivro().getTitulo().equalsIgnoreCase(livro.getTitulo()) && bibliotecario.getNome().equalsIgnoreCase(emprestimo.getBibliotecario().getNome())){
+            if(emprestimo.getLivro().getTitulo().equalsIgnoreCase(livro.getTitulo()) && bibliotecario.getNome().equalsIgnoreCase(emprestimo.getUsuario().getNome())){
                 return emprestimo;
             }
         }
@@ -195,8 +195,8 @@ public final class Login {
 
         Emprestimo emprestimoEncontrado = null;
         for (Emprestimo emprestimo : listaEmprestimo) {
-            if (emprestimo.getAluno() != null &&
-                    emprestimo.getAluno().equals(aluno) &&
+            if (emprestimo.getUsuario() != null &&
+                    emprestimo.getUsuario().equals(aluno) &&
                     emprestimo.getLivro().getTitulo().equalsIgnoreCase(titulo)) {
                 emprestimoEncontrado = emprestimo;
                 break;
@@ -274,8 +274,8 @@ public final class Login {
 
         Emprestimo emprestimoEncontrado = null;
         for (Emprestimo emprestimo : listaEmprestimo) {
-            if (emprestimo.getProfessor() != null &&
-                    emprestimo.getProfessor().equals(professor) &&
+            if (emprestimo.getUsuario() != null &&
+                    emprestimo.getUsuario().equals(professor) &&
                     emprestimo.getLivro().getTitulo().equalsIgnoreCase(titulo)) {
                 emprestimoEncontrado = emprestimo;
                 break;
@@ -353,8 +353,8 @@ public final class Login {
 
         Emprestimo emprestimoEncontrado = null;
         for (Emprestimo emprestimo : listaEmprestimo) {
-            if (emprestimo.getBibliotecario() != null &&
-                    emprestimo.getBibliotecario().equals(bibliotecario) &&
+            if (emprestimo.getUsuario() != null &&
+                    emprestimo.getUsuario().equals(bibliotecario) &&
                     emprestimo.getLivro().getTitulo().equalsIgnoreCase(titulo)) {
                 emprestimoEncontrado = emprestimo;
                 break;
@@ -579,7 +579,7 @@ public final class Login {
             double totalMulta = 0;
 
             for (Emprestimo emprestimo : listaEmprestimos) {
-                if (emprestimo.getAluno() != null && emprestimo.getAluno().equals(aluno) && emprestimo.isAtrasado()) {
+                if (emprestimo.getUsuario() != null && emprestimo.getUsuario().equals(aluno) && emprestimo.isAtrasado()) {
                     totalMulta += 5;
                 }
             }
@@ -597,7 +597,7 @@ public final class Login {
             double totalMulta = 0;
 
             for(Emprestimo emprestimo : listaEmprestimos){
-                if(emprestimo.getProfessor() != null && emprestimo.getProfessor().equals(professor) && emprestimo.isAtrasado()) {
+                if(emprestimo.getUsuario() != null && emprestimo.getUsuario().equals(professor) && emprestimo.isAtrasado()) {
                     totalMulta += 5;
                 }
             }
@@ -615,7 +615,7 @@ public final class Login {
             double totalMulta = 0;
 
             for(Emprestimo emprestimo : listaEmprestimos){
-                if(emprestimo.getBibliotecario() != null && emprestimo.getBibliotecario().equals(bibliotecario) && emprestimo.isAtrasado()) {
+                if(emprestimo.getUsuario() != null && emprestimo.getUsuario().equals(bibliotecario) && emprestimo.isAtrasado()) {
                     totalMulta += 5;
                 }
             }
