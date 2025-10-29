@@ -637,6 +637,7 @@ public final class Login {
 			 System.out.println("Autor: " + livro.getAutor());
 			 System.out.println("Editora: " + livro.getEditora());
 			 System.out.println("ISBN: " + livro.getIsbn());
+			 System.out.println("Ano de publicação: " + livro.getAnoPublicacao());
 			 System.out.println("Data de Empréstimo: " + emprestimo.getDataEmprestimo());
 			 System.out.println("Data Limite de Devolução: " + emprestimo.getDataLimiteDevolucao());
 			 return;
