@@ -466,6 +466,7 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 4:
                                         System.out.println("Renovando Livro.");
+                                        Login.renovarLivroAluno(livros, alunos, emprestimos);
                                         break;
                                     case 5:
                                         System.out.println("Vendo multas");
@@ -670,6 +671,7 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 4:
                                         System.out.println("Renovando Livro.");
+                                        Login.renovarLivroProfessor(livros, professores, emprestimos);
                                         break;
                                     case 5:
                                         System.out.println("Vendo multas");
@@ -877,6 +879,7 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 4:
                                         System.out.println("Renovando Livro.");
+                                        Login.renovarLivroBibliotecario(livros, bibliotecarios, emprestimos);
                                         break;
                                     case 5:
                                         System.out.println("Vendo multas");
