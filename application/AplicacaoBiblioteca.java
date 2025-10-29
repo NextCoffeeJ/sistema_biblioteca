@@ -462,14 +462,15 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 3:
                                         System.out.println("Devolvendo Livro.");
-                                        Login.devolverLivroAluno(livros, alunos);
+                                        Login.devolverLivroAluno(livros, alunos, emprestimos);
                                         break;
                                     case 4:
                                         System.out.println("Renovando Livro.");
                                         Login.renovarLivroAluno(livros, alunos, emprestimos);
                                         break;
                                     case 5:
-                                        System.out.println("Vendo multas");
+                                        System.out.println("Vendo multas (Aluno): ");
+                                        Login.verMultasAluno(livros, alunos, emprestimos);
                                         break;
                                     case 6:
                                         System.out.print("TITULO: ");
@@ -667,14 +668,15 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 3:
                                         System.out.println("Devolvendo Livro.");
-                                        Login.devolverLivroProfessor(livros, professores);
+                                        Login.devolverLivroProfessor(livros, professores, emprestimos);
                                         break;
                                     case 4:
                                         System.out.println("Renovando Livro.");
                                         Login.renovarLivroProfessor(livros, professores, emprestimos);
                                         break;
                                     case 5:
-                                        System.out.println("Vendo multas");
+                                        System.out.println("Vendo multas (Professor): ");
+                                        Login.verMultasProfessor(livros, professores, emprestimos);
                                         break;
                                     case 6:
                                         System.out.print("TITULO: ");
@@ -875,14 +877,15 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 3:
                                         System.out.println("Devolvendo Livro.");
-                                        Login.devolverLivroBibliotecario(livros, bibliotecarios);
+                                        Login.devolverLivroBibliotecario(livros, bibliotecarios, emprestimos);
                                         break;
                                     case 4:
                                         System.out.println("Renovando Livro.");
                                         Login.renovarLivroBibliotecario(livros, bibliotecarios, emprestimos);
                                         break;
                                     case 5:
-                                        System.out.println("Vendo multas");
+                                        System.out.println("Vendo multas (Bibliotecário): ");
+                                        Login.verMultasBibliotecario(livros, bibliotecarios, emprestimos);
                                         break;
                                     case 6:
                                         System.out.print("TITULO: ");
