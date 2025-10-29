@@ -35,6 +35,81 @@ public final class Login {
         return null;
     }
 
+   public static int matriculaDuplicada (ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String matricula, int tipo) {
+	  if (tipo == 1) {
+		 for (Aluno aluno : listaAlunos) {
+			if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else if (tipo == 2) {
+		 for(Professor professor : listaProfessores){
+			if(professor.getMatricula().equalsIgnoreCase(matricula)){
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else {
+		 for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			if (bibliotecario.getMatricula().equalsIgnoreCase(matricula)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  }
+   }
+
+   public static int telefoneDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String telefone, int tipo) {
+	  if (tipo == 1) {
+		 for (Aluno aluno : listaAlunos) {
+			if (aluno.getTelefone().equalsIgnoreCase(telefone)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else if (tipo == 2) {
+		 for(Professor professor : listaProfessores){
+			if(professor.getTelefone().equalsIgnoreCase(telefone)){
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else {
+		 for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			if (bibliotecario.getTelefone().equalsIgnoreCase(telefone)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  }
+   }
+
+   public static int cpfDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String cpf, int tipo) {
+	  if (tipo == 1) {
+		 for (Aluno aluno : listaAlunos) {
+			if (aluno.getCpf().equalsIgnoreCase(cpf)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else if (tipo == 2) {
+		 for(Professor professor : listaProfessores){
+			if(professor.getCpf().equalsIgnoreCase(cpf)){
+			   return 1;
+			}
+		 }
+		 return 0;
+	  } else {
+		 for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			if (bibliotecario.getCpf().equalsIgnoreCase(cpf)) {
+			   return 1;
+			}
+		 }
+		 return 0;
+	  }
+   }
+
     public static Livro  buscarLivroPorNome(ArrayList<Livro> listaLivros,String titulo){
         for(Livro livro : listaLivros){
             if(livro.getTitulo().equalsIgnoreCase(titulo)){

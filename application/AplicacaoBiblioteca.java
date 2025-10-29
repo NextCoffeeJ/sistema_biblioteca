@@ -11,239 +11,500 @@ import java.time.LocalDate;
 
 public class AplicacaoBiblioteca {
     public static void main(String[] args) {
-        int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao;
-        String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha;
-        String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
-        LocalDate dataEmprestimo,dataLimiteDevolucao;
-        //   LocalDate dataDevolucao;
+	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual;
+	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha;
+	   String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
+	   LocalDate dataEmprestimo,dataLimiteDevolucao;
+	   //   LocalDate dataDevolucao;
 
-        ArrayList<Aluno> alunos = new ArrayList<>();
-        ArrayList<Professor> professores = new ArrayList<>();
-        ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
-        ArrayList<Livro> livros = new ArrayList<>();
-        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+	   ArrayList<Aluno> alunos = new ArrayList<>();
+	   ArrayList<Professor> professores = new ArrayList<>();
+	   ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
+	   ArrayList<Livro> livros = new ArrayList<>();
+	   ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
-        Scanner scanner = new Scanner(System.in);
+	   Scanner scanner = new Scanner(System.in);
 
-        do {
-            System.out.println("\n--- OPCOES ---");
-            System.out.println("1 - Cadastrar");
-            System.out.println("2 - Login");
-            System.out.println("0 - Encerrar");
-            System.out.print("Qual opcao deseja: ");
-            escolha = scanner.nextInt();
-            scanner.nextLine();
+	   do {
+		  System.out.println("\n--- OPCOES ---");
+		  System.out.println("1 - Cadastrar");
+		  System.out.println("2 - Login");
+		  System.out.println("0 - Encerrar");
+		  System.out.print("Qual opcao deseja: ");
+		  escolha = scanner.nextInt();
+		  scanner.nextLine();
 
-            switch (escolha) {
-                case 1:
-                    System.out.println("\n--- CADASTRO ---");
-                    do {
-                        System.out.println("Escolha o tipo de cadastro:");
-                        System.out.println("1 - Aluno");
-                        System.out.println("2 - Professor");
-                        System.out.println("3 - Bibliotecario");
-                        System.out.print("Opcao: ");
-                        escolhaCadastro = scanner.nextInt();
-                        scanner.nextLine();
+		  switch (escolha) {
+			 case 1:
+				System.out.println("\n--- CADASTRO ---");
+				do {
+				   System.out.println("Escolha o tipo de cadastro:");
+				   System.out.println("1 - Aluno");
+				   System.out.println("2 - Professor");
+				   System.out.println("3 - Bibliotecario");
+				   System.out.print("Opcao: ");
+				   escolhaCadastro = scanner.nextInt();
+				   scanner.nextLine();
 
-                        if(escolhaCadastro==1|| escolhaCadastro==2 || escolhaCadastro==3){
+				   if(escolhaCadastro == 1 || escolhaCadastro == 2 || escolhaCadastro == 3){
 
-                            System.out.println("\nInsira suas informações:\n");
-                            System.out.print("NOME: ");
-                            nome = scanner.nextLine();
+					  System.out.println("\nInsira suas informações:\n");
+					  System.out.print("NOME: ");
+					  nome = scanner.nextLine();
 
-                            do {
-                                if (nome.isEmpty()) {
-                                    System.out.println("\nVocê precisa inserir um nome válido!\n");
-                                    System.out.print("NOME: ");
-                                    nome = scanner.nextLine();
-                                }
-                            } while (nome.isEmpty());
+					  do {
+						 if (nome.isEmpty()) {
+							System.out.println("\nVocê precisa inserir um nome válido!\n");
+							System.out.print("NOME: ");
+							nome = scanner.nextLine();
+						 }
+					  } while (nome.isEmpty());
+				   }
+				   switch (escolhaCadastro) {
+					  case 1:
+						 System.out.print("CPF: ");
+						 cpf = scanner.nextLine();
 
-                            System.out.print("CPF: ");
-                            cpf = scanner.nextLine();
+						 do {
+							if (cpf.isEmpty()) {
+							   System.out.println("Você precisa inserir um cpf válido!\n");
+							   System.out.print("CPF: ");
+							   cpf = scanner.nextLine();
+							}
+						 } while (cpf.isEmpty());
 
-                            do {
-                                if (cpf.isEmpty()) {
-                                    System.out.println("Você precisa inserir um cpf válido!\n");
-                                    System.out.print("CPF: ");
-                                    cpf = scanner.nextLine();
-                                }
-                            } while (cpf.isEmpty());
+						 tipo = 1;
+						 cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
 
-                            System.out.print("TELEFONE: ");
-                            telefone = scanner.nextLine();
+						 if (cpfIgual == 1) {
+							do {
+							   System.out.println("\nEsse cpf já foi cadastrado!");
+							   System.out.println("Insira um cpf válida!\n");
+							   System.out.print("CPF: ");
+							   cpf = scanner.nextLine();
 
-                            do {
-                                if (telefone.isEmpty()) {
-                                    System.out.println("Você precisa inserir um telefone válido!\n");
-                                    System.out.print("TELEFONE: ");
-                                    telefone = scanner.nextLine();
-                                }
-                            } while (telefone.isEmpty());
+							   do {
+								  if (cpf.isEmpty()) {
+									 System.out.println("Você precisa inserir um cpf válido!\n");
+									 System.out.print("CPF: ");
+									 cpf = scanner.nextLine();
+								  }
+							   } while (cpf.isEmpty());
 
+							   cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+							} while (cpfIgual == 1);
+						 }
 
+						 System.out.print("TELEFONE: ");
+						 telefone = scanner.nextLine();
 
-                            System.out.print("MATRICULA: ");
-                            matricula = scanner.nextLine();
+						 do {
+							if (telefone.isEmpty()) {
+							   System.out.println("Você precisa inserir um telefone válido!\n");
+							   System.out.print("TELEFONE: ");
+							   telefone = scanner.nextLine();
+							}
+						 } while (telefone.isEmpty());
 
-                            do {
-                                if (matricula.isEmpty()) {
-                                    System.out.println("Você precisa inserir uma matricula válido!\n");
-                                    System.out.print("MATRICULA: ");
-                                    matricula = scanner.nextLine();
-                                }
-                            } while (matricula.isEmpty());
-                        }
+						 tipo = 1;
+						 telefoneIgual = Login.telefoneDuplicado(alunos, professores, bibliotecarios, telefone, tipo);
 
-                        switch (escolhaCadastro) {
-                            case 1:
-                                do {
-                                    System.out.print("EMAIL: ");
-                                    email = scanner.nextLine();
+						 if (telefoneIgual == 1) {
+							do {
+							   System.out.println("\nEsse telefone já foi cadastrado!");
+							   System.out.println("Insira um telefone válida!\n");
+							   System.out.print("TELEFONE: ");
+							   telefone = scanner.nextLine();
 
-                                    do {
-                                        if (email.isEmpty()) {
-                                            System.out.println("Você precisa inserir um email válido!\n");
-                                            System.out.print("EMAIL: ");
-                                            email = scanner.nextLine();
-                                        }
-                                    } while (email.isEmpty());
+							   do {
+								  if (telefone.isEmpty()) {
+									 System.out.println("Você precisa inserir um telefone válido!\n");
+									 System.out.print("TELEFONE: ");
+									 telefone = scanner.nextLine();
+								  }
+							   } while (telefone.isEmpty());
 
-                                    Aluno verificacaoEmail = Login.buscarAlunoPorEmail(alunos, email);
+							   telefoneIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, telefone, tipo);
+							} while (telefoneIgual == 1);
+						 }
 
-                                    if (verificacaoEmail == null) {
-                                        System.out.print("SENHA: ");
-                                        senha = scanner.nextLine();
+						 System.out.print("MATRICULA: ");
+						 matricula = scanner.nextLine();
 
-                                        do {
-                                            if (senha.isEmpty()) {
-                                                System.out.println("Você precisa inserir uma senha válido!\n");
-                                                System.out.print("SENHA: ");
-                                                senha = scanner.nextLine();
-                                            }
-                                        } while (senha.isEmpty());
+						 do {
+							if (matricula.isEmpty()) {
+							   System.out.println("Você precisa inserir uma matricula válido!\n");
+							   System.out.print("MATRICULA: ");
+							   matricula = scanner.nextLine();
+							}
+						 } while (matricula.isEmpty());
 
-                                        System.out.print("CURSO: ");
-                                        String curso = scanner.nextLine();
+						 tipo = 1;
+						 matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
 
-                                        do {
-                                            if (curso.isEmpty()) {
-                                                System.out.println("Você precisa inserir um curso válido!\n");
-                                                System.out.print("CURSO: ");
-                                                curso = scanner.nextLine();
-                                            }
-                                        } while (curso.isEmpty());
+						 if (matriculaIgual == 1) {
+							do {
+							   System.out.println("\nEssa matricula já pertence a um aluno!");
+							   System.out.println("Insira uma matricula válida!\n");
+							   System.out.print("MATRICULA: ");
+							   matricula = scanner.nextLine();
 
-                                        Aluno aluno = new Aluno(nome, cpf, email, telefone, matricula, senha, curso);
-                                        CadastroUsuario.adicionarAluno(alunos, aluno);
-                                        System.out.println("\nAluno cadastrado com sucesso!");
-                                        break;
-                                    } else {
-                                        System.out.println("\nEmail já existente!");
-                                        System.out.println("Informe um email válido!\n");
-                                    }
-                                } while (true);
+							   do {
+								  if (matricula.isEmpty()) {
+									 System.out.println("Você precisa inserir uma matricula válido!\n");
+									 System.out.print("MATRICULA: ");
+									 matricula = scanner.nextLine();
+								  }
+							   } while (matricula.isEmpty());
 
-                                break;
+							   matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+							} while (matriculaIgual == 1);
+						 }
 
-                            case 2:
-                                do {
-                                    System.out.print("EMAIL: ");
-                                    email = scanner.nextLine();
+						 do {
+							System.out.print("EMAIL: ");
+							email = scanner.nextLine();
 
-                                    do {
-                                        if (email.isEmpty()) {
-                                            System.out.println("Você precisa inserir um email válido!\n");
-                                            System.out.print("EMAIL: ");
-                                            email = scanner.nextLine();
-                                        }
-                                    } while (email.isEmpty());
+							do {
+							   if (email.isEmpty()) {
+								  System.out.println("Você precisa inserir um email válido!\n");
+								  System.out.print("EMAIL: ");
+								  email = scanner.nextLine();
+							   }
+							} while (email.isEmpty());
 
-                                    Professor verificacaoEmail = Login.buscarProfessorPorEmail(professores, email);
+							Aluno verificacaoEmail = Login.buscarAlunoPorEmail(alunos, email);
 
-                                    if (verificacaoEmail == null) {
-                                        System.out.print("SENHA: ");
-                                        senha = scanner.nextLine();
+							if (verificacaoEmail == null) {
+							   System.out.print("SENHA: ");
+							   senha = scanner.nextLine();
 
-                                        do {
-                                            if (senha.isEmpty()) {
-                                                System.out.println("Você precisa inserir uma senha válido!\n");
-                                                System.out.print("SENHA: ");
-                                                senha = scanner.nextLine();
-                                            }
-                                        } while (senha.isEmpty());
+							   do {
+								  if (senha.isEmpty()) {
+									 System.out.println("Você precisa inserir uma senha válido!\n");
+									 System.out.print("SENHA: ");
+									 senha = scanner.nextLine();
+								  }
+							   } while (senha.isEmpty());
 
-                                        System.out.print("DEPARTAMENTO: ");
-                                        String departamento = scanner.nextLine();
+							   System.out.print("CURSO: ");
+							   String curso = scanner.nextLine();
 
-                                        do {
-                                            if (departamento.isEmpty()) {
-                                                System.out.println("Você precisa inserir um departamento válido!\n");
-                                                System.out.print("DEPARTAMENTO: ");
-                                                departamento = scanner.nextLine();
-                                            }
-                                        } while (departamento.isEmpty());
+							   do {
+								  if (curso.isEmpty()) {
+									 System.out.println("Você precisa inserir um curso válido!\n");
+									 System.out.print("CURSO: ");
+									 curso = scanner.nextLine();
+								  }
+							   } while (curso.isEmpty());
 
-                                        Professor professor = new Professor(nome, cpf, email, telefone, matricula, senha, departamento);
-                                        CadastroUsuario.adicionarProfessor(professores, professor);
-                                        System.out.println("\nProfessor cadastrado com sucesso!");
-                                        break;
-                                    } else {
-                                        System.out.println("\nEmail já existente!");
-                                        System.out.println("Informe um email válido!\n");
-                                    }
-                                } while (true);
+							   Aluno aluno = new Aluno(nome, cpf, email, telefone, matricula, senha, curso);
+							   CadastroUsuario.adicionarAluno(alunos, aluno);
+							   System.out.println("\nAluno cadastrado com sucesso!");
+							   break;
+							} else {
+							   System.out.println("\nEmail já existente!");
+							   System.out.println("Informe um email válido!\n");
+							}
+						 } while (true);
 
-                                break;
+						 break;
 
-                            case 3:
-                                do {
-                                    System.out.print("EMAIL: ");
-                                    email = scanner.nextLine();
+					  case 2:
+						 System.out.print("CPF: ");
+						 cpf = scanner.nextLine();
 
-                                    do {
-                                        if (email.isEmpty()) {
-                                            System.out.println("Você precisa inserir um email válido!\n");
-                                            System.out.print("EMAIL: ");
-                                            email = scanner.nextLine();
-                                        }
-                                    } while (email.isEmpty());
+						 do {
+							if (cpf.isEmpty()) {
+							   System.out.println("Você precisa inserir um cpf válido!\n");
+							   System.out.print("CPF: ");
+							   cpf = scanner.nextLine();
+							}
+						 } while (cpf.isEmpty());
 
-                                    Bibliotecario verificacaoEmail = Login.buscarBibliotecarioPorEmail(bibliotecarios, email);
+						 tipo = 2;
+						 cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
 
-                                    if (verificacaoEmail == null) {
-                                        System.out.print("SENHA: ");
-                                        senha = scanner.nextLine();
+						 if (cpfIgual == 1) {
+							do {
+							   System.out.println("\nEsse cpf já foi cadastrado!");
+							   System.out.println("Insira um cpf válida!\n");
+							   System.out.print("CPF: ");
+							   cpf = scanner.nextLine();
 
-                                        do {
-                                            if (senha.isEmpty()) {
-                                                System.out.println("Você precisa inserir uma senha válido!\n");
-                                                System.out.print("SENHA: ");
-                                                senha = scanner.nextLine();
-                                            }
-                                        } while (senha.isEmpty());
+							   do {
+								  if (cpf.isEmpty()) {
+									 System.out.println("Você precisa inserir um cpf válido!\n");
+									 System.out.print("CPF: ");
+									 cpf = scanner.nextLine();
+								  }
+							   } while (cpf.isEmpty());
 
-                                        Bibliotecario bibliotecario = new Bibliotecario(nome, cpf, email, telefone, matricula, senha);
-                                        CadastroUsuario.adicionarBibliotecario(bibliotecarios, bibliotecario);
-                                        System.out.println("\nBibliotecário cadastrado com sucesso!");
-                                        break;
-                                    } else {
-                                        System.out.println("\nEmail já existente!");
-                                        System.out.println("Informe um email válido!\n");
-                                    }
-                                } while (true);
+							   cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+							} while (cpfIgual == 1);
+						 }
 
-                                break;
+						 System.out.print("TELEFONE: ");
+						 telefone = scanner.nextLine();
 
-                            default:
-                                System.out.println("Opção inválida. Tente novamente.\n");
-                                break;
-                        }
-                    } while (escolhaCadastro !=1 && escolhaCadastro !=2 && escolhaCadastro != 3);
-                    break;
+						 do {
+							if (telefone.isEmpty()) {
+							   System.out.println("Você precisa inserir um telefone válido!\n");
+							   System.out.print("TELEFONE: ");
+							   telefone = scanner.nextLine();
+							}
+						 } while (telefone.isEmpty());
 
-                case 2:
+						 tipo = 2;
+						 telefoneIgual = Login.telefoneDuplicado(alunos, professores, bibliotecarios, telefone, tipo);
+
+						 if (telefoneIgual == 1) {
+							do {
+							   System.out.println("\nEsse telefone já foi cadastrado!");
+							   System.out.println("Insira um telefone válida!\n");
+							   System.out.print("TELEFONE: ");
+							   telefone = scanner.nextLine();
+
+							   do {
+								  if (telefone.isEmpty()) {
+									 System.out.println("Você precisa inserir um telefone válido!\n");
+									 System.out.print("TELEFONE: ");
+									 telefone = scanner.nextLine();
+								  }
+							   } while (telefone.isEmpty());
+
+							   telefoneIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, telefone, tipo);
+							} while (telefoneIgual == 1);
+						 }
+
+						 System.out.print("MATRICULA: ");
+						 matricula = scanner.nextLine();
+
+						 do {
+							if (matricula.isEmpty()) {
+							   System.out.println("Você precisa inserir uma matricula válido!\n");
+							   System.out.print("MATRICULA: ");
+							   matricula = scanner.nextLine();
+							}
+						 } while (matricula.isEmpty());
+
+						 tipo = 2;
+						 matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+
+						 if (matriculaIgual == 1) {
+							do {
+							   System.out.println("\nEssa matricula já pertence a um professor!");
+							   System.out.println("Insira uma matricula válida!\n");
+							   System.out.print("MATRICULA: ");
+							   matricula = scanner.nextLine();
+
+							   do {
+								  if (matricula.isEmpty()) {
+									 System.out.println("Você precisa inserir uma matricula válido!\n");
+									 System.out.print("MATRICULA: ");
+									 matricula = scanner.nextLine();
+								  }
+							   } while (matricula.isEmpty());
+
+							   matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+							} while (matriculaIgual == 1);
+						 }
+
+						 do {
+							System.out.print("EMAIL: ");
+							email = scanner.nextLine();
+
+							do {
+							   if (email.isEmpty()) {
+								  System.out.println("Você precisa inserir um email válido!\n");
+								  System.out.print("EMAIL: ");
+								  email = scanner.nextLine();
+							   }
+							} while (email.isEmpty());
+
+							Professor verificacaoEmail = Login.buscarProfessorPorEmail(professores, email);
+
+							if (verificacaoEmail == null) {
+							   System.out.print("SENHA: ");
+							   senha = scanner.nextLine();
+
+							   do {
+								  if (senha.isEmpty()) {
+									 System.out.println("Você precisa inserir uma senha válido!\n");
+									 System.out.print("SENHA: ");
+									 senha = scanner.nextLine();
+								  }
+							   } while (senha.isEmpty());
+
+							   System.out.print("DEPARTAMENTO: ");
+							   String departamento = scanner.nextLine();
+
+							   do {
+								  if (departamento.isEmpty()) {
+									 System.out.println("Você precisa inserir um departamento válido!\n");
+									 System.out.print("DEPARTAMENTO: ");
+									 departamento = scanner.nextLine();
+								  }
+							   } while (departamento.isEmpty());
+
+							   Professor professor = new Professor(nome, cpf, email, telefone, matricula, senha, departamento);
+							   CadastroUsuario.adicionarProfessor(professores, professor);
+							   System.out.println("\nProfessor cadastrado com sucesso!");
+							   break;
+							} else {
+							   System.out.println("\nEmail já existente!");
+							   System.out.println("Informe um email válido!\n");
+							}
+						 } while (true);
+
+						 break;
+
+					  case 3:
+						 System.out.print("CPF: ");
+						 cpf = scanner.nextLine();
+
+						 do {
+							if (cpf.isEmpty()) {
+							   System.out.println("Você precisa inserir um cpf válido!\n");
+							   System.out.print("CPF: ");
+							   cpf = scanner.nextLine();
+							}
+						 } while (cpf.isEmpty());
+
+						 tipo = 3;
+						 cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+
+						 if (cpfIgual == 1) {
+							do {
+							   System.out.println("\nEsse cpf já foi cadastrado!");
+							   System.out.println("Insira um cpf válida!\n");
+							   System.out.print("CPF: ");
+							   cpf = scanner.nextLine();
+
+							   do {
+								  if (cpf.isEmpty()) {
+									 System.out.println("Você precisa inserir um cpf válido!\n");
+									 System.out.print("CPF: ");
+									 cpf = scanner.nextLine();
+								  }
+							   } while (cpf.isEmpty());
+
+							   cpfIgual = Login.cpfDuplicado(alunos, professores, bibliotecarios, cpf, tipo);
+							} while (cpfIgual == 1);
+						 }
+
+						 System.out.print("TELEFONE: ");
+						 telefone = scanner.nextLine();
+
+						 do {
+							if (telefone.isEmpty()) {
+							   System.out.println("Você precisa inserir um telefone válido!\n");
+							   System.out.print("TELEFONE: ");
+							   telefone = scanner.nextLine();
+							}
+						 } while (telefone.isEmpty());
+
+						 tipo = 3;
+						 telefoneIgual = Login.telefoneDuplicado(alunos, professores, bibliotecarios, telefone, tipo);
+
+						 if (telefoneIgual == 1) {
+							do {
+							   System.out.println("\nEsse telefone já foi cadastrado!");
+							   System.out.println("Insira um telefone válida!\n");
+							   System.out.print("TELEFONE: ");
+							   telefone = scanner.nextLine();
+
+							   do {
+								  if (telefone.isEmpty()) {
+									 System.out.println("Você precisa inserir um telefone válido!\n");
+									 System.out.print("TELEFONE: ");
+									 telefone = scanner.nextLine();
+								  }
+							   } while (telefone.isEmpty());
+
+							   telefoneIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, telefone, tipo);
+							} while (telefoneIgual == 1);
+						 }
+
+						 System.out.print("MATRICULA: ");
+						 matricula = scanner.nextLine();
+
+						 do {
+							if (matricula.isEmpty()) {
+							   System.out.println("Você precisa inserir uma matricula válido!\n");
+							   System.out.print("MATRICULA: ");
+							   matricula = scanner.nextLine();
+							}
+						 } while (matricula.isEmpty());
+
+						 tipo = 3;
+						 matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+
+						 if (matriculaIgual == 1) {
+							do {
+							   System.out.println("\nEssa matricula já pertence a um bibliotecario!");
+							   System.out.println("Insira uma matricula válida!\n");
+							   System.out.print("MATRICULA: ");
+							   matricula = scanner.nextLine();
+
+							   do {
+								  if (matricula.isEmpty()) {
+									 System.out.println("Você precisa inserir uma matricula válido!\n");
+									 System.out.print("MATRICULA: ");
+									 matricula = scanner.nextLine();
+								  }
+							   } while (matricula.isEmpty());
+
+							   matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
+							} while (matriculaIgual == 1);
+						 }
+
+						 do {
+							System.out.print("EMAIL: ");
+							email = scanner.nextLine();
+
+							do {
+							   if (email.isEmpty()) {
+								  System.out.println("Você precisa inserir um email válido!\n");
+								  System.out.print("EMAIL: ");
+								  email = scanner.nextLine();
+							   }
+							} while (email.isEmpty());
+
+							Bibliotecario verificacaoEmail = Login.buscarBibliotecarioPorEmail(bibliotecarios, email);
+
+							if (verificacaoEmail == null) {
+							   System.out.print("SENHA: ");
+							   senha = scanner.nextLine();
+
+							   do {
+								  if (senha.isEmpty()) {
+									 System.out.println("Você precisa inserir uma senha válido!\n");
+									 System.out.print("SENHA: ");
+									 senha = scanner.nextLine();
+								  }
+							   } while (senha.isEmpty());
+
+							   Bibliotecario bibliotecario = new Bibliotecario(nome, cpf, email, telefone, matricula, senha);
+							   CadastroUsuario.adicionarBibliotecario(bibliotecarios, bibliotecario);
+							   System.out.println("\nBibliotecário cadastrado com sucesso!");
+							   break;
+							} else {
+							   System.out.println("\nEmail já existente!");
+							   System.out.println("Informe um email válido!\n");
+							}
+						 } while (true);
+
+						 break;
+
+					  default:
+						 System.out.println("Opção inválida. Tente novamente.\n");
+						 break;
+				   }
+				} while (escolhaCadastro !=1 && escolhaCadastro !=2 && escolhaCadastro != 3);
+				break;
+
+			 case 2:
                     System.out.println("\n--- LOGIN ---");
                     System.out.print("EMAIL: ");
                     email = scanner.nextLine();
