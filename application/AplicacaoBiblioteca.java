@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 public class AplicacaoBiblioteca {
     public static void main(String[] args) {
-        int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, verificacaoEmail;
+        int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao;
         String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha;
         String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
         LocalDate dataEmprestimo,dataLimiteDevolucao;
@@ -110,9 +110,9 @@ public class AplicacaoBiblioteca {
                                         }
                                     } while (email.isEmpty());
 
-                                    verificacaoEmail = Login.emailDuplicadoAluno(alunos, email);
+                                    Aluno verificacaoEmail = Login.buscarAlunoPorEmail(alunos, email);
 
-                                    if (verificacaoEmail == 0) {
+                                    if (verificacaoEmail == null) {
                                         System.out.print("SENHA: ");
                                         senha = scanner.nextLine();
 
@@ -160,9 +160,9 @@ public class AplicacaoBiblioteca {
                                         }
                                     } while (email.isEmpty());
 
-                                    verificacaoEmail = Login.emailDuplicadoProfessor(professores, email);
+                                    Professor verificacaoEmail = Login.buscarProfessorPorEmail(professores, email);
 
-                                    if (verificacaoEmail == 0) {
+                                    if (verificacaoEmail == null) {
                                         System.out.print("SENHA: ");
                                         senha = scanner.nextLine();
 
@@ -210,9 +210,9 @@ public class AplicacaoBiblioteca {
                                         }
                                     } while (email.isEmpty());
 
-                                    verificacaoEmail = Login.emailDuplicadoBibliotecario(bibliotecarios, email);
+                                    Bibliotecario verificacaoEmail = Login.buscarBibliotecarioPorEmail(bibliotecarios, email);
 
-                                    if (verificacaoEmail == 0) {
+                                    if (verificacaoEmail == null) {
                                         System.out.print("SENHA: ");
                                         senha = scanner.nextLine();
 
