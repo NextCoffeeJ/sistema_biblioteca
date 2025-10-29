@@ -71,7 +71,7 @@ public final class Login {
         return null;
     }
 
-    public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno) {
+    public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, ArrayList<Emprestimo> listaEmprestimo) {
 
         String email, titulo;
 
@@ -118,18 +118,39 @@ public final class Login {
         System.out.print("\nDigite o título do livro que deseja devolver: ");
         titulo = scanner.nextLine();
 
-        for (Livro livro : listaLivros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livro.setQtdDisponivel(livro.getQtdDisponivel() + 1);
-                System.out.println("Livro devolvido com sucesso por " + aluno.getNome() + "!");
-                return;
+        Emprestimo emprestimoEncontrado = null;
+        for (Emprestimo emprestimo : listaEmprestimo) {
+            if (emprestimo.getAluno() != null &&
+                    emprestimo.getAluno().equals(aluno) &&
+                    emprestimo.getLivro().getTitulo().equalsIgnoreCase(titulo)) {
+                emprestimoEncontrado = emprestimo;
+                break;
             }
         }
 
-        System.out.println("Não encontramos este livro disponível!");
+        if(emprestimoEncontrado == null){
+            System.out.println("Desculpe, esse livro não está registrado como emprestado! ");
+            return;
+        }
+
+        if (emprestimoEncontrado.isAtrasado()) {
+            aluno.setMulta(aluno.getMulta() + 5);
+            System.out.println("Livro devolvido com atraso! Multa de R$5 adicionada ao seu cadastro.");
+        }
+
+        for (Livro livro : listaLivros) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+                livro.setQtdDisponivel(livro.getQtdDisponivel() + 1);
+                break;
+            }
+        }
+
+        listaEmprestimo.remove(emprestimoEncontrado);
+
+        System.out.println("Livro devolvido com sucesso por " + aluno.getNome() + "!");
     }
 
-    public static void devolverLivroProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor) {
+    public static void devolverLivroProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessor, ArrayList<Emprestimo> listaEmprestimo) {
 
         String email, titulo;
 
@@ -176,18 +197,39 @@ public final class Login {
         System.out.print("\nDigite o título do livro que deseja devolver: ");
         titulo = scanner.nextLine();
 
-        for (Livro livro : listaLivros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livro.setQtdDisponivel(livro.getQtdDisponivel() + 1);
-                System.out.println("Livro devolvido com sucesso por " + professor.getNome() + "!");
-                return;
+        Emprestimo emprestimoEncontrado = null;
+        for (Emprestimo emprestimo : listaEmprestimo) {
+            if (emprestimo.getProfessor() != null &&
+                    emprestimo.getProfessor().equals(professor) &&
+                    emprestimo.getLivro().getTitulo().equalsIgnoreCase(titulo)) {
+                emprestimoEncontrado = emprestimo;
+                break;
             }
         }
 
-        System.out.println("Não encontramos este livro disponível!");
+        if (emprestimoEncontrado == null) {
+            System.out.println("Desculpe, esse livro não está registrado como emprestado!");
+            return;
+        }
+
+        if (emprestimoEncontrado.isAtrasado()) {
+            professor.setMulta(professor.getMulta() + 5);
+            System.out.println("Livro devolvido com atraso! Multa de R$5 adicionada ao seu cadastro.");
+        }
+
+        for (Livro livro : listaLivros) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+                livro.setQtdDisponivel(livro.getQtdDisponivel() + 1);
+                break;
+            }
+        }
+
+        listaEmprestimo.remove(emprestimoEncontrado);
+
+        System.out.println("Livro devolvido com sucesso por " + professor.getNome() + "!");
     }
 
-    public static void devolverLivroBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario) {
+    public static void devolverLivroBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecario, ArrayList<Emprestimo> listaEmprestimo) {
 
         String email, titulo;
 
@@ -234,18 +276,41 @@ public final class Login {
         System.out.print("\nDigite o título do livro que deseja devolver: ");
         titulo = scanner.nextLine();
 
-        for (Livro livro : listaLivros) {
-            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-                livro.setQtdDisponivel(livro.getQtdDisponivel() + 1);
-                System.out.println("Livro devolvido com sucesso por " + bibliotecario.getNome() + "!");
-                return;
+        Emprestimo emprestimoEncontrado = null;
+        for (Emprestimo emprestimo : listaEmprestimo) {
+            if (emprestimo.getBibliotecario() != null &&
+                    emprestimo.getBibliotecario().equals(bibliotecario) &&
+                    emprestimo.getLivro().getTitulo().equalsIgnoreCase(titulo)) {
+                emprestimoEncontrado = emprestimo;
+                break;
             }
         }
 
-        System.out.println("Não encontramos este livro disponível!");
+        if (emprestimoEncontrado == null) {
+            System.out.println("Desculpe, esse livro não está registrado como emprestado!");
+            return;
+        }
+
+        if (emprestimoEncontrado.isAtrasado()) {
+            bibliotecario.setMulta(bibliotecario.getMulta() + 5);
+            System.out.println("Livro devolvido com atraso! Multa de R$5 adicionada ao seu cadastro.");
+        }
+
+        for (Livro livro : listaLivros) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
+                livro.setQtdDisponivel(livro.getQtdDisponivel() + 1);
+                break;
+            }
+        }
+
+        listaEmprestimo.remove(emprestimoEncontrado);
+
+        System.out.println("Livro devolvido com sucesso por " + bibliotecario.getNome() + "!");
+
     }
 
-    public static void renovarLivroAluno (ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
+
+        public static void renovarLivroAluno (ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
 
         String email, titulo;
 
@@ -432,6 +497,60 @@ public final class Login {
 
         emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
+    }
+
+    public static void verMultasAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
+        for (Aluno aluno : listaAlunos) {
+            double totalMulta = 0;
+
+            for (Emprestimo emprestimo : listaEmprestimos) {
+                if (emprestimo.getAluno() != null && emprestimo.getAluno().equals(aluno) && emprestimo.isAtrasado()) {
+                    totalMulta += 5;
+                }
+            }
+
+            if (totalMulta > 0) {
+                System.out.println("Aluno: " + aluno.getNome() + " | Total de multa: R$" + totalMulta);
+            } else {
+                System.out.println("Aluno: " + aluno.getNome() + " | Sem multas.");
+            }
+        }
+    }
+
+    public static void verMultasProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessores, ArrayList<Emprestimo> listaEmprestimos){
+        for(Professor professor : listaProfessores){
+            double totalMulta = 0;
+
+            for(Emprestimo emprestimo : listaEmprestimos){
+                if(emprestimo.getProfessor() != null && emprestimo.getProfessor().equals(professor) && emprestimo.isAtrasado()) {
+                    totalMulta += 5;
+                }
+            }
+
+            if(totalMulta > 0){
+                System.out.println("Professor: " + professor.getNome() + " | Total de multa: R$" + totalMulta);
+            } else {
+                System.out.println("Professor: " + professor.getNome() + " | Sem multas.");
+            }
+        }
+    }
+
+    public static void verMultasBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecarios, ArrayList<Emprestimo> listaEmprestimos){
+        for(Bibliotecario bibliotecario : listaBibliotecarios){
+            double totalMulta = 0;
+
+            for(Emprestimo emprestimo : listaEmprestimos){
+                if(emprestimo.getBibliotecario() != null && emprestimo.getBibliotecario().equals(bibliotecario) && emprestimo.isAtrasado()) {
+                    totalMulta += 5;
+                }
+            }
+
+            if(totalMulta > 0){
+                System.out.println("Bibliotecário: " + bibliotecario.getNome() + " | Total de multa: R$" + totalMulta);
+            } else {
+                System.out.println("Bibliotecário: " + bibliotecario.getNome() + " | Sem multas.");
+            }
+        }
     }
 
     public static void dadosLivrosAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, String titulo) {
