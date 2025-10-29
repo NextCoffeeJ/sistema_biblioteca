@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 public class AplicacaoBiblioteca {
     public static void main(String[] args) {
-	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual;
+	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, tituloIgual, isbnIgual;
 	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha;
 	   String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	   LocalDate dataEmprestimo,dataLimiteDevolucao;
@@ -1197,6 +1197,27 @@ public class AplicacaoBiblioteca {
                                             }
                                         } while (titulo.isEmpty());
 
+										tituloIgual = Login.tituloDuplicado(livros, titulo);
+
+										if (tituloIgual == 1) {
+										   do {
+											  System.out.println("\nEsse titulo já foi cadastrado!");
+											  System.out.println("Insira um titulo válida!\n");
+											  System.out.print("TITULO: ");
+											  titulo = scanner.nextLine();
+
+											  do {
+												 if (titulo.isEmpty()) {
+													System.out.println("Informe um titulo válido!");
+													System.out.print("TITULO: ");
+													titulo = scanner.nextLine();
+												 }
+											  } while (titulo.isEmpty());
+
+											  tituloIgual = Login.tituloDuplicado(livros, titulo);
+										   } while (tituloIgual == 1);
+										}
+
                                         System.out.print("AUTOR: ");
                                         autor = scanner.nextLine();
 
@@ -1229,6 +1250,27 @@ public class AplicacaoBiblioteca {
                                                 isbn = scanner.nextLine();
                                             }
                                         } while (isbn.isEmpty());
+
+										isbnIgual = Login.isbnDuplicado(livros, isbn);
+
+									   if (isbnIgual == 1) {
+										  do {
+											 System.out.println("\nEsse isbn já foi cadastrado!");
+											 System.out.println("Insira um isbn válida!\n");
+											 System.out.print("ISBN: ");
+											 isbn = scanner.nextLine();
+
+											 do {
+												if (isbn.isEmpty()) {
+												   System.out.println("Informe um isbn válido!");
+												   System.out.print("ISBN: ");
+												   isbn = scanner.nextLine();
+												}
+											 } while (isbn.isEmpty());
+
+											 isbnIgual = Login.isbnDuplicado(livros, isbn);
+										  } while (isbnIgual == 1);
+									   }
 
                                         System.out.print("ANO PUBLICAÇÃO: ");
                                         anoPublicacao = scanner.nextLine();
