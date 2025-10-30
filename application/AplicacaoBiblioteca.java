@@ -1390,6 +1390,7 @@ public class AplicacaoBiblioteca {
                                         break;
                                     case 12:
                                         System.out.println("Ver lista de emprestimos realizados.");
+										Login.mostrarEmprestimos(emprestimos);
                                         break;
                                     case 13:
                                         System.out.println("1 - Aluno");
