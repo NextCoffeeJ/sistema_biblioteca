@@ -738,6 +738,17 @@ public final class Login {
         }
     }
 
+	public static void mostrarEmprestimos (ArrayList<Emprestimo> listaEmprestimos) {
+        if (listaEmprestimos.isEmpty()) {
+            System.out.println("Lista vazia");
+            return;
+        }
+
+        for (Emprestimo emprestimo : listaEmprestimos) {
+            System.out.println("Empréstimos: " + emprestimo.getLivro());
+        }
+    }
+
     public static void cancelarCadastroAluno (ArrayList<Aluno> listaAluno, String matricula) {
         if (listaAluno.isEmpty()) {
             System.out.println("Lista vazia");
