@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class AplicacaoBiblioteca {
     public static void main(String[] args) {
 	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual;
-	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha, matriculaInit = "00000", matriculaFinal;
+	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha;
 	   String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	   LocalDate dataEmprestimo,dataLimiteDevolucao;
 	   //   LocalDate dataDevolucao;
