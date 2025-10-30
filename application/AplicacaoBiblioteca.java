@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class AplicacaoBiblioteca {
     public static void main(String[] args) {
 	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, tituloIgual, isbnIgual;
-	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha;
+	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha, matriculaInit = "00000", matriculaFinal;
 	   String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	   LocalDate dataEmprestimo,dataLimiteDevolucao;
 	   //   LocalDate dataDevolucao;
@@ -611,15 +611,16 @@ public class AplicacaoBiblioteca {
                             System.out.println("\nLogin realizado com sucesso.\n");
                             do{
                                 System.out.println("\nOperacoes:");
-                                System.out.println("1 - Pedir livro emprestado.");
-                                System.out.println("2 - Ver Livros disponiveis.");
-                                System.out.println("3 - Devolver livro.");
-                                System.out.println("4 - Renovar livro");
-                                System.out.println("5 - Ver multas.");
-                                System.out.println("6 - Ver dados dos livros pegos.");
-                                System.out.println("7 - Logout.");
-                                System.out.println("0 - Fechar app.");
-                                System.out.print("Qual opcao deseja realizar: ");
+								System.out.println("1 - Pedir livro emprestado.");
+								System.out.println("2 - Ver Livros disponiveis.");
+								System.out.println("3 - Devolver livro.");
+								System.out.println("4 - Renovar livro");
+								System.out.println("5 - Ver multas.");
+								System.out.println("6 - Ver dados dos livros pegos.");
+								System.out.println("7 - Redefinir senha.");
+								System.out.println("8 - Logout");
+								System.out.println("0 - Fechar app.");
+								System.out.print("Qual opcao deseja realizar: ");
                                 escolhaLogin = scanner.nextInt();
 
                                 scanner.nextLine();
@@ -736,8 +737,22 @@ public class AplicacaoBiblioteca {
 									  Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
-                                        System.out.println("Logout realizado com sucesso.");
-                                        break;
+									   System.out.println("MATRICULA: ");
+									   matricula = scanner.nextLine();
+
+									   do {
+										  if (matricula.isEmpty()) {
+											 System.out.println("Insira uma matricula válida");
+											 System.out.println("MATRICULA: ");
+											 matricula = scanner.nextLine();
+										  }
+									   } while (matricula.isEmpty());
+
+									   Login.redefinirSenhaAluno(alunos, matricula);
+									   break;
+								   case 8:
+									  System.out.println("Logout realizado com sucesso.");
+									  break;
                                     case 0:
                                         escolha = 0;
                                         System.out.println("Até mais...");
@@ -813,7 +828,8 @@ public class AplicacaoBiblioteca {
                                 System.out.println("4 - Renovar livro");
                                 System.out.println("5 - Ver multas.");
                                 System.out.println("6 - Ver dados dos livros pegos.");
-                                System.out.println("7 - Logout.");
+                                System.out.println("7 - Redefinir senha.");
+							    System.out.println("8 - Logout");
                                 System.out.println("0 - Fechar app.");
                                 System.out.print("Qual opcao deseja realizar: ");
                                 escolhaLogin = scanner.nextInt();
@@ -931,8 +947,22 @@ public class AplicacaoBiblioteca {
 									   Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
-                                        System.out.println("Logout realizado com sucesso.");
-                                        break;
+									   System.out.println("MATRICULA: ");
+									   matricula = scanner.nextLine();
+
+									   do {
+										  if (matricula.isEmpty()) {
+											 System.out.println("Insira uma matricula válida");
+											 System.out.println("MATRICULA: ");
+											 matricula = scanner.nextLine();
+										  }
+									   } while (matricula.isEmpty());
+
+									   Login.redefinirSenhaProfessor(professores, matricula);
+									   break;
+								   case 8:
+									  System.out.println("Logout realizado com sucesso.");
+									  break;
                                     case 0:
                                         escolha = 0;
                                         System.out.println("Até mais...");
@@ -1000,20 +1030,21 @@ public class AplicacaoBiblioteca {
                             System.out.println("\nLogin realizado com sucesso.\n");
                             do {
                                 System.out.println("\nOperacoes:");
-                                System.out.println("1 - Pedir livro emprestado.");// feito
-                                System.out.println("2 - Ver Livros disponiveis.");//feito
-                                System.out.println("3 - Devolver livro."); //corrigir e adicionar calculo de multa
-                                System.out.println("4 - Renovar livro.");// em andamento
-                                System.out.println("5 - Ver multas.");// a fazer.
-                                System.out.println("6 - Ver dados dos livros pegos.");//A alterar
-                                System.out.println("7 - Logout.");//feito
-                                System.out.println("8 - Cancelar Cadastro de Usuario.");//feito
-                                System.out.println("9 - Ver livros cadastrados.");//feito
-                                System.out.println("10 - Cadastrar livro.");//feito
-                                System.out.println("11 - Remover livro de acervo.");//feito
-                                System.out.println("12 - Ver lista de emprestimos realizados.");// em andamento
-                                System.out.println("13 - Ver Usuarios Cadastrados.");// feito
-                                System.out.println("0 - Fechar app.");//feito
+                                System.out.println("1 - Pedir livro emprestado.");
+                                System.out.println("2 - Ver Livros disponiveis.");
+                                System.out.println("3 - Devolver livro.");
+                                System.out.println("4 - Renovar livro.");
+                                System.out.println("5 - Ver multas.");
+                                System.out.println("6 - Ver dados dos livros pegos.");
+                                System.out.println("7 - Redefinir senha.");
+                                System.out.println("8 - Cancelar Cadastro de Usuario.");
+                                System.out.println("9 - Ver livros cadastrados.");
+                                System.out.println("10 - Cadastrar livro.");
+                                System.out.println("11 - Remover livro de acervo.");
+                                System.out.println("12 - Ver lista de emprestimos realizados.");
+                                System.out.println("13 - Ver Usuarios Cadastrados.");
+							   System.out.println("14 - Logout.");
+                                System.out.println("0 - Fechar app.");
                                 System.out.print("Qual opcao deseja realizar: ");
                                 escolhaLogin = scanner.nextInt();
 
@@ -1022,7 +1053,7 @@ public class AplicacaoBiblioteca {
                                     case 1:
                                         do {
                                             int escolhaLivro;
-                                            if(bibliotecario.getLimiteLivros()==0){
+                                            if(bibliotecario.getLimiteLivros() == 0){
                                                 System.out.println("Voce não pode fazer mais emprestimos.");
                                                 System.out.println("Voce so pode pegar 2 livros emprestados ao mesmo tempo.");
                                                 System.out.println("Voce atingiu o limite de livros maximo.");
@@ -1128,8 +1159,19 @@ public class AplicacaoBiblioteca {
 									   Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
-                                        System.out.println("Logout realizado com sucesso.");
-                                        break;
+									   System.out.println("MATRICULA: ");
+									   matricula = scanner.nextLine();
+
+									   do {
+										  if (matricula.isEmpty()) {
+											 System.out.println("Insira uma matricula válida");
+											 System.out.println("MATRICULA: ");
+											 matricula = scanner.nextLine();
+										  }
+									   } while (matricula.isEmpty());
+
+									   Login.redefinirSenhaBibliotecario(bibliotecarios, matricula);
+									   break;
                                     case 8:
                                         System.out.println("1 - Aluno");
                                         System.out.println("2 - Professor");
@@ -1359,11 +1401,14 @@ public class AplicacaoBiblioteca {
                                         escolha = 0;
                                         System.out.println("Até mais...");
                                         break;
+								   case 14:
+									  System.out.println("Logout realizado com sucesso.");
+									  break;
                                     default:
                                         System.out.println("Opcao invalida.");
                                         break;
                                 }
-                            } while (escolha != 0 && escolhaLogin != 7);
+                            } while (escolha != 0 && escolhaLogin != 14);
                         }
                     }
 
