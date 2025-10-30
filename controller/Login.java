@@ -2,6 +2,8 @@ package controller;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import application.AplicacaoBiblioteca;
 import model.*;
 
 public final class Login {
@@ -680,19 +682,19 @@ public final class Login {
     public static void dadosLivrosUsuario(ArrayList<Emprestimo> listaEmprestimos, String email) {
 	   for (Emprestimo emprestimo : listaEmprestimos) {
 		  if (emprestimo.getUsuario().getEmail().equalsIgnoreCase(email)) {
+			 System.out.println("\nDados do Livro Emprestado:");
 			 Livro livro = emprestimo.getLivro();
-			 System.out.println("Dados do Livro Emprestado:");
-			 System.out.println("Título: " + livro.getTitulo());
-			 System.out.println("Autor: " + livro.getAutor());
-			 System.out.println("Editora: " + livro.getEditora());
-			 System.out.println("ISBN: " + livro.getIsbn());
-			 System.out.println("Ano de publicação: " + livro.getAnoPublicacao());
-			 System.out.println("Data de Empréstimo: " + emprestimo.getDataEmprestimo());
-			 System.out.println("Data Limite de Devolução: " + emprestimo.getDataLimiteDevolucao());
-			 return;
+			 do {
+				System.out.println("TITULO: " + livro.getTitulo());
+				System.out.println("AUTOR: " + livro.getAutor());
+				System.out.println("EDITORA: " + livro.getEditora());
+				System.out.println("ISBN: " + livro.getIsbn());
+				System.out.println("ANO DE PUBLICAÇÃO: " + livro.getAnoPublicacao());
+				System.out.println("DATA DE EMPRESTIMO: " + emprestimo.getDataEmprestimo());
+				System.out.println("DATA LIMITE DE DEVOLUÇÃO: " + emprestimo.getDataLimiteDevolucao());
+			 } while (emprestimo.getLivro() == null);
 		  }
 	   }
-	   System.out.println("Nenhum livro encontrado para o email informado.");
     }
 
     public static void mostrarLivros (ArrayList<Livro> listaLivros) {

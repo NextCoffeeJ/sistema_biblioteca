@@ -736,7 +736,7 @@ public class AplicacaoBiblioteca {
                                         break;
 								   case 6:
 									  Login.dadosLivrosUsuario(emprestimos, email);
-                                        break;
+									  break;
                                     case 7:
 									   System.out.println("MATRICULA: ");
 									   matricula = scanner.nextLine();
@@ -950,7 +950,7 @@ public class AplicacaoBiblioteca {
                                         Login.verMultasProfessor(livros, professores, emprestimos);
                                         break;
                                     case 6:
-									   Login.dadosLivrosUsuario(emprestimos, email);
+									    Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
 									   System.out.println("MATRICULA: ");
@@ -1167,7 +1167,7 @@ public class AplicacaoBiblioteca {
                                         Login.verMultasBibliotecario(livros, bibliotecarios, emprestimos);
                                         break;
                                     case 6:
-									   Login.dadosLivrosUsuario(emprestimos, email);
+ 									    Login.dadosLivrosUsuario(emprestimos, email);
                                         break;
                                     case 7:
 									   System.out.println("MATRICULA: ");
