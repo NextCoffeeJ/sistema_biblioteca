@@ -156,6 +156,45 @@ public final class Login {
         return null;
     }
 
+	public static void dadosUsuario (ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String email, int tipo){
+	   if (tipo == 1) {
+		  for (Aluno aluno : listaAlunos) {
+			 if (aluno.getEmail().equalsIgnoreCase(email)) {
+				System.out.println("\nSuas informações:\n");
+				System.out.println("NOME: " + aluno.getNome());
+				System.out.println("EMAIL: " + aluno.getEmail());
+				System.out.println("CURSO: " + aluno.getCurso());
+				System.out.println("MATRICULA: " + aluno.getMatricula());
+				System.out.println("CPF: " + aluno.getCpf());
+				System.out.println("TELEFONE: " + aluno.getTelefone());
+			 }
+		  }
+	   } else if (tipo == 2) {
+		  for (Professor professor : listaProfessores) {
+			 if (professor.getEmail().equalsIgnoreCase(email)) {
+				System.out.println("\nSuas informações:\n");
+				System.out.println("NOME: " + professor.getNome());
+				System.out.println("EMAIL: " + professor.getEmail());
+				System.out.println("DEPARTAMENTO: " + professor.getDepartamento());
+				System.out.println("MATRICULA: " + professor.getMatricula());
+				System.out.println("CPF: " + professor.getCpf());
+				System.out.println("TELEFONE: " + professor.getTelefone());
+			 }
+		  }
+	   } else {
+		  for (Bibliotecario bibliotecario : listaBibliotecarios) {
+			 if (bibliotecario.getEmail().equalsIgnoreCase(email)) {
+				System.out.println("\nSuas informações:\n");
+				System.out.println("NOME: " + bibliotecario.getNome());
+				System.out.println("EMAIL: " + bibliotecario.getEmail());
+				System.out.println("MATRICULA: " + bibliotecario.getMatricula());
+				System.out.println("CPF: " + bibliotecario.getCpf());
+				System.out.println("TELEFONE: " + bibliotecario.getTelefone());
+			 }
+		  }
+	   }
+	}
+
     public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, ArrayList<Emprestimo> listaEmprestimo) {
 
         String email, titulo;
