@@ -111,15 +111,6 @@ public final class Login {
 	  }
    }
 
-   public static int tituloDuplicado(ArrayList<Livro> listaLivros, String titulo) {
-	  for (Livro livro : listaLivros) {
-		 if (livro.getTitulo().equalsIgnoreCase(titulo)) {
-			return 1;
-		 }
-	  }
-	  return 0;
-   }
-
    public static int isbnDuplicado(ArrayList<Livro> listaLivros, String isbn) {
 	   for (Livro livro : listaLivros) {
 		  if (livro.getIsbn().equalsIgnoreCase(isbn)) {
@@ -130,8 +121,8 @@ public final class Login {
    }
 
     public static Livro  buscarLivroPorNome(ArrayList<Livro> listaLivros,String titulo){
-        for(Livro livro : listaLivros){
-            if(livro.getTitulo().equalsIgnoreCase(titulo)){
+        for (Livro livro : listaLivros) {
+            if (livro.getTitulo().equalsIgnoreCase(titulo)) {
                 return livro;
             }
         }

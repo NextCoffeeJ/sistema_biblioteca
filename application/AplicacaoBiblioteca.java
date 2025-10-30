@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 public class AplicacaoBiblioteca {
     public static void main(String[] args) {
-	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, tituloIgual, isbnIgual;
+	   int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual;
 	   String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha, matriculaInit = "00000", matriculaFinal;
 	   String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	   LocalDate dataEmprestimo,dataLimiteDevolucao;
@@ -1239,9 +1239,9 @@ public class AplicacaoBiblioteca {
                                             }
                                         } while (titulo.isEmpty());
 
-										tituloIgual = Login.tituloDuplicado(livros, titulo);
+										Livro tituloIgual = Login.buscarLivroPorNome(livros, titulo);
 
-										if (tituloIgual == 1) {
+										if (tituloIgual != null) {
 										   do {
 											  System.out.println("\nEsse titulo já foi cadastrado!");
 											  System.out.println("Insira um titulo válida!\n");
@@ -1256,8 +1256,8 @@ public class AplicacaoBiblioteca {
 												 }
 											  } while (titulo.isEmpty());
 
-											  tituloIgual = Login.tituloDuplicado(livros, titulo);
-										   } while (tituloIgual == 1);
+											  tituloIgual = Login.buscarLivroPorNome(livros, titulo);
+										   } while (tituloIgual != null);
 										}
 
                                         System.out.print("AUTOR: ");
