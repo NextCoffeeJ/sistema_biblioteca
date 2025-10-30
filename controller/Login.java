@@ -495,7 +495,7 @@ public final class Login {
             return;
         }
 
-        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+        emprestimo.renovar();
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
     }
 
@@ -558,7 +558,7 @@ public final class Login {
             return;
         }
 
-        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+        emprestimo.renovar();
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
     }
 
@@ -621,7 +621,7 @@ public final class Login {
             return;
         }
 
-        emprestimo.setDataLimiteDevolucao(emprestimo.getDataLimiteDevolucao().plusDays(10));
+        emprestimo.renovar();
         System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
     }
 
