@@ -1,9 +1,6 @@
 package controller;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import application.AplicacaoBiblioteca;
 import model.*;
 
 public final class Login {
@@ -745,7 +742,9 @@ public final class Login {
         }
 
         for (Emprestimo emprestimo : listaEmprestimos) {
-            System.out.println("Empréstimos: " + emprestimo.getLivro());
+            System.out.println("Titulo: " + emprestimo.getLivro().getTitulo());
+            System.out.println("Em posse de: "+ emprestimo.getUsuario().getNome());
+            System.out.println("Matricula: " + emprestimo.getUsuario().getMatricula());
         }
     }
 
