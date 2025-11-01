@@ -98,7 +98,7 @@ Você pode visualizar as imagens do protótipo da aplicação no link abaixo:
 
 
 ## 💻 Forma de Entrada e Saída de Dados
-Inicialmente, o sistema funcionará via **terminal (CLI)**, mas há possibilidade futura de implementação de uma **interface gráfica (GUI)**.
+O sistema funcionará via **terminal (CLI)**.
 
 ---
 
@@ -110,12 +110,20 @@ Inicialmente, o sistema funcionará via **terminal (CLI)**, mas há possibilidad
 ---
 
 ## 📅 Status do Projeto
-🔧 **Em desenvolvimento**  
-A primeira versão será funcional via terminal. Futuramente, pretende-se incluir uma interface gráfica e persistência de dados.
+🔧 **Protótipo**  
+A primeira versão será funcional, mas não terá todos os recursos.
 
+🚀 **Beta Funcional / Pré-Release**  
+O projeto já superou a fase de prototipagem e encontra-se em um estágio **estável e testável**.  
+Todas as principais funcionalidades estão **ativas via terminal**, e a aplicação segue uma **arquitetura modular baseada em MVC**, pronta para expansão futura.  
+
+🔮 **Próximos passos planejados:**  
+- Implementação de **persistência de dados** (banco de dados ou arquivos).  
+- Adição de **tratamento de exceções**.  
 ---
 
 ## 📄 Licença
 Este projeto é de uso **educacional** e **não possui fins comerciais**.
+
 
 
