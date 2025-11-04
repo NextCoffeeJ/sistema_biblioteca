@@ -1123,7 +1123,7 @@ public class AplicacaoBiblioteca {
 						System.out.print("Qual opcao deseja realizar: ");
 						escolhaLogin = scanner.nextInt();
 
-						//case  (9/12/13/14)
+						
 						scanner.nextLine();
 						switch(escolhaLogin){
 						   case 1:

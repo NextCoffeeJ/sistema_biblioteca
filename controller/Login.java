@@ -705,8 +705,11 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
+	  System.out.println("ALUNOS:");
 	  for (Aluno aluno : listaAlunos) {
-		 System.out.println("Aluno: " + aluno.getNome());
+		 System.out.println("Nome: " + aluno.getNome());
+		 System.out.println("Matricula: " + aluno.getMatricula());
+		 System.out.print("\n");
 	  }
    }
 
@@ -715,8 +718,11 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
+	  System.out.println("PROFESORES:");
 	  for (Professor professor : listaProfessor) {
-		 System.out.println("Professor: " + professor.getNome());
+		 System.out.println("Nome: " + professor.getNome());
+		 System.out.println("Matricula: " + professor.getMatricula());
+		 System.out.print("\n");
 	  }
    }
 
@@ -725,14 +731,18 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
+	  System.out.println("BIBLIOTECARIOS:");
 	  for (Bibliotecario bibliotecario : listaBibliotecario) {
-		 System.out.println("Bibliotecario: " + bibliotecario.getNome());
+		 System.out.println("Nome: " + bibliotecario.getNome());
+		 System.out.println("Matricula: " + bibliotecario.getMatricula());
+		 System.out.print("\n");
 	  }
    }
 
    public static void mostrarEmprestimos (ArrayList<Emprestimo> listaEmprestimos) {
 	  if (listaEmprestimos.isEmpty()) {
 		 System.out.println("Lista vazia");
+		 System.out.println();
 		 return;
 	  }
 
@@ -740,6 +750,7 @@ public final class Login {
 		 System.out.println("Titulo: " + emprestimo.getLivro().getTitulo());
 		 System.out.println("Em posse de: " + emprestimo.getUsuario().getNome());
 		 System.out.println("Matricula: " + emprestimo.getUsuario().getMatricula());
+		 System.out.println();
 	  }
    }
 
@@ -839,6 +850,8 @@ public final class Login {
 	  for (Livro livro : listaLivros) {
 		 if (livro.getQtdDisponivel() > 0) {
 			System.out.println("TITULO: " + livro.getTitulo());
+			System.out.println("ISBN: " + livro.getIsbn());
+			System.out.println();
 		 }
 	  }
    }
