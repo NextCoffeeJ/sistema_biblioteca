@@ -1,4 +1,4 @@
-﻿# 📚 Sistema de Biblioteca — POO
+﻿﻿# 📚 Sistema de Biblioteca — POO
 
 ## 👥 Integrantes
 - **Emerson Willian**
@@ -58,6 +58,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 **Pacotes previstos:**
 - `model` — Contém as classes que representam as entidades do sistema.
 - `service` — Gerencia as regras de negócio e interações entre camadas.
+- `controller` — Contém a classe que gerencia a lógica da aplicação.
 - `application` — Contém a classe principal que inicializa o sistema.
 
 **Principais classes:**
@@ -89,7 +90,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 
 ---
 
-## 🖼️ **Imagens da Aplicação em Execução (Protótipo)**  
+## 🖼️ **Imagens da Aplicação em Execução (Protótipo)**
 Você pode visualizar as imagens do protótipo da aplicação no link abaixo:  
 🔗 [Acessar imagens no OneDrive](https://1drv.ms/w/c/7de57f549d7c362f/EQq1nEbhvGBJtejuyqnYTN0Bml2g1x_0hY3DWYzQ3xvzlQ?e=rl5Nme)
 
@@ -97,7 +98,7 @@ Você pode visualizar as imagens do protótipo da aplicação no link abaixo:
 
 
 ## 💻 Forma de Entrada e Saída de Dados
-Inicialmente, o sistema funcionará via **terminal (CLI)**, mas há possibilidade futura de implementação de uma **interface gráfica (GUI)**.
+O sistema funcionará via **terminal (CLI)**.
 
 ---
 
@@ -109,9 +110,16 @@ Inicialmente, o sistema funcionará via **terminal (CLI)**, mas há possibilidad
 ---
 
 ## 📅 Status do Projeto
-🔧 **Em desenvolvimento**  
-A primeira versão será funcional via terminal. Futuramente, pretende-se incluir uma interface gráfica e persistência de dados.
+🔧 **Protótipo**  
+A primeira versão será funcional, mas não terá todos os recursos.
 
+🚀 **Beta Funcional / Pré-Release**  
+O projeto já superou a fase de prototipagem e encontra-se em um estágio **estável e testável**.  
+Todas as principais funcionalidades estão **ativas via terminal**, e a aplicação segue uma **arquitetura modular baseada em MVC**, pronta para expansão futura.
+
+🔮 **Próximos passos planejados:**
+- Implementação de **persistência de dados** (banco de dados ou arquivos).
+- Adição de **tratamento de exceções**.
 ---
 
 ## 📄 Licença
