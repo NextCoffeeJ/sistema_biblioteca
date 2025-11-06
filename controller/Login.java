@@ -872,15 +872,22 @@ public final class Login {
 		 }
 	  }
 	  String senha;
+	  int qtdCaracter;
 
 	  if (novaSenha != null) {
 		 do {
-			System.out.print("SENHA: ");
-			senha =scanner.nextLine().strip();
-			if (senha.isEmpty()) {
-			   System.out.println("Informe uma senha válida!");
+			do {
+			   System.out.print("SENHA: ");
+			   senha = scanner.nextLine().strip();
+			   if (senha.isEmpty()) {
+				  System.out.println("Você precisa inserir uma senha válido!\n");
+			   }
+			} while (senha.isEmpty());
+			qtdCaracter = senha.length();
+			if (qtdCaracter < 8) {
+			   System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 			}
-		 } while (senha.isEmpty());
+		 } while (qtdCaracter < 8);
 
 		 novaSenha.setSenha(senha);
 		 System.out.println("Senha redefinida com sucesso!");
@@ -927,16 +934,22 @@ public final class Login {
 	  }
 
 	  String senha;
+	  int qtdCaracter;
 
 	  if (novaSenha != null) {
 		 do {
-			System.out.print("SENHA: ");
-			senha = scanner.nextLine().strip();
-			if (senha.isEmpty()) {
-			   System.out.println("Informe uma senha válida!");
+			do {
+			   System.out.print("SENHA: ");
+			   senha = scanner.nextLine().strip();
+			   if (senha.isEmpty()) {
+				  System.out.println("Você precisa inserir uma senha válido!\n");
+			   }
+			} while (senha.isEmpty());
+			qtdCaracter = senha.length();
+			if (qtdCaracter < 8) {
+			   System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 			}
-		 } while (senha.isEmpty());
-
+		 } while (qtdCaracter < 8);
 		 novaSenha.setSenha(senha);
 		 System.out.println("Senha redefinida com sucesso!");
 	  } else {
@@ -982,15 +995,22 @@ public final class Login {
 	  }
 
 	  String senha;
+	  int qtdCaracter;
 
 	  if (novaSenha != null) {
 		 do {
-			System.out.print("SENHA: ");
-			senha = scanner.nextLine().strip();
-			if (senha.isEmpty()) {
-			   System.out.println("Informe uma senha válida!");
+			do {
+			   System.out.print("SENHA: ");
+			   senha = scanner.nextLine().strip();
+			   if (senha.isEmpty()) {
+				  System.out.println("Você precisa inserir uma senha válido!\n");
+			   }
+			} while (senha.isEmpty());
+			qtdCaracter = senha.length();
+			if (qtdCaracter < 8) {
+			   System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 			}
-		 } while (senha.isEmpty());
+		 } while (qtdCaracter < 8);
 
 		 novaSenha.setSenha(senha);
 		 System.out.println("Senha redefinida com sucesso!");

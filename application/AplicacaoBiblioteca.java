@@ -22,7 +22,6 @@ public class AplicacaoBiblioteca {
 
 	  Scanner scanner = new Scanner(System.in);
 
-
 	  do {
 		 System.out.println("\n--- OPCOES ---");
 		 System.out.println("1 - Cadastrar");
@@ -179,13 +178,18 @@ public class AplicacaoBiblioteca {
 
 						   if (verificacaoEmail == null) {
 							  do {
-								 System.out.print("SENHA: ");
-								 senha = scanner.nextLine().strip();
-								 if (senha.isEmpty()) {
-									System.out.println("Você precisa inserir uma senha válido!\n");
-
+								 do {
+									System.out.print("SENHA: ");
+									senha = scanner.nextLine().strip();
+									if (senha.isEmpty()) {
+									   System.out.println("Você precisa inserir uma senha válido!\n");
+									}
+								 } while (senha.isEmpty());
+								 qtdCaracter = senha.length();
+								 if (qtdCaracter < 8) {
+									System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 								 }
-							  } while (senha.isEmpty());
+							  } while (qtdCaracter < 8);
 
 							  do {
 								 System.out.print("CURSO: ");
@@ -209,7 +213,6 @@ public class AplicacaoBiblioteca {
 						break;
 
 					 case 2:
-
 
 						do {
 						   System.out.print("CPF: ");
@@ -336,12 +339,18 @@ public class AplicacaoBiblioteca {
 						   if (verificacaoEmail == null) {
 
 							  do {
-								 System.out.print("SENHA: ");
-								 senha = scanner.nextLine().strip();
-								 if (senha.isEmpty()) {
-									System.out.println("Você precisa inserir uma senha válido!\n");
+								 do {
+									System.out.print("SENHA: ");
+									senha = scanner.nextLine().strip();
+									if (senha.isEmpty()) {
+									   System.out.println("Você precisa inserir uma senha válido!\n");
+									}
+								 } while (senha.isEmpty());
+								 qtdCaracter = senha.length();
+								 if (qtdCaracter < 8) {
+									System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 								 }
-							  } while (senha.isEmpty());
+							  } while (qtdCaracter < 8);
 
 
 							  do {
@@ -491,14 +500,19 @@ public class AplicacaoBiblioteca {
 
 						   if (verificacaoEmail == null) {
 
-
 							  do {
-								 System.out.print("SENHA: ");
-								 senha = scanner.nextLine().strip();
-								 if (senha.isEmpty()) {
-									System.out.println("Você precisa inserir uma senha válido!\n");
+								 do {
+									System.out.print("SENHA: ");
+									senha = scanner.nextLine().strip();
+									if (senha.isEmpty()) {
+									   System.out.println("Você precisa inserir uma senha válido!\n");
+									}
+								 } while (senha.isEmpty());
+								 qtdCaracter = senha.length();
+								 if (qtdCaracter < 8) {
+									System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 								 }
-							  } while (senha.isEmpty());
+							  } while (qtdCaracter < 8);
 
 
 							  Bibliotecario bibliotecario = new Bibliotecario(nome, cpf, email, telefone, matricula, senha);
