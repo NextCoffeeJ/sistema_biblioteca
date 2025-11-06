@@ -221,7 +221,7 @@ public final class Login {
 			if (op == 1) {
 			   do {
 				  System.out.print("Confirme seu EMAIL: ");
-				  email = scanner.nextLine();
+				  email = scanner.nextLine().strip();
 				  if (email.isEmpty()) {
 					 System.out.println("Você precisa inserir um email válido!\n");
 				  }
@@ -302,7 +302,7 @@ public final class Login {
 			if (op == 1) {
 			   do {
 				  System.out.print("Confirme seu EMAIL: ");
-				  email = scanner.nextLine();
+				  email = scanner.nextLine().strip();
 				  if (email.isEmpty()) {
 					 System.out.println("Você precisa inserir um email válido!\n");
 				  }
@@ -383,7 +383,7 @@ public final class Login {
 			if (op == 1) {
 			   do {
 				  System.out.print("Confirme seu EMAIL: ");
-				  email = scanner.nextLine();
+				  email = scanner.nextLine().strip();
 				  if (email.isEmpty()) {
 					 System.out.println("Você precisa inserir um email válido!\n");
 				  }
@@ -467,7 +467,7 @@ public final class Login {
 		 if (op == 1) {
 			do {
 			   System.out.print("Confirme seu EMAIL: ");
-			   email = scanner.nextLine();
+			   email = scanner.nextLine().strip();
 			   if (email.isEmpty()) {
 				  System.out.println("Você precisa inserir um email válido!\n");
 			   }
@@ -532,7 +532,7 @@ public final class Login {
 		 if (op == 1) {
 			do {
 			   System.out.print("Confirme seu EMAIL: ");
-			   email = scanner.nextLine();
+			   email = scanner.nextLine().strip();
 			   if (email.isEmpty()) {
 				  System.out.println("Você precisa inserir um email válido!\n");
 			   }
@@ -597,7 +597,7 @@ public final class Login {
 		 if (op == 1) {
 			do {
 			   System.out.print("Confirme seu EMAIL: ");
-			   email = scanner.nextLine();
+			   email = scanner.nextLine().strip();
 			   if (email.isEmpty()) {
 				  System.out.println("Você precisa inserir um email válido!\n");
 			   }
@@ -876,7 +876,7 @@ public final class Login {
 	  if (novaSenha != null) {
 		 do {
 			System.out.print("SENHA: ");
-			senha = scanner.nextLine();
+			senha =scanner.nextLine().strip();
 			if (senha.isEmpty()) {
 			   System.out.println("Informe uma senha válida!");
 			}
@@ -898,7 +898,7 @@ public final class Login {
 			if (op == 1) {
 			   do {
 				  System.out.print("MATRICULA: ");
-				  matricula = scanner.nextLine();
+				  matricula = scanner.nextLine().strip();
 				  if (matricula.isEmpty()) {
 					 System.out.println("Informe uma matricula válida!");
 				  }
@@ -931,7 +931,7 @@ public final class Login {
 	  if (novaSenha != null) {
 		 do {
 			System.out.print("SENHA: ");
-			senha = scanner.nextLine();
+			senha = scanner.nextLine().strip();
 			if (senha.isEmpty()) {
 			   System.out.println("Informe uma senha válida!");
 			}
@@ -954,7 +954,7 @@ public final class Login {
 
 			   do {
 				  System.out.print("MATRICULA: ");
-				  matricula = scanner.nextLine();
+				  matricula = scanner.nextLine().strip();
 				  if (matricula.isEmpty()) {
 					 System.out.println("Informe uma matricula válida!");
 				  }
@@ -986,7 +986,7 @@ public final class Login {
 	  if (novaSenha != null) {
 		 do {
 			System.out.print("SENHA: ");
-			senha = scanner.nextLine();
+			senha = scanner.nextLine().strip();
 			if (senha.isEmpty()) {
 			   System.out.println("Informe uma senha válida!");
 			}
@@ -1009,7 +1009,7 @@ public final class Login {
 
 			   do {
 				  System.out.print("MATRICULA: ");
-				  matricula = scanner.nextLine();
+				  matricula = scanner.nextLine().strip();
 				  if (matricula.isEmpty()) {
 					 System.out.println("Informe uma matricula válida!");
 				  }
