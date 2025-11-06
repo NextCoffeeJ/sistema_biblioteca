@@ -634,37 +634,58 @@ public final class Login {
 	  System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
    }
 
-   public static void verMultasAluno(Aluno aluno) {
+   public static void verMultasAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
+	  for (Aluno aluno : listaAlunos) {
+		 double totalMulta = 0;
 
+		 for (Emprestimo emprestimo : listaEmprestimos) {
+			if (emprestimo.getUsuario() != null && emprestimo.getUsuario().equals(aluno) && emprestimo.isAtrasado()) {
+			   totalMulta += 5;
+			}
+		 }
 
-	  if (aluno.getMulta() > 0) {
-		 System.out.println("Aluno: " + aluno.getNome() + " | Total de multa: R$" + aluno.getMulta());
-	  } else {
-		 System.out.println("Aluno: " + aluno.getNome() + " | Sem multas.");
+		 if (totalMulta > 0) {
+			System.out.println("Aluno: " + aluno.getNome() + " | Total de multa: R$" + totalMulta);
+		 } else {
+			System.out.println("Aluno: " + aluno.getNome() + " | Sem multas.");
+		 }
 	  }
-
    }
 
-   public static void verMultasProfessor(Professor professor){
+   public static void verMultasProfessor(ArrayList<Livro> listaLivros, ArrayList<Professor> listaProfessores, ArrayList<Emprestimo> listaEmprestimos){
+	  for(Professor professor : listaProfessores){
+		 double totalMulta = 0;
 
+		 for(Emprestimo emprestimo : listaEmprestimos){
+			if(emprestimo.getUsuario() != null && emprestimo.getUsuario().equals(professor) && emprestimo.isAtrasado()) {
+			   totalMulta += 5;
+			}
+		 }
 
-	  if(professor.getMulta() > 0){
-		 System.out.println("Professor: " + professor.getNome() + " | Total de multa: R$" + professor.getMulta());
-	  } else {
-		 System.out.println("Professor: " + professor.getNome() + " | Sem multas.");
+		 if(totalMulta > 0){
+			System.out.println("Professor: " + professor.getNome() + " | Total de multa: R$" + totalMulta);
+		 } else {
+			System.out.println("Professor: " + professor.getNome() + " | Sem multas.");
+		 }
 	  }
-
    }
 
-   public static void verMultasBibliotecario(Bibliotecario bibliotecario){
+   public static void verMultasBibliotecario(ArrayList<Livro> listaLivros, ArrayList<Bibliotecario> listaBibliotecarios, ArrayList<Emprestimo> listaEmprestimos){
+	  for(Bibliotecario bibliotecario : listaBibliotecarios){
+		 double totalMulta = 0;
 
+		 for(Emprestimo emprestimo : listaEmprestimos){
+			if(emprestimo.getUsuario() != null && emprestimo.getUsuario().equals(bibliotecario) && emprestimo.isAtrasado()) {
+			   totalMulta += 5;
+			}
+		 }
 
-	  if(bibliotecario.getMulta() > 0){
-		 System.out.println("Bibliotecário: " + bibliotecario.getNome() + " | Total de multa: R$" + bibliotecario.getMulta());
-	  } else {
-		 System.out.println("Bibliotecário: " + bibliotecario.getNome() + " | Sem multas.");
+		 if(totalMulta > 0){
+			System.out.println("Bibliotecário: " + bibliotecario.getNome() + " | Total de multa: R$" + totalMulta);
+		 } else {
+			System.out.println("Bibliotecário: " + bibliotecario.getNome() + " | Sem multas.");
+		 }
 	  }
-
    }
 
    public static void dadosLivrosUsuario(ArrayList<Emprestimo> listaEmprestimos, String email) {
@@ -690,12 +711,8 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
-	  System.out.println();
-
 	  for (Livro livro : listaLivros) {
 		 System.out.println("TITULO: " + livro.getTitulo());
-		 System.out.println("ISBN: " + livro.getIsbn());
-		 System.out.println();
 	  }
    }
 
@@ -705,11 +722,8 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
-	  System.out.println("ALUNOS:");
 	  for (Aluno aluno : listaAlunos) {
-		 System.out.println("Nome: " + aluno.getNome());
-		 System.out.println("Matricula: " + aluno.getMatricula());
-		 System.out.print("\n");
+		 System.out.println("Aluno: " + aluno.getNome());
 	  }
    }
 
@@ -718,11 +732,8 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
-	  System.out.println("PROFESORES:");
 	  for (Professor professor : listaProfessor) {
-		 System.out.println("Nome: " + professor.getNome());
-		 System.out.println("Matricula: " + professor.getMatricula());
-		 System.out.print("\n");
+		 System.out.println("Professor: " + professor.getNome());
 	  }
    }
 
@@ -731,18 +742,14 @@ public final class Login {
 		 System.out.println("Lista vazia");
 		 return;
 	  }
-	  System.out.println("BIBLIOTECARIOS:");
 	  for (Bibliotecario bibliotecario : listaBibliotecario) {
-		 System.out.println("Nome: " + bibliotecario.getNome());
-		 System.out.println("Matricula: " + bibliotecario.getMatricula());
-		 System.out.print("\n");
+		 System.out.println("Bibliotecario: " + bibliotecario.getNome());
 	  }
    }
 
    public static void mostrarEmprestimos (ArrayList<Emprestimo> listaEmprestimos) {
 	  if (listaEmprestimos.isEmpty()) {
 		 System.out.println("Lista vazia");
-		 System.out.println();
 		 return;
 	  }
 
@@ -750,7 +757,6 @@ public final class Login {
 		 System.out.println("Titulo: " + emprestimo.getLivro().getTitulo());
 		 System.out.println("Em posse de: " + emprestimo.getUsuario().getNome());
 		 System.out.println("Matricula: " + emprestimo.getUsuario().getMatricula());
-		 System.out.println();
 	  }
    }
 
@@ -850,8 +856,6 @@ public final class Login {
 	  for (Livro livro : listaLivros) {
 		 if (livro.getQtdDisponivel() > 0) {
 			System.out.println("TITULO: " + livro.getTitulo());
-			System.out.println("ISBN: " + livro.getIsbn());
-			System.out.println();
 		 }
 	  }
    }
