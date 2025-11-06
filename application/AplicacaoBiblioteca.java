@@ -9,7 +9,7 @@ import service.CadastroUsuario;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
-	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual;
+	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual, qtdCaracter;
 	  String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha, curso, departamento;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	  LocalDate dataEmprestimo,dataLimiteDevolucao;
@@ -19,7 +19,6 @@ public class AplicacaoBiblioteca {
 	  ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
 	  ArrayList<Livro> livros = new ArrayList<>();
 	  ArrayList<Emprestimo> emprestimos = new ArrayList<>();
-
 
 	  Scanner scanner = new Scanner(System.in);
 
@@ -121,15 +120,21 @@ public class AplicacaoBiblioteca {
 						   } while (telefoneIgual == 1);
 						}
 
-
 						do {
-						   System.out.print("MATRICULA: ");
-						   matricula = scanner.nextLine().strip();
-						   if (matricula.isEmpty()) {
-							  System.out.println("Você precisa inserir uma matricula válido!\n");
+						   do {
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine().strip();
+							  if (matricula.isEmpty()) {
+								 System.out.println("Você precisa inserir uma matricula válido!\n");
+							  }
+						   } while (matricula.isEmpty());
+						   qtdCaracter = matricula.length();
+						   if (qtdCaracter < 8) {
+							  System.out.println("A matricula tem que ter 8 digitos!\n");
+						   } else  if (qtdCaracter > 8) {
+							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   }
-						} while (matricula.isEmpty());
-
+						} while (qtdCaracter != 8);
 
 						tipo = 1;
 						matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
@@ -140,14 +145,21 @@ public class AplicacaoBiblioteca {
 							  System.out.println("\nEssa matricula já pertence a um aluno!");
 							  System.out.println("Insira uma matricula válida!\n");
 
-
 							  do {
-								 System.out.print("MATRICULA: ");
-								 matricula = scanner.nextLine().strip();
-								 if (matricula.isEmpty()) {
-									System.out.println("Você precisa inserir uma matricula válido!\n");
+								 do {
+									System.out.print("MATRICULA: ");
+									matricula = scanner.nextLine().strip();
+									if (matricula.isEmpty()) {
+									   System.out.println("Você precisa inserir uma matricula válido!\n");
+									}
+								 } while (matricula.isEmpty());
+								 qtdCaracter = matricula.length();
+								 if (qtdCaracter < 8) {
+									System.out.println("A matricula tem que ter 8 digitos!\n");
+								 } else  if (qtdCaracter > 8) {
+									System.out.println("A matricula tem que ter 8 digitos!\n");
 								 }
-							  } while (matricula.isEmpty());
+							  } while (qtdCaracter != 8);
 
 							  matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
 						   } while (matriculaIgual == 1);
@@ -172,7 +184,6 @@ public class AplicacaoBiblioteca {
 								 if (senha.isEmpty()) {
 									System.out.println("Você precisa inserir uma senha válido!\n");
 
-
 								 }
 							  } while (senha.isEmpty());
 
@@ -195,9 +206,7 @@ public class AplicacaoBiblioteca {
 						   }
 						} while (true);
 
-
 						break;
-
 
 					 case 2:
 
@@ -265,13 +274,20 @@ public class AplicacaoBiblioteca {
 						}
 
 						do {
-						   System.out.print("MATRICULA: ");
-						   matricula = scanner.nextLine().strip();
-						   if (matricula.isEmpty()) {
-							  System.out.println("Você precisa inserir uma matricula válido!\n");
+						   do {
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine().strip();
+							  if (matricula.isEmpty()) {
+								 System.out.println("Você precisa inserir uma matricula válido!\n");
+							  }
+						   } while (matricula.isEmpty());
+						   qtdCaracter = matricula.length();
+						   if (qtdCaracter < 8) {
+							  System.out.println("A matricula tem que ter 8 digitos!\n");
+						   } else  if (qtdCaracter > 8) {
+							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   }
-						} while (matricula.isEmpty());
-
+						} while (qtdCaracter != 8);
 
 						tipo = 2;
 						matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
@@ -284,12 +300,20 @@ public class AplicacaoBiblioteca {
 
 
 							  do {
-								 System.out.print("MATRICULA: ");
-								 matricula = scanner.nextLine().strip();
-								 if (matricula.isEmpty()) {
-									System.out.println("Você precisa inserir uma matricula válido!\n");
+								 do {
+									System.out.print("MATRICULA: ");
+									matricula = scanner.nextLine().strip();
+									if (matricula.isEmpty()) {
+									   System.out.println("Você precisa inserir uma matricula válido!\n");
+									}
+								 } while (matricula.isEmpty());
+								 qtdCaracter = matricula.length();
+								 if (qtdCaracter < 8) {
+									System.out.println("A matricula tem que ter 8 digitos!\n");
+								 } else  if (qtdCaracter > 8) {
+									System.out.println("A matricula tem que ter 8 digitos!\n");
 								 }
-							  } while (matricula.isEmpty());
+							  } while (qtdCaracter != 8);
 
 
 							  matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
@@ -406,15 +430,21 @@ public class AplicacaoBiblioteca {
 						   } while (telefoneIgual == 1);
 						}
 
-
 						do {
-						   System.out.print("MATRICULA: ");
-						   matricula = scanner.nextLine().strip();
-						   if (matricula.isEmpty()) {
-							  System.out.println("Você precisa inserir uma matricula válido!\n");
+						   do {
+							  System.out.print("MATRICULA: ");
+							  matricula = scanner.nextLine().strip();
+							  if (matricula.isEmpty()) {
+								 System.out.println("Você precisa inserir uma matricula válido!\n");
+							  }
+						   } while (matricula.isEmpty());
+						   qtdCaracter = matricula.length();
+						   if (qtdCaracter < 8) {
+							  System.out.println("A matricula tem que ter 8 digitos!\n");
+						   } else  if (qtdCaracter > 8) {
+							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   }
-						} while (matricula.isEmpty());
-
+						} while (qtdCaracter != 8);
 
 						tipo = 3;
 						matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
@@ -425,15 +455,21 @@ public class AplicacaoBiblioteca {
 							  System.out.println("\nEssa matricula já pertence a um bibliotecario!");
 							  System.out.println("Insira uma matricula válida!\n");
 
-
 							  do {
-								 System.out.print("MATRICULA: ");
-								 matricula = scanner.nextLine().strip();
-								 if (matricula.isEmpty()) {
-									System.out.println("Você precisa inserir uma matricula válido!\n");
+								 do {
+									System.out.print("MATRICULA: ");
+									matricula = scanner.nextLine().strip();
+									if (matricula.isEmpty()) {
+									   System.out.println("Você precisa inserir uma matricula válido!\n");
+									}
+								 } while (matricula.isEmpty());
+								 qtdCaracter = matricula.length();
+								 if (qtdCaracter < 8) {
+									System.out.println("A matricula tem que ter 8 digitos!\n");
+								 } else  if (qtdCaracter > 8) {
+									System.out.println("A matricula tem que ter 8 digitos!\n");
 								 }
-							  } while (matricula.isEmpty());
-
+							  } while (qtdCaracter != 8);
 
 							  matriculaIgual = Login.matriculaDuplicada(alunos, professores, bibliotecarios, matricula, tipo);
 						   } while (matriculaIgual == 1);
