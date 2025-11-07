@@ -1,7 +1,5 @@
 package controller;
-
 import model.*;
-
 import java.util.ArrayList;
 
 public abstract class Exibicao extends Login {
@@ -86,7 +84,6 @@ public abstract class Exibicao extends Login {
 		 System.out.println("TITULO: " + livro.getTitulo());
 	  }
    }
-
 
    public static void mostrarAlunos (ArrayList<Aluno> listaAlunos){
 	  if (listaAlunos.isEmpty()) {
@@ -183,3 +180,4 @@ public abstract class Exibicao extends Login {
 	  }
    }
 }
+
