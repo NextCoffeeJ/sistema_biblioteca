@@ -21,7 +21,7 @@ public abstract class RedefinirSenha extends Login {
 		 }
 	  }
 	  String senha;
-	  int qtdCaracter;
+	  byte qtdCaracter;
 
 	  if (novaSenha != null) {
 		 do {
@@ -32,7 +32,7 @@ public abstract class RedefinirSenha extends Login {
 				  System.out.println("Você precisa inserir uma senha válido!\n");
 			   }
 			} while (senha.isEmpty());
-			qtdCaracter = senha.length();
+			qtdCaracter = (byte) senha.length();
 			if (qtdCaracter < 8) {
 			   System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 			}
@@ -83,7 +83,7 @@ public abstract class RedefinirSenha extends Login {
 	  }
 
 	  String senha;
-	  int qtdCaracter;
+	  byte qtdCaracter;
 
 	  if (novaSenha != null) {
 		 do {
@@ -94,7 +94,7 @@ public abstract class RedefinirSenha extends Login {
 				  System.out.println("Você precisa inserir uma senha válido!\n");
 			   }
 			} while (senha.isEmpty());
-			qtdCaracter = senha.length();
+			qtdCaracter = (byte) senha.length();
 			if (qtdCaracter < 8) {
 			   System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 			}
@@ -144,7 +144,7 @@ public abstract class RedefinirSenha extends Login {
 	  }
 
 	  String senha;
-	  int qtdCaracter;
+	  byte qtdCaracter;
 
 	  if (novaSenha != null) {
 		 do {
@@ -155,7 +155,7 @@ public abstract class RedefinirSenha extends Login {
 				  System.out.println("Você precisa inserir uma senha válido!\n");
 			   }
 			} while (senha.isEmpty());
-			qtdCaracter = senha.length();
+			qtdCaracter = (byte) senha.length();
 			if (qtdCaracter < 8) {
 			   System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 			}

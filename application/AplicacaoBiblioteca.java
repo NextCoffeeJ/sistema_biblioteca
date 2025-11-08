@@ -9,7 +9,8 @@ import service.CadastroUsuario;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
-	  int escolha, escolhaCadastro, escolhaLogin, qtdDisponivel, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual, qtdCaracter;
+	  byte escolha, escolhaCadastro, escolhaLogin, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual, qtdCaracter;
+	  int qtdDisponivel;
 	  String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha, curso, departamento;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	  LocalDate dataEmprestimo,dataLimiteDevolucao;
@@ -28,7 +29,7 @@ public class AplicacaoBiblioteca {
 		 System.out.println("2 - Login");
 		 System.out.println("0 - Encerrar");
 		 System.out.print("Qual opcao deseja: ");
-		 escolha = scanner.nextInt();
+		 escolha = scanner.nextByte();
 		 scanner.nextLine();
 
 
@@ -41,7 +42,7 @@ public class AplicacaoBiblioteca {
 				  System.out.println("2 - Professor");
 				  System.out.println("3 - Bibliotecario");
 				  System.out.print("Opcao: ");
-				  escolhaCadastro = scanner.nextInt();
+				  escolhaCadastro = scanner.nextByte();
 				  scanner.nextLine();
 
 				  if (escolhaCadastro == 1 || escolhaCadastro == 2 || escolhaCadastro == 3) {
@@ -125,7 +126,7 @@ public class AplicacaoBiblioteca {
 								 System.out.println("Você precisa inserir uma matricula válido!\n");
 							  }
 						   } while (matricula.isEmpty());
-						   qtdCaracter = matricula.length();
+						   qtdCaracter = scanner.nextByte();
 						   if (qtdCaracter < 8) {
 							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   } else  if (qtdCaracter > 8) {
@@ -150,7 +151,7 @@ public class AplicacaoBiblioteca {
 									   System.out.println("Você precisa inserir uma matricula válido!\n");
 									}
 								 } while (matricula.isEmpty());
-								 qtdCaracter = matricula.length();
+								 qtdCaracter = (byte) matricula.length();
 								 if (qtdCaracter < 8) {
 									System.out.println("A matricula tem que ter 8 digitos!\n");
 								 } else  if (qtdCaracter > 8) {
@@ -183,7 +184,7 @@ public class AplicacaoBiblioteca {
 									   System.out.println("Você precisa inserir uma senha válido!\n");
 									}
 								 } while (senha.isEmpty());
-								 qtdCaracter = senha.length();
+								 qtdCaracter = (byte) senha.length();
 								 if (qtdCaracter < 8) {
 									System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 								 }
@@ -282,7 +283,7 @@ public class AplicacaoBiblioteca {
 								 System.out.println("Você precisa inserir uma matricula válido!\n");
 							  }
 						   } while (matricula.isEmpty());
-						   qtdCaracter = matricula.length();
+						   qtdCaracter = (byte) matricula.length();
 						   if (qtdCaracter < 8) {
 							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   } else  if (qtdCaracter > 8) {
@@ -308,7 +309,7 @@ public class AplicacaoBiblioteca {
 									   System.out.println("Você precisa inserir uma matricula válido!\n");
 									}
 								 } while (matricula.isEmpty());
-								 qtdCaracter = matricula.length();
+								 qtdCaracter = (byte) matricula.length();
 								 if (qtdCaracter < 8) {
 									System.out.println("A matricula tem que ter 8 digitos!\n");
 								 } else  if (qtdCaracter > 8) {
@@ -344,7 +345,7 @@ public class AplicacaoBiblioteca {
 									   System.out.println("Você precisa inserir uma senha válido!\n");
 									}
 								 } while (senha.isEmpty());
-								 qtdCaracter = senha.length();
+								 qtdCaracter = (byte) senha.length();
 								 if (qtdCaracter < 8) {
 									System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 								 }
@@ -445,7 +446,7 @@ public class AplicacaoBiblioteca {
 								 System.out.println("Você precisa inserir uma matricula válido!\n");
 							  }
 						   } while (matricula.isEmpty());
-						   qtdCaracter = matricula.length();
+						   qtdCaracter = (byte) matricula.length();
 						   if (qtdCaracter < 8) {
 							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   } else  if (qtdCaracter > 8) {
@@ -470,7 +471,7 @@ public class AplicacaoBiblioteca {
 									   System.out.println("Você precisa inserir uma matricula válido!\n");
 									}
 								 } while (matricula.isEmpty());
-								 qtdCaracter = matricula.length();
+								 qtdCaracter = (byte) matricula.length();
 								 if (qtdCaracter < 8) {
 									System.out.println("A matricula tem que ter 8 digitos!\n");
 								 } else  if (qtdCaracter > 8) {
@@ -506,7 +507,7 @@ public class AplicacaoBiblioteca {
 									   System.out.println("Você precisa inserir uma senha válido!\n");
 									}
 								 } while (senha.isEmpty());
-								 qtdCaracter = senha.length();
+								 qtdCaracter = (byte) senha.length();
 								 if (qtdCaracter < 8) {
 									System.out.println("A senha tem que ter pelo menos 8 digitos!\n");
 								 }
@@ -650,7 +651,7 @@ public class AplicacaoBiblioteca {
 						System.out.println("9 - Logout.");
 						System.out.println("0 - Fechar app.");
 						System.out.print("Qual opcao deseja realizar: ");
-						escolhaLogin = scanner.nextInt();
+						escolhaLogin = scanner.nextByte();
 
 						scanner.nextLine();
 						switch (escolhaLogin) {
@@ -858,8 +859,7 @@ public class AplicacaoBiblioteca {
 						System.out.println("9 - Logout.");
 						System.out.println("0 - Fechar app.");
 						System.out.print("Qual opcao deseja realizar: ");
-						escolhaLogin = scanner.nextInt();
-
+						escolhaLogin = scanner.nextByte();
 
 						scanner.nextLine();
 						switch (escolhaLogin) {
@@ -1064,7 +1064,7 @@ public class AplicacaoBiblioteca {
 						System.out.println("16 - Alterar quantidade de livros disponíveis.");
 						System.out.println("0 - Fechar app.");
 						System.out.print("Qual opcao deseja realizar: ");
-						escolhaLogin = scanner.nextInt();
+						escolhaLogin = scanner.nextByte();
 
 						scanner.nextLine();
 						switch (escolhaLogin) {
@@ -1199,7 +1199,7 @@ public class AplicacaoBiblioteca {
 							  System.out.println("2 - Professor");
 							  System.out.println("3 - Bibliotecario");
 							  System.out.print("Digite uma opção: ");
-							  opcao = scanner.nextInt();
+							  opcao = scanner.nextByte();
 							  scanner.nextLine();
 							  if (opcao == 1) {
 								 do {
@@ -1377,7 +1377,7 @@ public class AplicacaoBiblioteca {
 							  System.out.println("2 - Professor");
 							  System.out.println("3 - Bibliotecario");
 							  System.out.print("Digite uma opção: ");
-							  opcao = scanner.nextInt();
+							  opcao = scanner.nextByte();
 							  scanner.nextLine();
 							  if (opcao == 1) {
 								 Exibicao.mostrarAlunos(alunos);
@@ -1418,7 +1418,7 @@ public class AplicacaoBiblioteca {
 							  System.out.println("1 - Aumentar quantidade");
 							  System.out.println("2 - Diminuir quantidade");
 							  System.out.print("Escolha uma opção: ");
-							  int opcaoQtd = scanner.nextInt();
+							  byte opcaoQtd = scanner.nextByte();
 							  scanner.nextLine();
 
 							  if (opcaoQtd == 1) {

@@ -8,6 +8,7 @@ import model.Professor;
 import java.util.ArrayList;
 
 public abstract class Cancelar extends Login {
+
    public static void cancelarCadastroAluno (ArrayList<Aluno> listaAluno, String matricula) {
 	  if (listaAluno.isEmpty()) {
 		 System.out.println("Lista vazia");
@@ -93,5 +94,4 @@ public abstract class Cancelar extends Login {
 		 System.out.println("Livro não encontrado!");
 	  }
    }
-
 }

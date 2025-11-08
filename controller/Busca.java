@@ -36,7 +36,7 @@ public abstract class Busca extends Login {
 	  return null;
    }
 
-   public static int matriculaDuplicada (ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String matricula, int tipo) {
+   public static byte matriculaDuplicada (ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String matricula, byte tipo) {
 	  if (tipo == 1) {
 		 for (Aluno aluno : listaAlunos) {
 			if (aluno.getMatricula().equalsIgnoreCase(matricula)) {
@@ -61,7 +61,7 @@ public abstract class Busca extends Login {
 	  }
    }
 
-   public static int telefoneDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String telefone, int tipo) {
+   public static byte telefoneDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String telefone, byte tipo) {
 	  if (tipo == 1) {
 		 for (Aluno aluno : listaAlunos) {
 			if (aluno.getTelefone().equalsIgnoreCase(telefone)) {
@@ -86,7 +86,7 @@ public abstract class Busca extends Login {
 	  }
    }
 
-   public static int cpfDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String cpf, int tipo) {
+   public static byte cpfDuplicado(ArrayList<Aluno> listaAlunos, ArrayList<Professor> listaProfessores, ArrayList<Bibliotecario> listaBibliotecarios, String cpf, byte tipo) {
 	  if (tipo == 1) {
 		 for (Aluno aluno : listaAlunos) {
 			if (aluno.getCpf().equalsIgnoreCase(cpf)) {
@@ -111,7 +111,7 @@ public abstract class Busca extends Login {
 	  }
    }
 
-   public static int isbnDuplicado(ArrayList<Livro> listaLivros, String isbn) {
+   public static byte isbnDuplicado(ArrayList<Livro> listaLivros, String isbn) {
 	  for (Livro livro : listaLivros) {
 		 if (livro.getIsbn().equalsIgnoreCase(isbn)) {
 			return 1;

@@ -201,5 +201,4 @@ public abstract class Renovar extends Login {
 	  emprestimo.renovar();
 	  System.out.println("Livro renovado com sucesso! Novo prazo de entrega: " + emprestimo.getDataLimiteDevolucao() + "dias.");
    }
-
 }
