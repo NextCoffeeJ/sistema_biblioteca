@@ -1,10 +1,9 @@
 package controller;
-
 import model.*;
-
 import java.util.ArrayList;
 
-public abstract class Exibicao extends Login {
+public abstract class Exibicao {
+
    public static void verMultasAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
 	  for (Aluno aluno : listaAlunos) {
 		 double totalMulta = 0;

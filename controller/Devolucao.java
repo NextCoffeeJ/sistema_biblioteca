@@ -1,11 +1,9 @@
 package controller;
-
 import model.*;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Devolucao extends Login {
+public abstract class Devolucao {
    private static final Scanner scanner = new Scanner(System.in);
 
    public static void devolverLivroAluno(ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAluno, ArrayList<Emprestimo> listaEmprestimo) {

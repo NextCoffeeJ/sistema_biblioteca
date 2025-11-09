@@ -1,14 +1,13 @@
 package controller;
-
 import java.util.ArrayList;
-
 import model.Aluno;
 import model.Bibliotecario;
 import model.Emprestimo;
 import model.Livro;
 import model.Professor;
 
-public abstract class Busca extends Login {
+public abstract class Busca {
+
     public static Aluno buscarAlunoPorEmail (ArrayList<Aluno> listaAlunos, String email) {
 	  for (Aluno aluno : listaAlunos) {
 		 if (aluno.getEmail().equalsIgnoreCase(email)) {

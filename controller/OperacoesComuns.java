@@ -1,5 +1,5 @@
 package controller;
 
-public abstract class OperacoesComuns extends Login {
+public abstract class OperacoesComuns {
 
 }

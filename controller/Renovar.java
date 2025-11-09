@@ -3,9 +3,8 @@ import model.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Renovar extends Login {
+public abstract class Renovar  {
    private static final Scanner scanner = new Scanner(System.in);
-
 
    public static void renovarLivroAluno (ArrayList<Livro> listaLivros, ArrayList<Aluno> listaAlunos, ArrayList<Emprestimo> listaEmprestimos) {
 

@@ -1,13 +1,11 @@
 package controller;
-
 import model.Aluno;
 import model.Bibliotecario;
 import model.Livro;
 import model.Professor;
-
 import java.util.ArrayList;
 
-public abstract class Cancelar extends Login {
+public abstract class Cancelar {
 
    public static void cancelarCadastroAluno (ArrayList<Aluno> listaAluno, String matricula) {
 	  if (listaAluno.isEmpty()) {

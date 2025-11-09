@@ -1,13 +1,11 @@
 package controller;
-
 import model.Aluno;
 import model.Bibliotecario;
 import model.Professor;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class RedefinirSenha extends Login {
+public abstract class RedefinirSenha {
    private static final Scanner scanner = new Scanner(System.in);
 
    public static void redefinirSenhaAluno (ArrayList<Aluno> listaAlunos, String matricula) {
