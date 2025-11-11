@@ -127,7 +127,7 @@ public class AplicacaoBiblioteca {
 								 System.out.println("Você precisa inserir uma matricula válido!\n");
 							  }
 						   } while (matricula.isEmpty());
-						   qtdCaracter = scanner.nextByte();
+						   qtdCaracter =  (byte) matricula.length();
 						   if (qtdCaracter < 8) {
 							  System.out.println("A matricula tem que ter 8 digitos!\n");
 						   } else  if (qtdCaracter > 8) {
