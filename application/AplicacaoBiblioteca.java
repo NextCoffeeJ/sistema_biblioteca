@@ -4,14 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.*;
-import service.CadastroLivro;
-import service.CadastroUsuario;
+import service.*;
 
 public class AplicacaoBiblioteca {
    public static void main(String[] args) {
 	  byte escolha, escolhaCadastro, escolhaLogin, opcao, tipo, matriculaIgual, telefoneIgual, cpfIgual, isbnIgual, qtdCaracter;
 	  int qtdDisponivel;
-	  String nome="desconhecido" , cpf="desconhecido", email, telefone="desconhecido", matricula="desconhecido", senha, curso, departamento;
+	  String nome = "desconhecido" , cpf = "desconhecido", email, telefone = "desconhecido", matricula = "desconhecido", senha, curso, departamento;
 	  String titulo, autor, editora, isbn, anoPublicacao, categoria, localizacao;
 	  LocalDate dataEmprestimo,dataLimiteDevolucao;
 
@@ -20,7 +19,10 @@ public class AplicacaoBiblioteca {
 	  ArrayList<Bibliotecario> bibliotecarios = new ArrayList<>();
 	  ArrayList<Livro> livros = new ArrayList<>();
 	  ArrayList<Emprestimo> emprestimos = new ArrayList<>();
-
+	  Login cadastroLivro = new Cadastro();
+	  Login cadastroAluno = new Cadastro();
+	  Login cadastroProfessor = new Cadastro();
+	  Login cadastroBibliotecario = new Cadastro();
 	  Scanner scanner = new Scanner(System.in);
 
 	  do {
@@ -31,7 +33,6 @@ public class AplicacaoBiblioteca {
 		 System.out.print("Qual opcao deseja: ");
 		 escolha = scanner.nextByte();
 		 scanner.nextLine();
-
 
 		 switch (escolha) {
 			case 1:
@@ -200,7 +201,7 @@ public class AplicacaoBiblioteca {
 
 
 							  Aluno aluno = new Aluno(nome, cpf, email, telefone, matricula, senha, curso);
-							  CadastroUsuario.adicionarAluno(alunos, aluno);
+							  cadastroAluno.adicionarAluno(alunos, aluno);
 							  System.out.println("\nAluno cadastrado com sucesso!");
 							  break;
 						   } else {
@@ -362,7 +363,7 @@ public class AplicacaoBiblioteca {
 
 
 							  Professor professor = new Professor(nome, cpf, email, telefone, matricula, senha, departamento);
-							  CadastroUsuario.adicionarProfessor(professores, professor);
+							  cadastroProfessor.adicionarProfessor(professores, professor);
 							  System.out.println("\nProfessor cadastrado com sucesso!");
 							  break;
 						   } else {
@@ -515,7 +516,7 @@ public class AplicacaoBiblioteca {
 
 
 							  Bibliotecario bibliotecario = new Bibliotecario(nome, cpf, email, telefone, matricula, senha);
-							  CadastroUsuario.adicionarBibliotecario(bibliotecarios, bibliotecario);
+							  cadastroBibliotecario.adicionarBibliotecario(bibliotecarios, bibliotecario);
 							  System.out.println("\nBibliotecário cadastrado com sucesso!");
 							  break;
 						   } else {
@@ -1353,7 +1354,7 @@ public class AplicacaoBiblioteca {
 
 
 							  Livro livro = new Livro(titulo, autor, editora, isbn, anoPublicacao, qtdDisponivel, categoria, localizacao);
-							  CadastroLivro.adicionarLivro(livros, livro);
+							  cadastroLivro.adicionarLivro(livros, livro);
 							  System.out.println("Livro cadastrado com sucesso.");
 							  break;
 						   case 11:
