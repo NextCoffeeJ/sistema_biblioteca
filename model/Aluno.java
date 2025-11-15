@@ -24,8 +24,4 @@ public class Aluno extends Usuario {
    public void setLimiteLivros(int limiteLivro) {
 	  this.limiteLivros = limiteLivro;
    }
-
-   public String getEmail(){
-	  return email;
-   }
 }

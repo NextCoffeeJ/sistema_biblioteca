@@ -14,8 +14,4 @@ public class Bibliotecario extends Usuario {
    public void setLimiteLivros(int limiteLivros) {
 	  this.limiteLivros = limiteLivros;
    }
-
-   public String getEmail(){
-	  return email;
-   }
 }

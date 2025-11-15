@@ -26,7 +26,4 @@ public class Professor extends Usuario {
 	  this.limiteLivros = limiteLivros;
    }
 
-   public String getEmail(){
-	  return email;
-   }
 }
