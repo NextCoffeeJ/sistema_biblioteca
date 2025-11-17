@@ -76,7 +76,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 1. **Clonar o repositório:**
    ```bash
    git clone https://github.com/NextCoffeeJ/sistema_biblioteca.git
-2. **Abrir o projeto no IntelliJ IDEA ou em outro ambiente compatível com Java.**
+2. **Abrir o projeto no IntelliJ IDEA ou em outro ambiente compatível com Java 21 ou superior.**
 
 
 
