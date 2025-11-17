@@ -88,7 +88,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 ---
 
 ## 🖼️ **Imagens da Aplicação em Execução**  
-Você pode visualizar as imagens do protótipo da aplicação no link abaixo:  
+Você pode visualizar as imagens da aplicação no link abaixo:  
 🔗 [Acessar imagens](https://1drv.ms/w/c/7de57f549d7c362f/ESsFIJr4M5VGuespctL9xs4BWbWieKxsp3ZvtktpIZlfSA?e=usNbRV)
 
 ---
@@ -137,6 +137,7 @@ O projeto está **completo, estável e pronto**. Todos os módulos essenciais fo
 
 ## 📄 Licença
 Este projeto é de uso **educacional** e **não possui fins comerciais**.
+
 
 
 
