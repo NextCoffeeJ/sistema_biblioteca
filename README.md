@@ -37,7 +37,7 @@ O sistema oferecerá uma solução moderna e organizada para as tarefas cotidian
 - 👤 Registrar usuários (alunos, professores e funcionários).
 - 🔄 Controlar empréstimos e devoluções.
 - ✅ Exibir disponibilidade dos livros.
-- 🔍 Buscar livros por título, autor ou categoria.
+- 🔍 Buscar livros por título.
 - ♻️ Permitir renovação de empréstimos.
 
 ---
