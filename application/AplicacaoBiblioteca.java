@@ -48,7 +48,6 @@ public class AplicacaoBiblioteca {
 
 				  if (escolhaCadastro == 1 || escolhaCadastro == 2 || escolhaCadastro == 3) {
 
-
 					 System.out.println("\nInsira suas informações:\n");
 
 					 do {
