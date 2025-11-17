@@ -1,7 +1,5 @@
 package controller;
-import model.Aluno;
-import model.Bibliotecario;
-import model.Professor;
+import model.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -1,8 +1,5 @@
 package controller;
-import model.Aluno;
-import model.Bibliotecario;
-import model.Livro;
-import model.Professor;
+import model.*;
 import java.util.ArrayList;
 
 public abstract class Cancelar {

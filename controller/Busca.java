@@ -1,10 +1,6 @@
 package controller;
 import java.util.ArrayList;
-import model.Aluno;
-import model.Bibliotecario;
-import model.Emprestimo;
-import model.Livro;
-import model.Professor;
+import model.*;
 
 public abstract class Busca {
 
