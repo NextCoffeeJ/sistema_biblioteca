@@ -49,8 +49,6 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 - **Encapsulamento**
 - **Herança**
 - **Polimorfismo**
-- **Interfaces**
-- **Tratamento de Exceções**
 
 ---
 
@@ -63,9 +61,8 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 
 **Principais classes:**
 - `Aplicacao Biblioteca`
-- `Cadastro Usuario`
-- `Cadastro Livro`
-- `Login`
+- `service.Cadastro`
+- `service.Login`
 - `model.Usuario`
 - `model.Aluno`
 - `model.Professor`
@@ -110,16 +107,25 @@ O sistema funcionará via **terminal (CLI)**.
 ---
 
 ## 📅 Status do Projeto
-🔧 **Protótipo**  
+
+🔧 **Protótipo**
+
 A primeira versão será funcional, mas não terá todos os recursos.
 
-🚀 **Beta Funcional / Pré-Release**  
-O projeto já superou a fase de prototipagem e encontra-se em um estágio **estável e testável**.  
-Todas as principais funcionalidades estão **ativas via terminal**, e a aplicação segue uma **arquitetura modular baseada em MVC**, pronta para expansão futura.  
+🚀 **Beta Funcional / Pré-Release**
 
-🔮 **Próximos passos planejados:**  
-- Implementação de **persistência de dados** (banco de dados ou arquivos).  
-- Adição de **tratamento de exceções**.  
+O projeto já superou a fase de prototipagem e encontra-se em um estágio **estável e testável**.
+Todas as principais funcionalidades estão **ativas via terminal**, e a aplicação segue uma **arquitetura modular baseada em MVC**, pronta para expansão futura.
+
+🔮 **Próximos passos planejados:**
+
+* Refinamento do código.
+*  Versão Final
+
+🗓️ Status: **Entregue e disponível**.
+
+O projeto está **completo, estável e pronto**. Todos os módulos essenciais foram validados e a arquitetura suporta escalabilidade futura.
+
 ---
 
 ## 📄 Licença
