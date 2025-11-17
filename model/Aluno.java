@@ -20,7 +20,7 @@ public class Aluno extends Usuario {
    public void setCurso(String curso) {
 	  this.curso = curso;
    }
-
+	
    public void setLimiteLivros(int limiteLivro) {
 	  this.limiteLivros = limiteLivro;
    }
