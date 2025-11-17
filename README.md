@@ -106,6 +106,12 @@ O sistema funcionará via **terminal (CLI)**.
 
 ---
 
+## 📝 Documentação e UML
+
+- 📄 **Documentação em PDF**: [Clique aqui para acessar](https://1drv.ms/w/c/7de57f549d7c362f/EVmuUo1iiC5Ogpq1eEl_17oBlXDaHzX1ahw6-Ws0t2nAtg?e=8T9KtS)
+- 🔗 **Diagramas UML**: [Acessar UML](https://lucid.app/lucidchart/11c7d38b-7c05-49e9-8c08-2cf0d80036da/edit?invitationId=inv_20442521-518a-4a5e-955a-dc4734a63db5&page=HWEp-vi-RSFO#)
+
+
 ## 📅 Status do Projeto
 
 🔧 **Protótipo**
