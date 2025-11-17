@@ -90,7 +90,7 @@ O projeto será desenvolvido aplicando os seguintes conceitos de **Programação
 
 ---
 
-## 🖼️ **Imagens da Aplicação em Execução (Protótipo)**
+## 🖼️ **Imagens da Aplicação em Execução (Protótipo)**  
 Você pode visualizar as imagens do protótipo da aplicação no link abaixo:  
 🔗 [Acessar imagens no OneDrive](https://1drv.ms/w/c/7de57f549d7c362f/EQq1nEbhvGBJtejuyqnYTN0Bml2g1x_0hY3DWYzQ3xvzlQ?e=rl5Nme)
 
@@ -115,14 +115,15 @@ A primeira versão será funcional, mas não terá todos os recursos.
 
 🚀 **Beta Funcional / Pré-Release**  
 O projeto já superou a fase de prototipagem e encontra-se em um estágio **estável e testável**.  
-Todas as principais funcionalidades estão **ativas via terminal**, e a aplicação segue uma **arquitetura modular baseada em MVC**, pronta para expansão futura.
+Todas as principais funcionalidades estão **ativas via terminal**, e a aplicação segue uma **arquitetura modular baseada em MVC**, pronta para expansão futura.  
 
-🔮 **Próximos passos planejados:**
-- Implementação de **persistência de dados** (banco de dados ou arquivos).
-- Adição de **tratamento de exceções**.
+🔮 **Próximos passos planejados:**  
+- Implementação de **persistência de dados** (banco de dados ou arquivos).  
+- Adição de **tratamento de exceções**.  
 ---
 
 ## 📄 Licença
 Este projeto é de uso **educacional** e **não possui fins comerciais**.
+
 
 
